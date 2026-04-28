@@ -81,7 +81,9 @@ Environment variables:
 - 2026-04-28 060d K=8: 0 / 26 realisable self-loops; dropping all 26
   artefacts STILL infeasible. Longer artefact cycles must exist.
 - 2026-04-28 061 K=8 (sampled, 5 M random seeds): LP feasible,
-  HiGHS Optimal. NOT a closed result; closure requires exhaustive
-  enumeration over n0 mod 2^{4K} (Numba/C++) or a deductive closure
-  argument.
+  HiGHS Optimal. min_margin -2.5e-13 (boundary feasibility).
+- 2026-04-28 061 K=8 (sampled, 10 M random seeds): LP **INFEASIBLE**
+  (HiGHS status 2). The 5 M feasibility was a sampling artefact. Both
+  runs are sampled (~0.1-0.2 % of n0 mod 2^{4K}); the question of
+  whether the closed 3-window LP at K=8 is feasible is **open**.
 

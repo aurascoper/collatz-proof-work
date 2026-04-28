@@ -218,6 +218,23 @@ def main():
         margins = b_ub - A_ub.dot(res.x)
         proof_state["if_feasible_min_margin"] = float(margins.min())
         proof_state["if_feasible_max_margin"] = float(margins.max())
+        # Export certificate (psi, lam only; states recomputable from script).
+        cert = {
+            "proof_state": "iteration_061_certificate",
+            "K": K,
+            "n_states": n_states,
+            "n_edges": n_edges,
+            "psi": res.x[:n_states].tolist(),
+            "lam": res.x[n_states:].tolist(),
+            "min_margin": float(margins.min()),
+            "max_margin": float(margins.max()),
+            "sampled_not_closed": True,
+            "random_seed": RANDOM_SEED,
+            "random_samples": RANDOM_SAMPLES,
+        }
+        cert_path = CERT_DIR / f"iteration_061_certificate_K{K}_S{RANDOM_SAMPLES}.json"
+        cert_path.write_text(json.dumps(cert))
+        proof_state["certificate_file"] = str(cert_path.relative_to(ROOT))
         proof_state["interpretation"] = (
             "3-window LP feasible on a sampled multigraph. NOT a closed-graph "
             "result -- only a *necessary* condition for a closed 3-window "

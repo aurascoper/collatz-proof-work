@@ -75,14 +75,28 @@
   window and use pi_middle = pi_2 (the executed window).
 - 5 000 000 random samples (sampled, **not** exhaustive over
   n0 mod 2^32 = 4.29 B fibers).
-- **K=8 sampled result**: 6 999 495 states, 4 965 744 edges, LP
-  **feasible** (HiGHS status 7, Optimal). min_margin -2.5e-13 (boundary
-  feasibility), max_margin 3052.97. Total runtime 148 s.
-- Caveat: this does NOT prove Collatz. It is only a *necessary*
-  condition for a closed 3-window certificate. To upgrade:
-  (a) exhaustively enumerate n0 mod 2^{4K} = 2^32 fibers
-      (Numba/C++ required; ~256x more than 060c), or
+- **K=8 sampled result, 5 M seeds**: 6 999 495 states, 4 965 744 edges,
+  LP feasible (HiGHS Optimal), min_margin **-2.5e-13** (numerical
+  boundary), max_margin 3052.97. Total runtime 148 s.
+- **K=8 sampled result, 10 M seeds (autonomous follow-on)**: 10 968 844
+  states, 9 865 835 edges, LP **INFEASIBLE** (HiGHS status 2). Total
+  runtime 240 s.
+- The 5 M feasibility was a *sampling artefact*: it sat on the LP
+  boundary (-2.5e-13 margin), and with twice the samples the
+  constraint set tightens enough to break feasibility. The 3-window
+  encoding does NOT, on the evidence so far, give a feasible closed
+  LP at K=8 either.
+- Caveat: 10 M is still ~0.23 % of the closed graph (n0 mod 2^{4K} =
+  2^32 = 4.29 B fibers). Both results are sampled. The infeasibility
+  *might* be another sampling artefact in the opposite direction --
+  i.e., 10 M samples include a few coincidental cycles whose intersect
+  is empty. We currently have no witness extraction for the 3-window
+  LP; that is the next gap.
+- To upgrade either way:
+  (a) exhaustively enumerate n0 mod 2^{4K} = 2^32 fibers (Numba/C++
+      required; ~256x more than 060c), or
   (b) prove closure deductively via affine residue structure.
-- The 3-window encoding clearly removes the dominant K=6/K=8 artefact
-  class (self-loops at (2^K - 1, alternating-bit pi)) by preventing
-  them from forming closed cycles in the wider state space.
+- Take-home: the 3-window encoding does eliminate the dominant K=6/K=8
+  *self-loop* artefact (`(2^K - 1, alternating-bit pi)`), but other
+  longer cycles remain in play and at least some are visible at 10 M
+  samples.

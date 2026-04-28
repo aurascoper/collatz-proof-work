@@ -1,0 +1,23 @@
+{
+  "proof_state": "iteration_061_k8_3window_cval_split",
+  "K": 8,
+  "epsilon": 0.01,
+  "lam_upper_bound": 128.0,
+  "log2_3_upper_rational": [
+    1584962500721157,
+    1000000000000000
+  ],
+  "exhaustive": false,
+  "random_samples": 10000000,
+  "n_unique_states": 10968844,
+  "n_unique_cval_split_edges": 9865835,
+  "scipy_status": 2,
+  "scipy_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+  "lp_feasible": false,
+  "closed_graph": false,
+  "drift_assignment": "pi_middle = pi_2 (middle of S1; executed window)",
+  "monotonicity_constraint_on_lambda": false,
+  "elapsed_total_seconds": 240.05501890182495,
+  "witness_extracted": false,
+  "interpretation": "3-window LP infeasible on a sampled multigraph. The graph is NOT closed in the closed-symbolic sense; an infeasibility proof here would need either (a) full enumeration over n0 mod 2^{4K} or (b) a deductive closure via the affine residue structure."
+}
