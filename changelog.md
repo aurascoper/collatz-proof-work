@@ -420,6 +420,50 @@
   535 168 SCCs all trivial (size 1), 0 non-trivial SCCs, 0
   binding self-loops. Identical structural result as K=6.
 
+## 2026-04-28 — Iteration 071B (realised-trajectory restriction)
+
+- New experiment `experiments/iteration_071b_realized_trajectory.py`.
+- For each fiber n0 traversing edge e, computes the *actual*
+  per-window log_2 drift
+      drift_actual(n) = log_2(T_pi(n) / n)
+                      = drift_formula + log_2(1 + B_pi / (3^m * n)).
+  drift_actual >= drift_formula always (B_pi > 0); excess is
+  log_2(1 + B/(3^m * n)).
+- Tests two questions:
+  1. Does the 068 psi (built from formula drift) satisfy the
+     *realised* LP `psi(E2) - psi(E1) <= lambda*S - drift_actual_max -
+     eps`?
+  2. Is the realised LP (using drift_actual_max per edge) feasible
+     under any psi?
+- **K=6 result**:
+  - max excess (actual - formula) = 0.83 at small-n fibers
+    (e.g. n=11 with K=6 cycle (40, 41) -> (4, 4)).
+  - 39 327 / 203 615 = **19.3 % of edges violate 068's psi when using
+    drift_actual_max**.
+  - Excess histogram: 99.6 % of edges have excess < 0.01 (asymptotic
+    regime); only ~81 edges have excess > 0.1 (the small-n
+    breakers).
+  - **Realised LP (re-solved) is INFEASIBLE** even with a fresh
+    psi. The 81 high-excess edges form cycles whose actual drift
+    exceeds the lambda*S budget.
+- **Conclusion**:
+  - 068's fixed-lambda certificate is an *asymptotic* / large-n
+    statement; it doesn't survive worst-case realised drift on small
+    n.
+  - The small-n fibers (especially those visiting the trivial 1-2-4
+    cycle's vicinity) introduce excess up to log_2(2) ≈ 1.0 per
+    window. These break the constant-lambda structure.
+  - The fixed-lambda LP is *not* a Lyapunov for actual integer
+    dynamics; it's a Lyapunov for the asymptotic graph.
+- Strongest current statement remains the closed-graph cycle-
+  negativity certificate (070 + 071A); the realised-trajectory LP
+  is genuinely tighter and demands a non-constant fuel structure.
+- Path forward: either (a) bound small-n behavior separately via
+  arbitrary-precision verification on small initial values, (b) add
+  a state-dependent fuel correction term that absorbs the small-n
+  log-bonus, or (c) restrict to large-n trajectories (n > some
+  threshold N0) where excess is provably small.
+
 ## 2026-04-28 — Iteration 064 (positivity-domain theorem) — re-run
 
 - New module `verifiers/positivity_theorem.py`. Encodes:

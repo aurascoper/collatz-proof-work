@@ -1,0 +1,445 @@
+{
+  "proof_state": "iteration_071b_realized_trajectory_restriction",
+  "K": 6,
+  "lambda_global_float": 0.584963500721157,
+  "epsilon": 1e-09,
+  "rho_padding": 1e-06,
+  "n_edges": 203615,
+  "n_states": 19519,
+  "max_excess_drift_actual_minus_formula": 0.8300749985576861,
+  "excess_at_edge": {
+    "E1": [
+      1,
+      36,
+      1,
+      36
+    ],
+    "E2": [
+      1,
+      36,
+      1,
+      36
+    ],
+    "n_before_mid": 1
+  },
+  "excess_histogram": {
+    "lt_1.0": 81,
+    "lt_0.1": 846,
+    "lt_1e-2": 59924,
+    "le_0": 5439,
+    "lt_1e-4": 136967,
+    "lt_1e-6": 358
+  },
+  "n_realised_LP_violations_using_068_psi": 39327,
+  "n_formula_LP_violations_sanity_check": 0,
+  "max_realised_LP_violation": 0.16264733864455608,
+  "realised_LP_satisfied_by_068_psi": false,
+  "realised_LP_resolved_feasible": false,
+  "realised_LP_scipy_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+  "realised_LP_min_margin": null,
+  "realised_LP_max_margin": null,
+  "sample_violations": [
+    {
+      "E1": [
+        11,
+        18,
+        40,
+        41
+      ],
+      "E2": [
+        40,
+        41,
+        4,
+        4
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.862496476250065,
+      "excess": 0.1076089740865942,
+      "n_before_mid_at_max": 11,
+      "violation": 0.10760597508659422
+    },
+    {
+      "E1": [
+        11,
+        40,
+        40,
+        41
+      ],
+      "E2": [
+        40,
+        41,
+        4,
+        4
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.862496476250065,
+      "excess": 0.1076089740865942,
+      "n_before_mid_at_max": 11,
+      "violation": 0.10760597508659422
+    },
+    {
+      "E1": [
+        30,
+        41,
+        2,
+        21
+      ],
+      "E2": [
+        2,
+        21,
+        54,
+        18
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7763280264369796,
+      "excess": 0.021440524273508732,
+      "n_before_mid_at_max": 94,
+      "violation": 0.021437525273508756
+    },
+    {
+      "E1": [
+        43,
+        42,
+        44,
+        41
+      ],
+      "E2": [
+        44,
+        41,
+        14,
+        10
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7663276537975492,
+      "excess": 0.0114401516340783,
+      "n_before_mid_at_max": 107,
+      "violation": 0.011437152634078324
+    },
+    {
+      "E1": [
+        14,
+        37,
+        36,
+        21
+      ],
+      "E2": [
+        36,
+        21,
+        18,
+        9
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7691161177699124,
+      "excess": 0.014228615606441508,
+      "n_before_mid_at_max": 142,
+      "violation": 0.014225616606441532
+    },
+    {
+      "E1": [
+        31,
+        20,
+        43,
+        42
+      ],
+      "E2": [
+        43,
+        42,
+        44,
+        41
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7872706760142718,
+      "excess": 0.03238317385080092,
+      "n_before_mid_at_max": 31,
+      "violation": 0.03238017485080094
+    },
+    {
+      "E1": [
+        23,
+        42,
+        24,
+        42
+      ],
+      "E2": [
+        24,
+        42,
+        28,
+        5
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.759601790609236,
+      "excess": 0.004714288445765158,
+      "n_before_mid_at_max": 215,
+      "violation": 0.004711289445765183
+    },
+    {
+      "E1": [
+        7,
+        4,
+        26,
+        42
+      ],
+      "E2": [
+        26,
+        42,
+        16,
+        17
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.893084796083488,
+      "excess": 0.13819729392001712,
+      "n_before_mid_at_max": 7,
+      "violation": 0.13819429492001714
+    },
+    {
+      "E1": [
+        7,
+        16,
+        26,
+        42
+      ],
+      "E2": [
+        26,
+        42,
+        16,
+        17
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.893084796083488,
+      "excess": 0.13819729392001712,
+      "n_before_mid_at_max": 7,
+      "violation": 0.13819429492001714
+    },
+    {
+      "E1": [
+        46,
+        36,
+        32,
+        21
+      ],
+      "E2": [
+        32,
+        21,
+        16,
+        1
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7983661388303493,
+      "excess": 0.043478636666878456,
+      "n_before_mid_at_max": 46,
+      "violation": 0.04347563766687848
+    },
+    {
+      "E1": [
+        47,
+        18,
+        33,
+        42
+      ],
+      "E2": [
+        33,
+        42,
+        27,
+        36
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7763280264369796,
+      "excess": 0.021440524273508732,
+      "n_before_mid_at_max": 47,
+      "violation": 0.021437525273508756
+    },
+    {
+      "E1": [
+        47,
+        40,
+        33,
+        42
+      ],
+      "E2": [
+        33,
+        42,
+        27,
+        36
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7763280264369796,
+      "excess": 0.021440524273508732,
+      "n_before_mid_at_max": 47,
+      "violation": 0.021437525273508756
+    },
+    {
+      "E1": [
+        55,
+        36,
+        60,
+        42
+      ],
+      "E2": [
+        60,
+        42,
+        43,
+        10
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7732291381529777,
+      "excess": 0.018341635989506777,
+      "n_before_mid_at_max": 55,
+      "violation": 0.0183386369895068
+    },
+    {
+      "E1": [
+        30,
+        42,
+        34,
+        21
+      ],
+      "E2": [
+        34,
+        21,
+        28,
+        18
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.760677182713675,
+      "excess": 0.005789680550204013,
+      "n_before_mid_at_max": 350,
+      "violation": 0.005786681550204038
+    },
+    {
+      "E1": [
+        62,
+        10,
+        22,
+        21
+      ],
+      "E2": [
+        22,
+        21,
+        57,
+        20
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7872706760142718,
+      "excess": 0.03238317385080092,
+      "n_before_mid_at_max": 62,
+      "violation": 0.03238017485080094
+    },
+    {
+      "E1": [
+        62,
+        34,
+        22,
+        21
+      ],
+      "E2": [
+        22,
+        21,
+        57,
+        20
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7872706760142718,
+      "excess": 0.03238317385080092,
+      "n_before_mid_at_max": 62,
+      "violation": 0.03238017485080094
+    },
+    {
+      "E1": [
+        57,
+        42,
+        60,
+        37
+      ],
+      "E2": [
+        60,
+        37,
+        15,
+        10
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.7589919004962051,
+      "excess": 0.004104398332734238,
+      "n_before_mid_at_max": 377,
+      "violation": 0.004101399332734263
+    },
+    {
+      "E1": [
+        11,
+        2,
+        40,
+        41
+      ],
+      "E2": [
+        40,
+        41,
+        4,
+        4
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.862496476250065,
+      "excess": 0.1076089740865942,
+      "n_before_mid_at_max": 11,
+      "violation": 0.10760597508659422
+    },
+    {
+      "E1": [
+        11,
+        8,
+        40,
+        41
+      ],
+      "E2": [
+        40,
+        41,
+        4,
+        4
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.862496476250065,
+      "excess": 0.1076089740865942,
+      "n_before_mid_at_max": 11,
+      "violation": 0.10760597508659422
+    },
+    {
+      "E1": [
+        11,
+        32,
+        40,
+        41
+      ],
+      "E2": [
+        40,
+        41,
+        4,
+        4
+      ],
+      "S_edge": 3,
+      "drift_formula": 1.754887502163471,
+      "drift_actual_max": 1.862496476250065,
+      "excess": 0.1076089740865942,
+      "n_before_mid_at_max": 11,
+      "violation": 0.10760597508659422
+    }
+  ],
+  "elapsed_total_seconds": 1.2978699207305908,
+  "interpretation": "The realised-trajectory LP uses drift_actual(n) = log_2(T_pi(n) / n) per edge, which exceeds the formula drift by log_2(1 + B_pi / (3^m * n)) for each fiber value n. We test whether the 068 psi (built using formula drift) ALSO satisfies the realised-trajectory LP: psi(E2) - psi(E1) <= lambda*S - drift_actual_max - eps. If yes, the certificate is robust to actual integer dynamics, not just an aggregation. If no, the violating edges identify where the formula LP was optimistic; we need either a new psi or an additional term in the certificate."
+}

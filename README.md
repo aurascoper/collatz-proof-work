@@ -160,4 +160,17 @@ Environment variables:
   exactly (matches the rho padding). Status: `exact_cycle_
   negativity_certificate_on_closed_K_graph` -- strictly weaker than
   Lyapunov descent but algebraically clean.
+- 2026-04-28 Iteration 071A (LP dual decomposition): primal binding
+  subgraph is acyclic at both K=6 and K=8 (0 non-trivial SCCs, 0
+  binding self-loops). Cycle-negativity is STRICT with rho-slack;
+  the certificate is realised by a difference potential psi alone
+  (no augmentation).
+- 2026-04-28 Iteration 071B (realised-trajectory restriction): for
+  each fiber, compute drift_actual = log_2(T_pi(n)/n) instead of
+  formula drift. Excess > 0 (B_pi > 0); max excess 0.83 at K=6 small
+  n. **19.3 % of K=6 edges violate 068's psi** under realised drift,
+  and the **realised LP (re-solved) is INFEASIBLE**. The fixed-lambda
+  certificate is asymptotic / large-n; it doesn't survive worst-case
+  small-n behavior. Path forward: bound small-n separately or use a
+  state-dependent fuel correction.
 
