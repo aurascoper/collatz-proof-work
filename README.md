@@ -119,4 +119,9 @@ Environment variables:
 - 2026-04-28 Iteration 064 re-run (cumulative): 660 witness cycles
   examined across all runs; theorem still 100 % consistent;
   `potentially_positive_int_fixed_point = 0`.
+- 2026-04-28 Iteration 066 (positivity-aware v_2-fuel lemma): proved
+  that for any artefact cycle, eta(T_pi(n)) = eta(n) - S whenever
+  T_pi(n) is integer. Verified arithmetically on 63 / 63 artefact
+  cycles. Recommends a cycle-level Lyapunov term scaled by the
+  cycle's total even-step count S_W as the LP-compatible fuel.
 

@@ -208,6 +208,35 @@
 - Both cleanly homogeneous: no REALIZABLE cycles, no zero-denom, no
   positive-denom-with-non-integer-fixed-point.
 
+## 2026-04-28 — Iteration 066 (positivity-aware fuel)
+
+- New module `verifiers/positivity_fuel.py` encodes the v_2-fuel
+  lemma. For any periodic affine cycle with denom = 2^S - A and B
+  from the canonical recurrence,
+
+      T_pi(n) - a = A * (n - a) / 2^S
+      eta_pi(n) := v_2(n * denom - B)             [equals v_2(n - a)
+                                                  since denom is odd]
+      eta_pi(T_pi(n)) = eta_pi(n) - S whenever T_pi(n) is integer.
+
+  Hence the maximum number of integer T_pi-iterations from any n is
+  exactly floor(eta_pi(n) / S).
+- New experiment `experiments/iteration_066_positivity_fuel.py` runs
+  this verification on every artefact cycle in the corpus (65 cycles
+  drawn from 060c, 061, 062, 063 per-round logs):
+    - v_2-fuel lemma holds: 63 / 63 (100 %; 2 skipped non-artefact).
+    - parity-shadow <= v_2-fuel: 63 / 63 (always; consequence of the
+      lemma).
+    - parity-shadow strictly less than v_2-fuel: 12 / 63 (~19 %),
+      reflecting that "orbit follows pi" is strictly stronger than
+      "T_pi(n) is integer" — the orbit may break parity after fewer
+      periods than v_2-fuel allows. The lemma is unaffected.
+- LP-compatible recommendation: per-cycle Lyapunov term scaled by the
+  cycle's total even-step count S_W, so each artefact-cycle period
+  receives a finite v_2 fuel budget. This makes the LP positivity-
+  aware: artefact cycles (denom < 0) are still admissible *finitely*
+  rather than forcing infeasibility outright.
+
 ## 2026-04-28 — Iteration 064 (positivity-domain theorem) — re-run
 
 - New module `verifiers/positivity_theorem.py`. Encodes:

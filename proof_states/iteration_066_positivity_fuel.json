@@ -1,0 +1,195 @@
+{
+  "proof_state": "iteration_066_positivity_fuel",
+  "lemma": "(v_2-fuel lemma) For any periodic affine cycle with denom = 2^S - A != 0 and B from the canonical recurrence, T_pi(n) - a = A*(n - a)/2^S where a = B/denom. Hence v_2((T_pi(n) - a) * denom) = v_2((n - a) * denom) - S whenever T_pi(n) is integer (since denom is odd and A = 3^m is odd). Define eta_pi(n) := v_2(n*denom - B). Then eta(T_pi(n)) = eta(n) - S whenever T_pi(n) is an integer, and the maximum number of integer T_pi-iterations starting from n equals floor(eta_pi(n) / S). (Caveat: parity-shadowing is a strictly stronger condition than T_pi-integerness; the orbit may diverge from pi after fewer periods than v_2-fuel allows. Parity-shadowing is ALWAYS bounded above by v_2-fuel.)",
+  "n_cycles_examined": 63,
+  "n_skipped_non_artefact": 2,
+  "n_v2_fuel_lemma_holds": 63,
+  "n_v2_fuel_lemma_violated": 0,
+  "v2_fuel_lemma_success_rate": 1.0,
+  "n_parity_shadow_le_v2_fuel": 63,
+  "n_parity_shadow_strictly_less_than_v2_fuel": 12,
+  "by_K_success_counts": {
+    "6": {
+      "success": 31,
+      "fail": 0,
+      "skipped": 0
+    },
+    "8": {
+      "success": 32,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  "examples": [
+    {
+      "label": "iteration_060c_cycle_K6.json::depth_free_witness",
+      "K": 6,
+      "L": 1,
+      "S": 3,
+      "A": 27,
+      "B": 19,
+      "denom": -19,
+      "n_d_seed": 511,
+      "eta_initial": 9,
+      "v2_fuel_iterations_predicted": 3,
+      "v2_fuel_decreases_by_S": true,
+      "parity_matched_periods_observed": 3,
+      "shadow_le_v2_fuel": true,
+      "first_3_period_n_values": [
+        511,
+        1727,
+        5831,
+        19682
+      ]
+    },
+    {
+      "label": "iteration_060c_cycle_K8.json::depth_free_witness",
+      "K": 8,
+      "L": 1,
+      "S": 4,
+      "A": 81,
+      "B": 65,
+      "denom": -65,
+      "n_d_seed": 4095,
+      "eta_initial": 12,
+      "v2_fuel_iterations_predicted": 3,
+      "v2_fuel_decreases_by_S": true,
+      "parity_matched_periods_observed": 3,
+      "shadow_le_v2_fuel": true,
+      "first_3_period_n_values": [
+        4095,
+        20735,
+        104975,
+        531440
+      ]
+    },
+    {
+      "label": "iteration_061_cycle_K8_S10000000.json::depth_free_witness",
+      "K": 8,
+      "L": 1,
+      "S": 4,
+      "A": 81,
+      "B": 130,
+      "denom": -65,
+      "n_d_seed": 4094,
+      "eta_initial": 12,
+      "v2_fuel_iterations_predicted": 3,
+      "v2_fuel_decreases_by_S": true,
+      "parity_matched_periods_observed": 2,
+      "shadow_le_v2_fuel": true,
+      "first_3_period_n_values": [
+        4094,
+        20734,
+        104974,
+        88573
+      ]
+    },
+    {
+      "label": "iteration_063_artifact_cegis_K6.json::round_0",
+      "K": 6,
+      "L": 1,
+      "S": 3,
+      "A": 27,
+      "B": 19,
+      "denom": -19,
+      "n_d_seed": 511,
+      "eta_initial": 9,
+      "v2_fuel_iterations_predicted": 3,
+      "v2_fuel_decreases_by_S": true,
+      "parity_matched_periods_observed": 3,
+      "shadow_le_v2_fuel": true,
+      "first_3_period_n_values": [
+        511,
+        1727,
+        5831,
+        19682
+      ]
+    },
+    {
+      "label": "iteration_063_artifact_cegis_K6.json::round_1",
+      "K": 6,
+      "L": 1,
+      "S": 3,
+      "A": 27,
+      "B": 38,
+      "denom": -19,
+      "n_d_seed": 510,
+      "eta_initial": 9,
+      "v2_fuel_iterations_predicted": 3,
+      "v2_fuel_decreases_by_S": true,
+      "parity_matched_periods_observed": 2,
+      "shadow_le_v2_fuel": true,
+      "first_3_period_n_values": [
+        510,
+        1726,
+        5830,
+        3280
+      ]
+    },
+    {
+      "label": "iteration_063_artifact_cegis_K6.json::round_2",
+      "K": 6,
+      "L": 6,
+      "S": 19,
+      "A": 129140163,
+      "B": 291768262,
+      "denom": -128615875,
+      "n_d_seed": 139776714537562430,
+      "eta_initial": 59,
+      "v2_fuel_iterations_predicted": 3,
+      "v2_fuel_decreases_by_S": true,
+      "parity_matched_periods_observed": 3,
+      "shadow_le_v2_fuel": true,
+      "first_3_period_n_values": [
+        139776714537562430,
+        34429145238848270654,
+        8480425697508887490878,
+        2088858712931988572160602
+      ]
+    },
+    {
+      "label": "iteration_063_artifact_cegis_K6.json::round_3",
+      "K": 6,
+      "L": 12,
+      "S": 38,
+      "A": 16677181699666569,
+      "B": 39978633037577266,
+      "denom": -16676906821759625,
+      "n_d_seed": 18763960809991777340069385296341470,
+      "eta_initial": 116,
+      "v2_fuel_iterations_predicted": 3,
+      "v2_fuel_decreases_by_S": true,
+      "parity_matched_periods_observed": 3,
+      "shadow_le_v2_fuel": true,
+      "first_3_period_n_values": [
+        18763960809991777340069385296341470,
+        1138432649290391273059661983585532307934,
+        69070113186348471893233193944145691187538398,
+        4190568970899291556164664574847937569272021345362
+      ]
+    },
+    {
+      "label": "iteration_063_artifact_cegis_K6.json::round_4",
+      "K": 6,
+      "L": 5,
+      "S": 16,
+      "A": 4782969,
+      "B": 6383441,
+      "denom": -4717433,
+      "n_d_seed": 79203439870823,
+      "eta_initial": 48,
+      "v2_fuel_iterations_predicted": 3,
+      "v2_fuel_decreases_by_S": true,
+      "parity_matched_periods_observed": 3,
+      "shadow_le_v2_fuel": true,
+      "first_3_period_n_values": [
+        79203439870823,
+        5780450402763623,
+        421870652503294823,
+        30789096877029900248
+      ]
+    }
+  ],
+  "lp_compatible_recommendation": "Augment the LP with a *cycle-level* depth Lyapunov term lambda_cycle scaled by S_cycle (the cycle's total even-step count), rather than the per-window c_val used in 060c. Concretely: for every closed walk W in the abstract graph, require psi(end) - psi(start) + S_W * lambda_W <= -drift_W - |W|*eps, where lambda_W is non-negative and represents the rate at which v2-fuel is consumed per cycle period. This makes the LP positivity-aware: artefact cycles with denom < 0 receive a finite fuel budget that prevents them from forcing infeasibility.",
+  "elapsed_seconds": 0.021687030792236328
+}
