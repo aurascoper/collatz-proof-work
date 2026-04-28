@@ -143,4 +143,13 @@ Environment variables:
   on the closed K=8 graph. NOT yet a Collatz proof: needs exact
   rational re-verification (069), realised-trajectory closure, and K
   scaling.
+- 2026-04-28 Iteration 069a (exact rational verifier): re-checked
+  every edge with `Fraction + LOG2_3_UPPER`. Both K=6 (0 / 203 615
+  failures) and K=8 (0 / 12 711 807 failures) verify exactly with
+  eps_q = 0. The 068 certificate is algebraically valid.
+- 2026-04-28 Iteration 069b (semantic fuel audit): only **5.8 %
+  (K=6)** and **2.3 % (K=8)** of edges have the LP credit -S_edge
+  worst-case backed by an actual c_val. The 068 LP is a *cycle-
+  reweighted* certificate, NOT a per-edge Lyapunov. A genuine
+  per-edge fuel function eta(E, n) is the next missing ingredient.
 

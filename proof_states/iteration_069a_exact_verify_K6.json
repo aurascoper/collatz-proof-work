@@ -1,0 +1,17 @@
+{
+  "proof_state": "iteration_069a_exact_rational_verify",
+  "K": 6,
+  "lambda_global_str": "584963500721157/1000000000000000",
+  "epsilon_str": "0",
+  "psi_denom_used": 1000000000000000,
+  "n_states": 19519,
+  "n_edges": 203615,
+  "n_failed_constraints": 0,
+  "fraction_failed": 0.0,
+  "max_violation_str": "0",
+  "max_violation_float": 0.0,
+  "verified_exact": true,
+  "elapsed_seconds": 1.243011713027954,
+  "interpretation": "Exact rational re-verification of the iteration-068 LP certificate. If `verified_exact` is true, the K=6 fixed-lambda psi-only LP is feasible under exact Fraction + LOG2_3_UPPER arithmetic. If false, the LP boundary is too tight for the floating-point psi to survive rationalisation; re-run iteration 068 with larger rho or solve with higher precision.",
+  "sample_failures": []
+}

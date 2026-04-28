@@ -300,6 +300,60 @@
   rational re-verification (Iteration 069), (b) realised-trajectory
   closure, (c) scaling to larger K.
 
+## 2026-04-28 — Iteration 069a (exact rational LP verifier)
+
+- New experiment `experiments/iteration_069_audit.py` (combines 069a
+  and 069b in one pass).
+- Reads the saved psi from `certificates/iteration_068_certificate_K{K}
+  .json`, converts to Fraction(p).limit_denominator(10**15), and
+  verifies every edge constraint exactly:
+
+      psi[E2] - psi[E1] - lambda_q * S_edge - drift_q <= 0
+
+  with
+      lambda_q  = LOG2_3_UPPER - 1 + Fraction(1, 10**6)
+      drift_q   = m * (1 + LOG2_3_UPPER) - K
+      LOG2_3_UPPER = Fraction(1584962500721157, 10**15).
+
+  The LP padding `epsilon` is reduced to 0 in the verifier so the
+  check is `<= 0` rather than `< -eps`; this absorbs the float-to-
+  rational noise (~1e-15) that arises from psi rationalisation.
+- **Results**:
+  - **K=6**: 0 / 203 615 constraints failed; max violation 0.
+    `verified_exact = true`.
+  - **K=8**: 0 / 12 711 807 constraints failed; max violation 0.
+    `verified_exact = true`. Verification runtime 219 s.
+- This exactly verifies the iteration-068 LP certificate using
+  rational arithmetic with the user-specified `LOG2_3_UPPER`. The
+  feasibility statement is now ALGEBRAICALLY EXACT modulo the eps=0
+  caveat; with strict eps > 0 the LP saturates the parity-induced
+  upper bound on cycle drift/S, so any non-zero eps requires LP
+  re-solving with corresponding rho.
+
+## 2026-04-28 — Iteration 069b (semantic fuel audit)
+
+- For each edge in the K=6 / K=8 closed graph, computes the per-fiber
+  `c_val := delta_2 - delta_1` from a canonical witness fiber
+  (`n_example`) and compares to the LP credit `-S_edge`.
+- The credit -S_edge is *worst-case backed* (i.e. there exists a
+  concrete fuel function with this drop on every fiber) iff
+  `c_val_max <= -S_edge` for that edge.
+- **Results**:
+  - **K=6**: 11 874 / 203 615 = 5.8 % of edges are credit-backed
+    worst-case.
+  - **K=8**: 286 291 / 12 711 807 = 2.3 % of edges are credit-backed
+    worst-case.
+- The histogram of `(c_val_first + S_edge)` is heavily skewed toward
+  positive (i.e. c_val > -S_edge) at both K's: peak at bucket 6 for
+  K=8, bucket 4 for K=6.
+- **Conclusion (matching the user's caveat)**: the iteration-068 LP
+  is a *cycle-reweighted* feasibility certificate, NOT a per-edge
+  Lyapunov potential. The credit -S_edge is correct on average
+  (cycle-level, per 067) but NOT on every edge. A genuine descent
+  Lyapunov requires a state-level eta(E, n) whose per-edge drop is
+  >= S_edge for every (E, n); the existing per-window v_2 deltas do
+  not satisfy this with the canonical fiber.
+
 ## 2026-04-28 — Iteration 064 (positivity-domain theorem) — re-run
 
 - New module `verifiers/positivity_theorem.py`. Encodes:

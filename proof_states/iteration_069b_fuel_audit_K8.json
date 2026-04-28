@@ -1,0 +1,427 @@
+{
+  "proof_state": "iteration_069b_semantic_fuel_audit",
+  "K": 8,
+  "n_edges_audited": 12711807,
+  "n_edges_credit_backed_worst_case": 286291,
+  "fraction_credit_backed_worst_case": 0.022521660374484918,
+  "n_edges_credit_backed_some_fiber": 286291,
+  "fraction_credit_backed_some_fiber": 0.022521660374484918,
+  "diff_histogram_c_val_plus_S_edge": {
+    "0": 286291,
+    "1": 164657,
+    "2": 404671,
+    "3": 879930,
+    "4": 1842004,
+    "5": 2844951,
+    "6": 2914704,
+    "7": 1734599,
+    "8": 827299,
+    "9": 812701
+  },
+  "diff_buckets_legend": "Each bucket b counts edges whose first-observed c_val = b - S_edge. Buckets >= 9 collapse 'much above' and <= -9 collapse 'much below'. b == 0 means c_val == -S_edge (credit exactly backed); b < 0 means c_val < -S_edge (credit over-backed); b > 0 means c_val > -S_edge (credit unbacked at this fiber).",
+  "elapsed_seconds": 191.8678798675537,
+  "sample_unbacked_edges": [
+    {
+      "E1": [
+        2,
+        146,
+        4,
+        73
+      ],
+      "E2": [
+        4,
+        73,
+        1,
+        36
+      ],
+      "S_edge": 5,
+      "c_val_min": -1,
+      "c_val_max": -1,
+      "c_val_first_observed": -1,
+      "credit_minus_S_edge": -5,
+      "deficit": 4
+    },
+    {
+      "E1": [
+        4,
+        73,
+        1,
+        36
+      ],
+      "E2": [
+        1,
+        36,
+        2,
+        146
+      ],
+      "S_edge": 6,
+      "c_val_min": 0,
+      "c_val_max": 0,
+      "c_val_first_observed": 0,
+      "credit_minus_S_edge": -6,
+      "deficit": 6
+    },
+    {
+      "E1": [
+        4,
+        161,
+        1,
+        36
+      ],
+      "E2": [
+        1,
+        36,
+        2,
+        146
+      ],
+      "S_edge": 6,
+      "c_val_min": 0,
+      "c_val_max": 0,
+      "c_val_first_observed": 0,
+      "credit_minus_S_edge": -6,
+      "deficit": 6
+    },
+    {
+      "E1": [
+        1,
+        36,
+        2,
+        146
+      ],
+      "E2": [
+        2,
+        146,
+        4,
+        73
+      ],
+      "S_edge": 5,
+      "c_val_min": 1,
+      "c_val_max": 1,
+      "c_val_first_observed": 1,
+      "credit_minus_S_edge": -5,
+      "deficit": 6
+    },
+    {
+      "E1": [
+        1,
+        132,
+        2,
+        146
+      ],
+      "E2": [
+        2,
+        146,
+        4,
+        73
+      ],
+      "S_edge": 5,
+      "c_val_min": 1,
+      "c_val_max": 1,
+      "c_val_first_observed": 1,
+      "credit_minus_S_edge": -5,
+      "deficit": 6
+    },
+    {
+      "E1": [
+        1,
+        80,
+        2,
+        146
+      ],
+      "E2": [
+        2,
+        146,
+        4,
+        73
+      ],
+      "S_edge": 5,
+      "c_val_min": 1,
+      "c_val_max": 1,
+      "c_val_first_observed": 1,
+      "credit_minus_S_edge": -5,
+      "deficit": 6
+    },
+    {
+      "E1": [
+        40,
+        169,
+        1,
+        16
+      ],
+      "E2": [
+        1,
+        16,
+        2,
+        146
+      ],
+      "S_edge": 7,
+      "c_val_min": 0,
+      "c_val_max": 0,
+      "c_val_first_observed": 0,
+      "credit_minus_S_edge": -7,
+      "deficit": 7
+    },
+    {
+      "E1": [
+        2,
+        18,
+        4,
+        73
+      ],
+      "E2": [
+        4,
+        73,
+        1,
+        36
+      ],
+      "S_edge": 5,
+      "c_val_min": -1,
+      "c_val_max": -1,
+      "c_val_first_observed": -1,
+      "credit_minus_S_edge": -5,
+      "deficit": 4
+    },
+    {
+      "E1": [
+        52,
+        149,
+        8,
+        34
+      ],
+      "E2": [
+        8,
+        34,
+        2,
+        18
+      ],
+      "S_edge": 6,
+      "c_val_min": -1,
+      "c_val_max": -1,
+      "c_val_first_observed": -1,
+      "credit_minus_S_edge": -6,
+      "deficit": 5
+    },
+    {
+      "E1": [
+        2,
+        66,
+        4,
+        73
+      ],
+      "E2": [
+        4,
+        73,
+        1,
+        36
+      ],
+      "S_edge": 5,
+      "c_val_min": -1,
+      "c_val_max": -1,
+      "c_val_first_observed": -1,
+      "credit_minus_S_edge": -5,
+      "deficit": 4
+    },
+    {
+      "E1": [
+        10,
+        164,
+        2,
+        66
+      ],
+      "E2": [
+        2,
+        66,
+        4,
+        73
+      ],
+      "S_edge": 6,
+      "c_val_min": -2,
+      "c_val_max": -2,
+      "c_val_first_observed": -2,
+      "credit_minus_S_edge": -6,
+      "deficit": 4
+    },
+    {
+      "E1": [
+        2,
+        40,
+        4,
+        73
+      ],
+      "E2": [
+        4,
+        73,
+        1,
+        36
+      ],
+      "S_edge": 5,
+      "c_val_min": -1,
+      "c_val_max": -1,
+      "c_val_first_observed": -1,
+      "credit_minus_S_edge": -5,
+      "deficit": 4
+    },
+    {
+      "E1": [
+        2,
+        136,
+        4,
+        73
+      ],
+      "E2": [
+        4,
+        73,
+        1,
+        36
+      ],
+      "S_edge": 5,
+      "c_val_min": -1,
+      "c_val_max": -1,
+      "c_val_first_observed": -1,
+      "credit_minus_S_edge": -5,
+      "deficit": 4
+    },
+    {
+      "E1": [
+        13,
+        84,
+        2,
+        136
+      ],
+      "E2": [
+        2,
+        136,
+        4,
+        73
+      ],
+      "S_edge": 6,
+      "c_val_min": 1,
+      "c_val_max": 1,
+      "c_val_first_observed": 1,
+      "credit_minus_S_edge": -6,
+      "deficit": 7
+    },
+    {
+      "E1": [
+        80,
+        170,
+        2,
+        8
+      ],
+      "E2": [
+        2,
+        8,
+        4,
+        73
+      ],
+      "S_edge": 7,
+      "c_val_min": 0,
+      "c_val_max": 0,
+      "c_val_first_observed": 0,
+      "credit_minus_S_edge": -7,
+      "deficit": 7
+    },
+    {
+      "E1": [
+        4,
+        9,
+        1,
+        36
+      ],
+      "E2": [
+        1,
+        36,
+        2,
+        146
+      ],
+      "S_edge": 6,
+      "c_val_min": 0,
+      "c_val_max": 0,
+      "c_val_first_observed": 0,
+      "credit_minus_S_edge": -6,
+      "deficit": 6
+    },
+    {
+      "E1": [
+        16,
+        145,
+        4,
+        9
+      ],
+      "E2": [
+        4,
+        9,
+        1,
+        36
+      ],
+      "S_edge": 6,
+      "c_val_min": -2,
+      "c_val_max": -2,
+      "c_val_first_observed": -2,
+      "credit_minus_S_edge": -6,
+      "deficit": 4
+    },
+    {
+      "E1": [
+        17,
+        74,
+        16,
+        145
+      ],
+      "E2": [
+        16,
+        145,
+        4,
+        9
+      ],
+      "S_edge": 5,
+      "c_val_min": 2,
+      "c_val_max": 2,
+      "c_val_first_observed": 2,
+      "credit_minus_S_edge": -5,
+      "deficit": 7
+    },
+    {
+      "E1": [
+        17,
+        162,
+        16,
+        145
+      ],
+      "E2": [
+        16,
+        145,
+        4,
+        9
+      ],
+      "S_edge": 5,
+      "c_val_min": 2,
+      "c_val_max": 2,
+      "c_val_first_observed": 2,
+      "credit_minus_S_edge": -5,
+      "deficit": 7
+    },
+    {
+      "E1": [
+        4,
+        33,
+        1,
+        36
+      ],
+      "E2": [
+        1,
+        36,
+        2,
+        146
+      ],
+      "S_edge": 6,
+      "c_val_min": 0,
+      "c_val_max": 0,
+      "c_val_first_observed": 0,
+      "credit_minus_S_edge": -6,
+      "deficit": 6
+    }
+  ],
+  "fuel_drop_claim": "eta_after - eta_before <= -S_edge",
+  "interpretation": "Per-edge fuel audit. The LP credits each edge with -S_edge of fuel; this is BACKED (in worst-case fiber) iff c_val_max <= -S_edge. If a large fraction of edges fails this, the LP feasibility from 068 is *cycle-averaged* and NOT a true per-edge Lyapunov potential. The classifier 062 and the v_2-fuel lemma 066 still give a finite-shadow bound for any concrete trajectory; what is missing is a *state* function eta(E, n) whose per-edge drop equals -S_edge for every edge."
+}

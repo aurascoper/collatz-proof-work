@@ -1,0 +1,43 @@
+{
+  "K": 6,
+  "iteration": "068",
+  "lambda_global": 0.585962500721157,
+  "cycle_length": 1,
+  "cycle_total_drift": 1.754887502163471,
+  "cycle_total_even_steps_S": 3,
+  "cycle_total_corrected_drift_minus_lambda_S": -0.0030000000000001137,
+  "classification": {
+    "K": 6,
+    "n_edges": 1,
+    "n_total_steps": 6,
+    "n_odd_steps": 3,
+    "A_3_to_m": 27,
+    "B_value": 19,
+    "S_total_divisions": 3,
+    "denom_2S_minus_A": -19,
+    "denom_positive": false,
+    "classification": "non_realizable_negative_or_zero_denom",
+    "explanation": "2^S - 3^m is non-positive: the cycle has at least as many odd steps as the divisor balance allows; no positive integer fixed point. (3-bias too large.)"
+  },
+  "edges": [
+    {
+      "E1": [
+        63,
+        42,
+        63,
+        42
+      ],
+      "E2": [
+        63,
+        42,
+        63,
+        42
+      ],
+      "pi_middle_int": 42,
+      "pi_middle_bin": "101010",
+      "m_middle": 3,
+      "S_middle": 3,
+      "drift_float": 1.754887502163471
+    }
+  ]
+}
