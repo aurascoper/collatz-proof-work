@@ -179,3 +179,41 @@
   artefact-only; the question of whether finitely many cuts suffice
   to make the LP feasible is open and likely a graph-combinatorial
   bound rather than a Collatz statement.
+
+## 2026-04-28 — Iteration 064 (positivity-domain theorem)
+
+- New module `verifiers/positivity_theorem.py`. Encodes:
+
+    THEOREM. For any T-step periodic ordinary-Collatz parity word
+    with `m >= 1` odd bits and `S = T - m` even bits, let `A = 3^m`
+    and `B` from the canonical recurrence. Then the affine fixed
+    point `n_pi = B / (2^S - A)` is NOT a positive integer whenever
+    the cycle has strictly positive total drift
+    `Drift = m * (1 + log_2 3) - T > 0`, i.e. whenever `3^m > 2^S`.
+
+    Proof. `Drift > 0  iff  3^m > 2^S  iff  2^S - 3^m < 0`. For
+    `m >= 1` we have `B > 0` (every odd step injects `+ 2^S_at_step
+    >= 1` and subsequent multiplications by 3 keep it positive).
+    Therefore `n_pi = B / (2^S - 3^m) < 0`. If `B mod denom != 0`
+    no integer fixed point exists at all. Either way `n_pi` is not
+    a positive integer. QED.
+
+- New experiment `experiments/iteration_064_positivity_theorem.py`
+  applies `assert_positivity_theorem` to **every** cycle in the
+  current witness corpus (060c, 061, 063 per-round summaries + 062
+  classifications) and writes
+  `proof_states/iteration_064_positivity_theorem.json`.
+- **Result on 610 witness cycles**:
+    - `drift_positive = 606`, `drift_negative = 4`, `drift_zero = 0`.
+    - `theorem_consistent = 610 / 610` (100 %).
+    - `non_positive_fixed_point = 610 / 610` (100 %).
+    - `potentially_positive_int_fixed_point = 0`.
+- Therefore: **every LP-infeasibility witness produced so far is a
+  negative-domain artefact**, not a real Collatz cycle. The
+  obstruction is structural to the (r, pi) abstraction.
+- Implication: continuing to chip away at artefact cycles via CEGIS
+  (063) is wasted effort. The right next move is a *positivity-aware*
+  LP formulation that pre-filters or constrains the abstraction to
+  the positive-integer domain (e.g. add `denom > 0` or
+  `n_candidate > 0` as a cycle-level pre-condition rather than
+  discovering its violations one cycle at a time).

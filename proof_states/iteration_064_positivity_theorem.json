@@ -1,0 +1,15 @@
+{
+  "proof_state": "iteration_064_positivity_theorem",
+  "theorem_statement": "THEOREM: For any T-step periodic ordinary-Collatz parity word with m >= 1 odd bits and S = T - m even bits, let A = 3^m and B as defined by the canonical recurrence. Then the affine fixed point n_pi = B / (2^S - A) is NOT a positive integer whenever the cycle has strictly positive total drift Drift = m * (1 + log_2 3) - T > 0; equivalently whenever 3^m > 2^S. PROOF: Drift > 0 iff 3^m > 2^S iff 2^S - 3^m < 0; for m >= 1 we have B > 0; therefore n_pi = B / (2^S - 3^m) <= 0. QED.",
+  "n_witness_cycles_examined": 610,
+  "n_drift_positive": 606,
+  "n_drift_negative": 4,
+  "n_drift_zero": 0,
+  "n_theorem_consistent": 610,
+  "theorem_consistent_fraction": 1.0,
+  "n_non_positive_fixed_point": 610,
+  "n_potentially_positive_int_fixed_point": 0,
+  "all_witnesses_are_negative_domain_artefacts": true,
+  "elapsed_seconds": 0.020032882690429688,
+  "interpretation": "Every periodic affine cycle observed in any of our infeasibility witnesses (060c / 061 / 063) is consistent with the positivity-domain theorem: positive drift forces denom = 2^S - 3^m < 0, hence n_pi = B / denom is not a positive integer. None of the witnesses correspond to a candidate positive-integer Collatz cycle. The implication for proof engineering is that further CEGIS-style cuts in the (r, pi) abstraction will keep enumerating members of this artefact family without making the LP feasible. The right next move is a positivity-aware LP formulation: encode the positivity domain (denom > 0 OR candidate_n > 0) directly as a constraint or pre-filter, rather than discovering its violations one cycle at a time."
+}

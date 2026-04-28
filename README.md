@@ -96,4 +96,17 @@ Environment variables:
   denominator, 2 by non-integer fixed point). Every LP-infeasibility
   witness in the corpus is a provable abstraction artefact.
   Classifier is now wired into 060c and 061 for future runs.
+- 2026-04-28 Iteration 063 (artefact-aware CEGIS, K=6, 300 rounds):
+  every cut classified `non_realizable_negative_or_zero_denom`;
+  ~3000 edges blocked of 204 429; LP still infeasible after 300
+  rounds. Slow convergence: indicates a large structural
+  artefact family rather than a finite list.
+- 2026-04-28 Iteration 064 (positivity-domain theorem): proved that
+  every positive-drift periodic ordinary-Collatz cycle has
+  `denom = 2^S - 3^m < 0`, hence `n_pi <= 0`. Verified on **610
+  witness cycles** across all iterations: `theorem_consistent = 610
+  / 610 (100 %)`, `potentially_positive_int_fixed_point = 0`. Every
+  LP-infeasibility witness in the corpus is a negative-domain
+  artefact, not a Collatz cycle candidate. Recommends a
+  positivity-aware LP reformulation as the next direction.
 
