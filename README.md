@@ -124,4 +124,14 @@ Environment variables:
   T_pi(n) is integer. Verified arithmetically on 63 / 63 artefact
   cycles. Recommends a cycle-level Lyapunov term scaled by the
   cycle's total even-step count S_W as the LP-compatible fuel.
+- 2026-04-28 Iteration 067 (eta-fuel Lyapunov thresholds): max
+  required lambda over **653 positive-drift artefact cycles** is
+  **lambda_max = log_2(3) - 1 = 0.584962500721157** exactly (same at
+  K=6 and K=8). With Phi(n) = log_2 n + lambda * eta(n), every
+  observed artefact cycle is contractive for any
+  lambda > lambda_max. Structural explanation: the no-adjacent-odd-
+  parity-bits constraint forces m <= T/2 = S for even T, capping
+  drift/S at log_2 3 - 1. Cycle-level only (not yet a global LP
+  certificate); next iteration (068) tests whether a compatible
+  state potential psi exists.
 

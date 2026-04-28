@@ -1,0 +1,98 @@
+{
+  "proof_state": "iteration_067_eta_fuel_thresholds",
+  "log2_3_upper_rational": [
+    1584962500721157,
+    1000000000000000
+  ],
+  "lemma": "Phi(n) := log_2(n) + lambda * eta_pi(n) is contractive around an artefact cycle iff drift - lambda * S < 0, equivalently lambda > drift / S. Drift uses the rational upper bound LOG2_3_UPPER, so the threshold is a sound upper bound for the true drift / S.",
+  "n_cycles_checked": 653,
+  "max_lambda_required": 0.584962500721157,
+  "max_lambda_required_str": "584962500721157/1000000000000000",
+  "lambda_test_used": 0.594962500721157,
+  "lambda_test_used_str": "594962500721157/1000000000000000",
+  "all_artifact_cycles_contract_with_lambda": true,
+  "by_K": {
+    "6": {
+      "n_cycles": 601,
+      "min_lambda_required": 0.11183936617752804,
+      "max_lambda_required": 0.584962500721157,
+      "max_lambda_required_str": "584962500721157/1000000000000000"
+    },
+    "8": {
+      "n_cycles": 52,
+      "min_lambda_required": 0.29678750059003756,
+      "max_lambda_required": 0.584962500721157,
+      "max_lambda_required_str": "584962500721157/1000000000000000"
+    }
+  },
+  "top_5_by_lambda_required": [
+    {
+      "label": "iteration_060c_cycle_K6.json::depth_free_witness",
+      "K": 6,
+      "L": 1,
+      "T": 6,
+      "m": 3,
+      "S": 3,
+      "denom": -19,
+      "drift_q_str": "1754887502163471/1000000000000000",
+      "drift_float": 1.754887502163471,
+      "lambda_required_str": "584962500721157/1000000000000000",
+      "lambda_required_float": 0.584962500721157
+    },
+    {
+      "label": "iteration_060c_cycle_K8.json::depth_free_witness",
+      "K": 8,
+      "L": 1,
+      "T": 8,
+      "m": 4,
+      "S": 4,
+      "denom": -65,
+      "drift_q_str": "584962500721157/250000000000000",
+      "drift_float": 2.339850002884628,
+      "lambda_required_str": "584962500721157/1000000000000000",
+      "lambda_required_float": 0.584962500721157
+    },
+    {
+      "label": "iteration_061_cycle_K8_S10000000.json::depth_free_witness",
+      "K": 8,
+      "L": 1,
+      "T": 8,
+      "m": 4,
+      "S": 4,
+      "denom": -65,
+      "drift_q_str": "584962500721157/250000000000000",
+      "drift_float": 2.339850002884628,
+      "lambda_required_str": "584962500721157/1000000000000000",
+      "lambda_required_float": 0.584962500721157
+    },
+    {
+      "label": "iteration_063_artifact_cegis_K6.json::round_0",
+      "K": 6,
+      "L": 1,
+      "T": 6,
+      "m": 3,
+      "S": 3,
+      "denom": -19,
+      "drift_q_str": "1754887502163471/1000000000000000",
+      "drift_float": 1.754887502163471,
+      "lambda_required_str": "584962500721157/1000000000000000",
+      "lambda_required_float": 0.584962500721157
+    },
+    {
+      "label": "iteration_063_artifact_cegis_K6.json::round_1",
+      "K": 6,
+      "L": 1,
+      "T": 6,
+      "m": 3,
+      "S": 3,
+      "denom": -19,
+      "drift_q_str": "1754887502163471/1000000000000000",
+      "drift_float": 1.754887502163471,
+      "lambda_required_str": "584962500721157/1000000000000000",
+      "lambda_required_float": 0.584962500721157
+    }
+  ],
+  "worst_cycle_under_lambda_test": null,
+  "elapsed_seconds": 0.04006195068359375,
+  "notes": "This is cycle-level only, not a global LP certificate. If `all_artifact_cycles_contract_with_lambda` is true, then a single scalar lambda kills every known witness cycle. However, our witness corpus is finite; the question of whether *every* artefact cycle (across all closed walks of all lengths in the abstract graph) is contractible by this same lambda is OPEN. The boundary scaling drift/S = (r*log_2 3 + r - 1) / (1 - r) where r = m/T tends to +infinity as r -> 1, so a single global lambda may not exist for unbounded cycle 3-bias. The corpus result is informative about typical CEGIS witnesses."
+}

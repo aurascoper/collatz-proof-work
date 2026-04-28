@@ -237,6 +237,44 @@
   aware: artefact cycles (denom < 0) are still admissible *finitely*
   rather than forcing infeasibility outright.
 
+## 2026-04-28 — Iteration 067 (eta-fuel Lyapunov thresholds)
+
+- New experiment `experiments/iteration_067_eta_fuel_thresholds.py`.
+- For each artefact cycle in the corpus, compute the per-cycle
+  Lyapunov threshold
+
+      lambda_required(W) := drift(W) / S(W)
+
+  using exact rational arithmetic (LOG2_3_UPPER) and find
+  `lambda_max := max over witnesses of lambda_required`.
+- Result on the 653 positive-drift artefact cycles drawn from 060c,
+  061, 062, 063 per-round logs:
+    - **lambda_max = 0.584962500721157 = LOG2_3_UPPER - 1** exactly.
+    - Same value at K=6 (601 cycles) and K=8 (52 cycles).
+    - All 653 cycles contract under `Phi(n) = log_2 n + lambda * eta`
+      with `lambda = lambda_max + 0.01 = 0.5949625`.
+- **Structural explanation.** Ordinary Collatz parity words have no
+  two adjacent 1-bits (iteration 057's F_38 enumeration). Hence for
+  any cycle, the maximum number of odd steps is `m <= T/2 + 1`, with
+  `m = T/2` for even T (always true when K is even). Then
+  `drift = m * log_2 3 - S` (algebraic identity using m+S=T) and
+  `drift / S = (m/S) * log_2 3 - 1`. With `m = S` (the worst case
+  under no-adjacent-1s, K even), `drift / S = log_2 3 - 1` exactly.
+  This is a *universal* upper bound for ordinary Collatz artefact
+  cycles at K even: the parity constraint pins the worst lambda.
+- This is **cycle-level only**, not a global LP certificate. The
+  question of whether a state-level psi compatible with this lambda
+  exists is the next iteration (068).
+- LP-compatible recommendation:
+    - In the 060c LP, replace the per-edge depth term `c_val * lam[E2]`
+      with a per-edge fuel term `S_per_window * lambda_global` where
+      `lambda_global = log_2 3 - 1 + eps` is a fixed scalar (NOT a
+      per-state variable).
+    - This effectively pre-pays the v_2 fuel cost on every edge,
+      collapsing the artefact-cycle Lyapunov check into the per-edge
+      drift bound. If a state-level psi exists with this fixed lambda,
+      we have a positivity-aware certificate.
+
 ## 2026-04-28 — Iteration 064 (positivity-domain theorem) — re-run
 
 - New module `verifiers/positivity_theorem.py`. Encodes:
