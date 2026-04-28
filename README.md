@@ -90,4 +90,10 @@ Environment variables:
   affine fixed point n=-2 (artefact). This is the **same artefact
   class** as 060c's K=8 witness `(255, 10101010)` -> fixed point n=-1,
   just phase-shifted. **The 3-window encoding does not remove it.**
+- 2026-04-28 Iteration 062 ran the affine admissibility classifier on
+  all 5 extracted witness cycles (K=6 060c x 2; K=8 060c x 2; K=8
+  061 x 1). Result: **0 realisable, 5 non-realisable** (3 by negative
+  denominator, 2 by non-integer fixed point). Every LP-infeasibility
+  witness in the corpus is a provable abstraction artefact.
+  Classifier is now wired into 060c and 061 for future runs.
 

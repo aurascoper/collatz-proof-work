@@ -1,0 +1,53 @@
+{
+  "K": 8,
+  "iteration": "061",
+  "random_samples": 10000000,
+  "depth_free_witness": {
+    "cycle_length": 1,
+    "cycle_total_drift": 2.3398500028846243,
+    "cycle_total_depth_effect": -4,
+    "integer_realizable_single_orbit": false,
+    "realised_n_value": -2,
+    "realised_denom": -65,
+    "realised_num": 130,
+    "cycle_edges": [
+      {
+        "S1": [
+          254,
+          85,
+          254,
+          85,
+          254,
+          85
+        ],
+        "S2": [
+          254,
+          85,
+          254,
+          85,
+          254,
+          85
+        ],
+        "pi_middle": "01010101",
+        "m_middle": 4,
+        "drift_float": 2.3398500028846243,
+        "c_val": -4,
+        "n_example": 49744445438
+      }
+    ],
+    "classification": {
+      "K": 8,
+      "n_edges": 1,
+      "n_total_steps": 8,
+      "n_odd_steps": 4,
+      "A_3_to_m": 81,
+      "B_value": 130,
+      "S_total_divisions": 4,
+      "denom_2S_minus_A": -65,
+      "denom_positive": false,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "explanation": "2^S - 3^m is non-positive: the cycle has at least as many odd steps as the divisor balance allows; no positive integer fixed point. (3-bias too large.)"
+    }
+  },
+  "interpretation": "Bellman-Ford on the depth-free abstraction of the 3-window c_val-split sampled graph. A negative cycle here makes the SAMPLED LP infeasible. It does NOT necessarily prove the closed 3-window LP is infeasible -- the closed graph contains all fibers, including ones that may break this cycle."
+}

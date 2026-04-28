@@ -44,6 +44,12 @@ import numpy as np
 from scipy.optimize import linprog
 from scipy.sparse import coo_matrix
 
+# Cycle classifier (Iteration 062) -- imported so witness extraction
+# automatically labels each cycle as realisable or not. We do NOT use
+# the classification to filter constraints in this iteration.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "verifiers"))
+from cycle_classifier import classify_cycle  # noqa: E402
+
 
 # ----------------------------------------------------------------------
 # Config
@@ -649,6 +655,9 @@ def main():
             realised, n_val, denom, num = cycle_integer_realisable(
                 cycle_path_for_realiser, K
             )
+            # Iteration 062 classifier: independent affine admissibility check
+            pi_middles = [cyc[2]["info"]["pi_middle"] for cyc in cycle_path]
+            cls = classify_cycle(pi_middles, K)
             return {
                 "label": label,
                 "cycle_length": len(cycle_json),
@@ -658,6 +667,7 @@ def main():
                 "realised_n_value": (None if n_val is None else int(n_val)),
                 "realised_denom": int(denom),
                 "realised_num": int(num),
+                "classification": cls,
                 "cycle_edges": cycle_json,
             }
 

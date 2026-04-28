@@ -124,3 +124,29 @@
   (b) abandon the (r, pi) abstraction and use a value-aware encoding
       that distinguishes the affine fixed point from real positive
       integers.
+
+## 2026-04-28 — Iteration 062 (affine cycle admissibility classifier)
+
+- New module: `verifiers/cycle_classifier.py` exposing
+  `classify_cycle(pi_middles, K)`. Pipeline:
+    1. Concatenate `pi_middle` bits in time order (MSB = first step).
+    2. Compose A, B, S exactly via the canonical recurrence.
+    3. Solve `(2^S - 3^m) n = B`.
+    4. Realisable iff `denom > 0`, `B % denom == 0`, `n > 0`, AND
+       arbitrary-precision direct simulation from n traces the cycle
+       and returns to n.
+- New script: `experiments/iteration_062_classify_witnesses.py`
+  walks `witnesses/iteration_*_cycle*.json`, classifies every cycle
+  and writes `<basename>_classified.json` plus a summary
+  `proof_states/iteration_062_classifier.json`.
+- Result on the 5 previously-extracted witnesses:
+    - `non_realizable_negative_or_zero_denom`: 3
+    - `non_realizable_non_integer_fixed_point`: 2
+    - `REALIZABLE_POSITIVE_INTEGER_CYCLE`: 0
+- Every LP-infeasibility witness we have produced is **provably an
+  abstraction artefact**. There are zero putative real Collatz cycles
+  in our witness corpus.
+- Integration: `experiments/iteration_060c.py` and
+  `experiments/iteration_061_3window.py` both now import and call
+  `classify_cycle` during witness extraction. The classification is
+  attached to each cycle payload; **no LP constraints are removed**.

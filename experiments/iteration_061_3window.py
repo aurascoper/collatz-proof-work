@@ -31,6 +31,7 @@ from __future__ import annotations
 import json
 import math
 import os
+import sys
 import time
 from collections import defaultdict
 from fractions import Fraction
@@ -39,6 +40,9 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import linprog
 from scipy.sparse import coo_matrix
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "verifiers"))
+from cycle_classifier import classify_cycle  # noqa: E402
 
 
 K = int(os.environ.get("ITER_K", 8))
@@ -321,6 +325,8 @@ def main():
                 if denom_cyc != 0 and B2 % denom_cyc == 0:
                     n_val = B2 // denom_cyc
                     realised = n_val > 0
+                pi_middles_for_cls = [p["info"]["pi_middle"] for p in path]
+                cls = classify_cycle(pi_middles_for_cls, K)
                 cycle_payload = {
                     "cycle_length": len(path),
                     "cycle_total_drift": float(tot_drift),
@@ -329,6 +335,7 @@ def main():
                     "realised_n_value": (None if n_val is None else int(n_val)),
                     "realised_denom": int(denom_cyc),
                     "realised_num": int(B2),
+                    "classification": cls,
                     "cycle_edges": [
                         {
                             "S1": list(p["S1"]),
