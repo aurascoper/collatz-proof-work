@@ -150,3 +150,32 @@
   `experiments/iteration_061_3window.py` both now import and call
   `classify_cycle` during witness extraction. The classification is
   attached to each cycle payload; **no LP constraints are removed**.
+
+## 2026-04-28 — Iteration 063 (artefact-aware CEGIS)
+
+- New script: `experiments/iteration_063_artifact_cegis.py`.
+- Loop:
+    1. Build closed K=8 LP (c_val-split).
+    2. Solve. If feasible -> stop.
+    3. If infeasible -> depth-free Bellman-Ford witness.
+    4. Classify with 062 classifier.
+    5. If REALIZABLE_POSITIVE_INTEGER_CYCLE -> stop and emit candidate.
+    6. Else -> diagnostic cut: block all (E1, E2, c_val) edges sharing
+       any (E1, E2) pair from the witness cycle (every depth-free BF
+       cycle has positive total drift hence denom < 0 hence non-
+       realisable; cuts are guaranteed safe by the classifier).
+    7. Re-solve.
+- Structural observation: the LP is feasible iff the depth-free graph
+  has no positive-drift cycle. So the CEGIS loop terminates exactly
+  when *all* positive-drift cycles have been broken. The classifier
+  serves as a sanity check; by construction it never returns
+  REALIZABLE for a depth-free BF witness because positive total drift
+  forces 2^S < 3^m hence denom < 0.
+- K=6 / 300 rounds: 300 non-realisable cycles cut (~3 000 edges blocked
+  out of 204 429); LP remains infeasible. Cycle lengths range 1-34.
+  Combinatorics are heavy; convergence will need many more rounds (or
+  a structural argument). Runtime 220 s.
+- Take-home: the classifier successfully gates every cut as
+  artefact-only; the question of whether finitely many cuts suffice
+  to make the LP feasible is open and likely a graph-combinatorial
+  bound rather than a Collatz statement.
