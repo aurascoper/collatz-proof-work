@@ -1,0 +1,26 @@
+{
+  "proof_state": "iteration_071b_realized_trajectory_restriction_PARTIAL",
+  "K": 8,
+  "lambda_global_float": 0.584963500721157,
+  "epsilon": 1e-09,
+  "rho_padding": 1e-06,
+  "n_edges": 12711807,
+  "n_states": 535168,
+  "max_excess_drift_actual_minus_formula": 1.245112,
+  "n_realised_LP_violations_using_068_psi": 338665,
+  "fraction_violations_using_068_psi": 0.026641,
+  "max_realised_LP_violation": 0.1906607,
+  "n_formula_LP_violations_sanity_check": 0,
+  "realised_LP_resolved_feasible": null,
+  "realised_LP_status": "killed_after_27min_cpu_no_completion",
+  "interpretation": "K=8 realised-trajectory analysis. The actual log_2 drift over a window starting at integer n exceeds the formula drift by log_2(1 + B_pi/(3^m * n)). At K=8 the maximum excess across all 16.7M fibers is 1.245 (small-n fibers near affine fixed points). 338,665 / 12,711,807 = 2.66% of edges violate the iteration-068 psi when using drift_actual_max. The re-solved LP with drift_actual was killed after 27 min CPU without convergence; the K=6 analog (203,615 edges) returned INFEASIBLE in 0.3s, and we expect K=8 to behave similarly. The qualitative conclusion stands: the iteration-068 fixed-lambda certificate is asymptotic / formula-based, not realised-trajectory feasible. A genuine Collatz descent proof in this framework would require either a state functional sensitive to actual n value (not just (r, pi)), or a hybrid with arbitrary-precision boundary verification on small n.",
+  "comparison_K6_K8": {
+    "K=6_max_excess": 0.83,
+    "K=8_max_excess": 1.245,
+    "K=6_violation_fraction": 0.193,
+    "K=8_violation_fraction": 0.0266,
+    "K=6_realised_LP_resolved_feasible": false,
+    "K=8_realised_LP_resolved_feasible": "unknown_killed_27min_cpu"
+  },
+  "next_step": "see RESEARCH_AUDIT_2026-04-28.md Section E (Path 4-prime: hybrid Diophantine cycle exclusion)"
+}
