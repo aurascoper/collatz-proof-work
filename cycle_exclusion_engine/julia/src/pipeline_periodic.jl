@@ -1,21 +1,39 @@
 using JSON
 
+# Helper imported from candidate_export.jl (loaded later in CEEJulia.jl)
+# but we redeclare a local copy if not yet loaded:
+if !@isdefined(_verdict_to_dict)
+    function _verdict_to_dict(v::Union{BakerVerdict, Nothing})
+        if v === nothing
+            return nothing
+        end
+        return Dict(
+            "status" => String(v.status),
+            "theorem_source" => v.theorem_source,
+            "theorem_version" => v.theorem_version,
+            "lower_bound_expr" => v.lower_bound_expr,
+            "exclusion_reason" => v.exclusion_reason,
+            "numeric_gap_str" => v.numeric_gap_str,
+            "threshold_data" => v.threshold_data,
+            "notes" => v.notes,
+        )
+    end
+end
+
 """
-    run_periodic_pipeline(ndjson_path; verified_bound, apply_baker, output_path)
+    run_periodic_pipeline(ndjson_path; cfg, apply_baker, output_path)
+        -> (proof_state::Dict, rows::Vector{Dict}, open_candidates::Vector)
 
-Iteration 072 main entry. For each periodic record, classify the affine
-fixed point, optionally invoke the verified-bound finite check
-(`n <= verified_bound` -> direct Collatz simulation) and the Baker
-bound interface.
-
-Returns `(proof_state::Dict, rows::Vector{Dict})`.
+Iteration 072.5 main entry. For each periodic record from the NDJSON
+file emitted by the Rust generator, classify the affine fixed point,
+optionally invoke the Baker theorem dispatcher, and emit a proof_state
+plus per-row diagnostics.
 """
 function run_periodic_pipeline(ndjson_path::AbstractString;
-                                verified_bound::BigInt = big(2)^68,
-                                apply_baker::Bool = false,
+                                cfg::TheoremConfig = default_theorem_config(),
+                                apply_baker::Bool = true,
                                 output_path::Union{Nothing, AbstractString} = nothing)
     records = read_periodic_ndjson(ndjson_path)
-
     counts = Dict(
         "NEGATIVE_OR_ZERO_DENOM" => 0,
         "NON_INTEGER_FIXED_POINT" => 0,
@@ -23,105 +41,85 @@ function run_periodic_pipeline(ndjson_path::AbstractString;
         "REALIZABLE_TRIVIAL" => 0,
         "REALIZABLE_CANDIDATE" => 0,
         "EXCLUDED_BY_FINITE_VERIFICATION" => 0,
-        "EXCLUDED_BY_BAKER_BOUND" => 0,
+        "EXCLUDED_BY_THEOREM" => 0,
         "OPEN_CANDIDATE" => 0,
     )
-
     rows = Dict[]
-    open_candidates = String[]
+    open_candidates = Dict[]
 
     for rec in records
         result = classify_fixed_point_periodic(rec)
-        cls = result.classification
+        base_cls = result.classification
         n = result.n_candidate
-        baker_status = "not_used"
 
-        # Stage 5: verified-bound finite verification (overrides
-        # REALIZABLE_CANDIDATE iff n is small enough to simulate directly
-        # using the global Collatz iteration -- not just one period).
-        if cls == "REALIZABLE_CANDIDATE" && n !== nothing && n <= verified_bound
-            # Run the global Collatz iteration starting from n. If it
-            # reaches 1 in finitely many steps, `n` cannot be on a
-            # non-trivial cycle (since cycles are recurrent). However,
-            # a true *cycle* fixed point would not reach 1 -- it would
-            # stay in the cycle. So if iteration reaches 1, this is
-            # actually a contradiction with `verify_collatz_cycle_periodic`
-            # returning true. Keep this check as a sanity layer.
-            cls = "REALIZABLE_CANDIDATE"  # leave as candidate; the cycle
-                                          # check has already passed.
-            # The "EXCLUDED_BY_FINITE_VERIFICATION" is for OPEN_CANDIDATE
-            # cases where the algebraic fixed point exists but the cycle
-            # parity match fails; in that case n must descend to 1.
-        end
-        if cls == "OPEN_CANDIDATE" && n !== nothing && n <= verified_bound
-            # Direct Collatz simulation from n: if it reaches 1 within a
-            # bounded step count, classify as EXCLUDED_BY_FINITE_VERIFICATION.
-            sim_n = n
-            steps = 0
-            max_steps = 10_000_000
-            while sim_n != 1 && steps < max_steps
-                if isodd(sim_n)
-                    sim_n = 3*sim_n + 1
-                else
-                    sim_n = sim_n ÷ 2
-                end
-                steps += 1
-            end
-            if sim_n == 1
-                cls = "EXCLUDED_BY_FINITE_VERIFICATION"
+        baker_verdict = nothing
+        final_cls = base_cls
+
+        if apply_baker
+            inp = build_baker_input(rec, result)
+            baker_verdict = apply_baker_bound(inp; cfg = cfg)
+            if baker_verdict.status == :excluded_by_verified_bound
+                final_cls = "EXCLUDED_BY_FINITE_VERIFICATION"
+            elseif baker_verdict.status == :excluded_by_theorem
+                final_cls = "EXCLUDED_BY_THEOREM"
+            elseif baker_verdict.status == :open_candidate &&
+                   base_cls == "REALIZABLE_CANDIDATE"
+                final_cls = "OPEN_CANDIDATE"
             end
         end
 
-        # Stage 6: Baker-bound interface (scaffold; never sets :excluded)
-        if cls == "REALIZABLE_CANDIDATE" && apply_baker
-            verdict = apply_baker_bound(rec.m, rec.S, rec.T)
-            baker_status = string(verdict.status)
-            if verdict.status == :excluded
-                cls = "EXCLUDED_BY_BAKER_BOUND"
-            else
-                push!(open_candidates, rec.word_bits)
-            end
-        elseif cls == "REALIZABLE_CANDIDATE"
-            push!(open_candidates, rec.word_bits)
-        end
-
-        counts[cls] = get(counts, cls, 0) + 1
-
-        push!(rows, Dict(
+        counts[final_cls] = get(counts, final_cls, 0) + 1
+        row = Dict(
             "word_bits" => rec.word_bits,
             "canonical_rotation" => rec.canonical_rotation,
             "T" => rec.T,
             "m" => rec.m,
             "S" => rec.S,
-            "classification" => cls,
+            "classification" => final_cls,
             "n_candidate_str" => isnothing(n) ? nothing : string(n),
-            "baker_status" => baker_status,
+            "baker_verdict" => _verdict_to_dict(baker_verdict),
             "notes" => result.notes,
-        ))
+        )
+        push!(rows, row)
+        if final_cls == "OPEN_CANDIDATE"
+            push!(open_candidates, candidate_row_to_export_dict(row))
+        end
     end
 
-    nontrivial_realizable = [r for r in rows
-                              if r["classification"] == "REALIZABLE_CANDIDATE"]
+    nontriv_realizable = [r for r in rows
+                          if r["classification"] == "REALIZABLE_CANDIDATE"]
 
     proof_state = Dict(
-        "proof_state" => "iteration_072_periodic_cycle_engine",
+        "proof_state" => "iteration_072_5_baker_interface",
         "T_min" => isempty(records) ? 0 : minimum(r.T for r in records),
         "T_max" => isempty(records) ? 0 : maximum(r.T for r in records),
         "words_generated" => length(records),
         "primitive_words" => count(r -> r.primitive, records),
         "classification_counts" => counts,
-        "nontrivial_realizable_candidates" => length(nontrivial_realizable),
-        "nontrivial_realizable_examples" => nontrivial_realizable[1:min(10, end)],
-        "baker_interface_used" => apply_baker,
-        "verified_bound_used" => string(verified_bound),
+        "open_candidates" => length(open_candidates),
+        "nontrivial_realizable_candidates" => length(nontriv_realizable),
+        "theorem_modules_enabled" =>
+            apply_baker ? ["verified_bound", "oddstep_bound"] : String[],
+        "theorem_config" => Dict(
+            "verified_bound" => string(cfg.verified_bound),
+            "oddstep_bound_enabled" => cfg.oddstep_bound_enabled,
+            "oddstep_min_m_nontrivial" => cfg.oddstep_min_m_nontrivial,
+            "oddstep_source" => cfg.oddstep_source,
+            "oddstep_version" => cfg.oddstep_version,
+        ),
     )
 
     if output_path !== nothing
-        out = Dict("proof_state" => proof_state, "rows" => rows)
+        mkpath(dirname(output_path))
+        out = Dict(
+            "proof_state" => proof_state,
+            "rows" => rows,
+            "open_candidates" => open_candidates,
+        )
         open(output_path, "w") do io
             JSON.print(io, out, 2)
         end
     end
 
-    return proof_state, rows
+    return proof_state, rows, open_candidates
 end

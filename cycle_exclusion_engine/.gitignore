@@ -3,3 +3,8 @@ rust/Cargo.lock
 julia/Manifest.toml
 julia/.julia/
 *.bin
+out/
+logs/
+manifests/
+candidates/
+proof_states/
