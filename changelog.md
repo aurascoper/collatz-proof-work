@@ -385,6 +385,38 @@
   state-level descent function via flow / column-generation arguments,
   or formalise the cycle-negativity as a usable Collatz lemma.
 
+## 2026-04-28 — Iteration 071A (LP dual decomposition)
+
+- New experiment `experiments/iteration_071a_dual_decomposition.py`.
+- Goal: extract the dual interpretation of the 068 fixed-lambda
+  feasibility certificate; ask whether the certificate is equivalent
+  to a pure difference potential or requires an augmented flow space.
+- Findings at K=6:
+  - With Phase-I objective `max sum(psi)` the LP is unbounded
+    (psi can grow without bound subject to constraints), confirming
+    the LP is "loose" with respect to anchored direction.
+  - Falling back to zero objective: HiGHS returns a feasible psi
+    with **min_margin = 0** at 1 258 / 203 615 = **0.6 %** of edges
+    (tight edges).
+  - The dual y is trivial (all-zero) under zero objective -- expected
+    for feasibility-only LPs where the trivial circulation always
+    satisfies Farkas.
+  - Crucially: the **binding-edge subgraph contains 0 non-trivial
+    SCCs and 0 binding self-loops**. Tight edges form a DAG-like
+    skeleton; they never close into a cycle.
+- Conclusion: the iteration-068 cycle-negativity is *strict* with
+  rho-slack (no cycle is on the boundary). The certificate IS
+  equivalent to a pure difference potential psi on the original
+  state space; **no augmentation of the flow space is required**.
+  The user's hypothesis ("equivalent to a pure difference potential
+  on an augmented flow space") is confirmed in the *unaugmented*
+  form.
+- Take-home: 070 gave us cycle-negativity globally; 071A confirms
+  this is strict (cycles are STRICTLY less than -|C|*eps),
+  consistent with the algebraic identity drift / S = log_2 3 - 1
+  versus lambda = log_2 3 - 1 + rho leaving rho per S unit of
+  margin per edge.
+
 ## 2026-04-28 — Iteration 064 (positivity-domain theorem) — re-run
 
 - New module `verifiers/positivity_theorem.py`. Encodes:
