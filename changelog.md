@@ -354,6 +354,37 @@
   >= S_edge for every (E, n); the existing per-window v_2 deltas do
   not satisfy this with the canonical fiber.
 
+## 2026-04-28 — Iteration 070 (cycle-negativity interpretation)
+
+- New experiment `experiments/iteration_070_cycle_negativity.py`.
+- Theoretical equivalence (LP duality):
+
+      LP (068) feasible <=> every directed cycle C in closed graph
+      has total weight w(C) := sum_{e in C} (drift(e) - lambda*S(e))
+      satisfying w(C) <= -|C|*eps.
+
+  069a verified the LP exactly, so every directed cycle in the closed
+  K=6 / K=8 graph has w(C) <= 0 exactly under
+      lambda = LOG2_3_UPPER - 1 + 1e-6.
+- Computational confirmation:
+  - **K=6**: 11 self-loops; weight range [-3.17, -3.0e-06]. The
+    binding self-loop has weight = -rho * S = -3e-06 (m=S=3 case).
+    BF on -w(e) for 200 iterations finds NO positive cycle.
+  - **K=8**: 26 self-loops; weight range [-6.34, -4.0e-06]. The
+    binding self-loop has weight = -rho * S = -4e-06 (m=S=4 case).
+    BF on -w(e) for 200 iterations finds NO positive cycle.
+- The minimum self-loop weight (-rho * S) is the LP-saturating bound:
+  it's exactly the per-edge slack provided by the rho padding.
+- Random walks of length <= 12 didn't close (state space too large);
+  closed-walk evidence is via BF only.
+- **Status**: `exact_cycle_negativity_certificate_on_closed_K_graph`.
+  Per-edge weights w(e) are real-valued; cycle sums are <= 0 exactly.
+  This is strictly weaker than a Lyapunov descent certificate (per
+  069b), but is a solid algebraic statement about the closed graph.
+  Next step (Iteration 071+): lift the cycle-level certificate to a
+  state-level descent function via flow / column-generation arguments,
+  or formalise the cycle-negativity as a usable Collatz lemma.
+
 ## 2026-04-28 — Iteration 064 (positivity-domain theorem) — re-run
 
 - New module `verifiers/positivity_theorem.py`. Encodes:

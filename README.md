@@ -152,4 +152,12 @@ Environment variables:
   worst-case backed by an actual c_val. The 068 LP is a *cycle-
   reweighted* certificate, NOT a per-edge Lyapunov. A genuine
   per-edge fuel function eta(E, n) is the next missing ingredient.
+- 2026-04-28 Iteration 070 (cycle-negativity interpretation): by LP
+  duality + 069a, every directed cycle in the closed K=6 / K=8 graph
+  has total weight w(C) = sum (drift(e) - lambda * S(e)) <= 0 exactly.
+  Bellman-Ford on -w(e) at K=8 finds no positive-weight cycle within
+  200 iterations. The binding self-loop has weight -rho*S = -4e-6
+  exactly (matches the rho padding). Status: `exact_cycle_
+  negativity_certificate_on_closed_K_graph` -- strictly weaker than
+  Lyapunov descent but algebraically clean.
 

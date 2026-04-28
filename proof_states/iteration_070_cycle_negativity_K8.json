@@ -1,0 +1,129 @@
+{
+  "proof_state": "iteration_070_cycle_negativity_interpretation",
+  "K": 8,
+  "lambda_global_str": "584963500721157/1000000000000000",
+  "lambda_global_float": 0.584963500721157,
+  "n_states": 535168,
+  "n_edges": 12711807,
+  "n_self_loops": 26,
+  "self_loop_weight_min_float": -6.339856002884628,
+  "self_loop_weight_max_float": -4e-06,
+  "bf_positive_cycle_found_within_budget": false,
+  "bf_budget": 200,
+  "n_sampled_walks": 1000,
+  "n_sampled_walks_closing_into_cycle": 0,
+  "max_sampled_cycle_weight_float": null,
+  "min_sampled_cycle_weight_float": null,
+  "n_sampled_positive_weight_cycles": 0,
+  "first_8_self_loops": [
+    {
+      "index": 1048573,
+      "E1": [
+        254,
+        85,
+        254,
+        85
+      ],
+      "m_middle": 4,
+      "S_middle": 4,
+      "weight_str": "-1/250000",
+      "weight_float": -4e-06
+    },
+    {
+      "index": 1048574,
+      "E1": [
+        255,
+        170,
+        255,
+        170
+      ],
+      "m_middle": 4,
+      "S_middle": 4,
+      "weight_str": "-1/250000",
+      "weight_float": -4e-06
+    },
+    {
+      "index": 1676654,
+      "E1": [
+        161,
+        146,
+        161,
+        146
+      ],
+      "m_middle": 3,
+      "S_middle": 5,
+      "weight_str": "-1584965000721157/500000000000000",
+      "weight_float": -3.169930001442314
+    },
+    {
+      "index": 1676659,
+      "E1": [
+        166,
+        81,
+        166,
+        81
+      ],
+      "m_middle": 3,
+      "S_middle": 5,
+      "weight_str": "-1584965000721157/500000000000000",
+      "weight_float": -3.169930001442314
+    },
+    {
+      "index": 1676665,
+      "E1": [
+        172,
+        41,
+        172,
+        41
+      ],
+      "m_middle": 3,
+      "S_middle": 5,
+      "weight_str": "-1584965000721157/500000000000000",
+      "weight_float": -3.169930001442314
+    },
+    {
+      "index": 1676677,
+      "E1": [
+        184,
+        21,
+        184,
+        21
+      ],
+      "m_middle": 3,
+      "S_middle": 5,
+      "weight_str": "-1584965000721157/500000000000000",
+      "weight_float": -3.169930001442314
+    },
+    {
+      "index": 3317561,
+      "E1": [
+        55,
+        168,
+        55,
+        168
+      ],
+      "m_middle": 3,
+      "S_middle": 5,
+      "weight_str": "-1584965000721157/500000000000000",
+      "weight_float": -3.169930001442314
+    },
+    {
+      "index": 3317563,
+      "E1": [
+        57,
+        148,
+        57,
+        148
+      ],
+      "m_middle": 3,
+      "S_middle": 5,
+      "weight_str": "-1584965000721157/500000000000000",
+      "weight_float": -3.169930001442314
+    }
+  ],
+  "first_8_sampled_cycles": [],
+  "lp_cycle_negativity_equivalence": "By LP duality, the iteration-068 LP feasibility <=> every directed cycle has total w(C) <= -|C|*eps. Since 069a verified the LP exactly, every directed cycle in this closed K=8 graph has total w(C) <= 0 exactly. Bellman-Ford on -w(e) for 200 iterations finds NO positive-weight cycle, consistent with the algebraic statement.",
+  "current_status": "exact_cycle_negativity_certificate_on_closed_K_graph",
+  "what_this_is_NOT": "This is NOT a Lyapunov descent certificate. The cycle negativity holds globally (every cycle in the closed graph has corrected weight <= 0), but the LP credit -lambda*S_edge is not backed by a per-edge fuel function eta(E, n) (per 069b). A genuine Collatz descent proof still requires either (a) constructing the per-edge fuel function honestly, or (b) lifting the cycle-level certificate to a state-level certificate via flow / column-generation arguments, or (c) a different mathematical formulation.",
+  "elapsed_total_seconds": 1540.3525729179382
+}
