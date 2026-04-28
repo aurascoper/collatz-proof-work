@@ -242,12 +242,139 @@ def main():
             "n0 mod 2^{4K} (or prove closure via affine residue structure)."
         )
     else:
-        proof_state["witness_extracted"] = False
+        # ---- 3-window depth-free Bellman-Ford witness
+        BF_MAX_ITERS = int(os.environ.get("ITER_BF_MAX_ITERS", 200))
+        # Reduce parallel edges per (i1, i2) to one edge, taking max c_val.
+        edge_max = {}
+        for (S1, S2, c_val), info in edges.items():
+            i1 = state_to_idx[S1]; i2 = state_to_idx[S2]
+            key = (i1, i2)
+            d = info["drift_float"]
+            if key not in edge_max or c_val > edge_max[key]["c_val"]:
+                edge_max[key] = {
+                    "c_val": c_val, "drift": d,
+                    "S1": S1, "S2": S2, "info": info,
+                }
+
+        edges_bf = list(edge_max.items())
+        m_e = len(edges_bf)
+        s1 = np.zeros(m_e, dtype=np.int64)
+        s2 = np.zeros(m_e, dtype=np.int64)
+        w_arr = np.zeros(m_e, dtype=np.float64)
+        for k_, ((i1, i2), v) in enumerate(edges_bf):
+            s1[k_] = i1; s2[k_] = i2
+            w_arr[k_] = -v["drift"] - EPSILON  # depth-free abstraction
+
+        dist = np.zeros(n_states, dtype=np.float64)
+        pred_node = np.full(n_states, -1, dtype=np.int64)
+        pred_edge = np.full(n_states, -1, dtype=np.int64)
+        budget = min(BF_MAX_ITERS, n_states)
+        last_relaxed = -1
+        for it in range(budget):
+            cand = dist[s1] + w_arr
+            improved = cand < dist[s2] - 1e-12
+            if not np.any(improved):
+                break
+            imp = np.where(improved)[0]
+            dist[s2[imp]] = cand[imp]
+            pred_node[s2[imp]] = s1[imp]
+            pred_edge[s2[imp]] = imp
+            if it == budget - 1:
+                last_relaxed = int(s2[imp[0]])
+
+        cycle_payload = None
+        if last_relaxed != -1:
+            v = last_relaxed
+            for _ in range(budget):
+                v = int(pred_node[v])
+                if v == -1:
+                    v = -1; break
+            if v != -1:
+                cycle_start = v
+                path = []
+                cur = cycle_start
+                for _ in range(budget + 5):
+                    e_idx = int(pred_edge[cur])
+                    if e_idx < 0:
+                        break
+                    (i1, i2), pkg = edges_bf[e_idx]
+                    path.append(pkg)
+                    cur = int(pred_node[cur])
+                    if cur == cycle_start:
+                        break
+                tot_drift = sum(p["drift"] for p in path)
+                tot_dep = sum(p["c_val"] for p in path)
+                # Try integer-realisability via concatenated pi_middle bits.
+                bits = []
+                for p in path:
+                    pi = p["info"]["pi_middle"]
+                    for j in range(K - 1, -1, -1):
+                        bits.append((pi >> j) & 1)
+                A2, B2, S2v = 1, 0, 0
+                for b in bits:
+                    if b == 1:
+                        B2 = 3 * B2 + (1 << S2v); A2 = 3 * A2
+                    else:
+                        S2v += 1
+                denom_cyc = (1 << S2v) - A2
+                realised = False; n_val = None
+                if denom_cyc != 0 and B2 % denom_cyc == 0:
+                    n_val = B2 // denom_cyc
+                    realised = n_val > 0
+                cycle_payload = {
+                    "cycle_length": len(path),
+                    "cycle_total_drift": float(tot_drift),
+                    "cycle_total_depth_effect": int(tot_dep),
+                    "integer_realizable_single_orbit": bool(realised),
+                    "realised_n_value": (None if n_val is None else int(n_val)),
+                    "realised_denom": int(denom_cyc),
+                    "realised_num": int(B2),
+                    "cycle_edges": [
+                        {
+                            "S1": list(p["S1"]),
+                            "S2": list(p["S2"]),
+                            "pi_middle": f"{p['info']['pi_middle']:0{K}b}",
+                            "m_middle": int(p["info"]["m_middle"]),
+                            "drift_float": float(p["drift"]),
+                            "c_val": int(p["c_val"]),
+                            "n_example": int(p["info"]["n_example"]),
+                        } for p in path
+                    ],
+                }
+                wit_path = WITNESS_DIR / f"iteration_061_cycle_K{K}_S{RANDOM_SAMPLES}.json"
+                wit_path.write_text(json.dumps({
+                    "K": K,
+                    "iteration": "061",
+                    "random_samples": RANDOM_SAMPLES,
+                    "depth_free_witness": cycle_payload,
+                    "interpretation": (
+                        "Bellman-Ford on the depth-free abstraction of the "
+                        "3-window c_val-split sampled graph. A negative "
+                        "cycle here makes the SAMPLED LP infeasible. It "
+                        "does NOT necessarily prove the closed 3-window LP "
+                        "is infeasible -- the closed graph contains all "
+                        "fibers, including ones that may break this cycle."
+                    ),
+                }, indent=2))
+                proof_state["witness_file"] = str(wit_path.relative_to(ROOT))
+                proof_state["depth_free_cycle_total_drift"] = cycle_payload["cycle_total_drift"]
+                proof_state["depth_free_cycle_length"] = cycle_payload["cycle_length"]
+                proof_state["depth_free_cycle_integer_realizable_single_orbit"] = (
+                    cycle_payload["integer_realizable_single_orbit"]
+                )
+
+        proof_state["witness_extracted"] = cycle_payload is not None
         proof_state["interpretation"] = (
-            "3-window LP infeasible on a sampled multigraph. The graph is NOT "
-            "closed in the closed-symbolic sense; an infeasibility proof here "
-            "would need either (a) full enumeration over n0 mod 2^{4K} or (b) "
-            "a deductive closure via the affine residue structure."
+            "3-window LP infeasible on a sampled multigraph. " +
+            ("Depth-free cycle witness extracted; "
+             "if integer-realizable, this is a real obstruction to the "
+             "*sampled* LP only and may or may not survive in the closed "
+             "graph. Closure still requires either exhaustive enumeration "
+             "over n0 mod 2^{4K} or a deductive argument."
+             if cycle_payload is not None else
+             "Witness extraction failed (no negative cycle detected within "
+             "BF budget). The infeasibility may involve the depth Lyapunov "
+             "term in a subtle way; consider extending BF to lam-friendliest.")
         )
 
     out = PROOF_DIR / f"iteration_061_3window_K{K}.json"

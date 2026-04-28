@@ -83,7 +83,11 @@ Environment variables:
 - 2026-04-28 061 K=8 (sampled, 5 M random seeds): LP feasible,
   HiGHS Optimal. min_margin -2.5e-13 (boundary feasibility).
 - 2026-04-28 061 K=8 (sampled, 10 M random seeds): LP **INFEASIBLE**
-  (HiGHS status 2). The 5 M feasibility was a sampling artefact. Both
-  runs are sampled (~0.1-0.2 % of n0 mod 2^{4K}); the question of
-  whether the closed 3-window LP at K=8 is feasible is **open**.
+  (HiGHS status 2). The 5 M feasibility was a sampling artefact.
+- 2026-04-28 061 K=8 v2 (with 3-window BF witness): infeasibility
+  witness is a length-1 self-loop at
+  `(r=254, pi=01010101, r=254, pi=01010101, r=254, pi=01010101)`,
+  affine fixed point n=-2 (artefact). This is the **same artefact
+  class** as 060c's K=8 witness `(255, 10101010)` -> fixed point n=-1,
+  just phase-shifted. **The 3-window encoding does not remove it.**
 

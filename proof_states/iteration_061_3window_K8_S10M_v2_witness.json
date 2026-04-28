@@ -1,0 +1,27 @@
+{
+  "proof_state": "iteration_061_k8_3window_cval_split",
+  "K": 8,
+  "epsilon": 0.01,
+  "lam_upper_bound": 128.0,
+  "log2_3_upper_rational": [
+    1584962500721157,
+    1000000000000000
+  ],
+  "exhaustive": false,
+  "random_samples": 10000000,
+  "n_unique_states": 10968844,
+  "n_unique_cval_split_edges": 9865835,
+  "scipy_status": 2,
+  "scipy_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+  "lp_feasible": false,
+  "closed_graph": false,
+  "drift_assignment": "pi_middle = pi_2 (middle of S1; executed window)",
+  "monotonicity_constraint_on_lambda": false,
+  "elapsed_total_seconds": 243.49465894699097,
+  "witness_file": "witnesses/iteration_061_cycle_K8_S10000000.json",
+  "depth_free_cycle_total_drift": 2.3398500028846243,
+  "depth_free_cycle_length": 1,
+  "depth_free_cycle_integer_realizable_single_orbit": false,
+  "witness_extracted": true,
+  "interpretation": "3-window LP infeasible on a sampled multigraph. Depth-free cycle witness extracted; if integer-realizable, this is a real obstruction to the *sampled* LP only and may or may not survive in the closed graph. Closure still requires either exhaustive enumeration over n0 mod 2^{4K} or a deductive argument."
+}

@@ -100,3 +100,27 @@
   *self-loop* artefact (`(2^K - 1, alternating-bit pi)`), but other
   longer cycles remain in play and at least some are visible at 10 M
   samples.
+
+## 2026-04-28 — Iteration 061 v2 (with 3-window witness extractor)
+
+- Added Bellman-Ford witness extraction (depth-free abstraction) to
+  `experiments/iteration_061_3window.py`.
+- Re-ran 10 M K=8 with the new witness extractor.
+- **Witness**: a length-1 self-loop at the 3-window state
+  `S = (r=254, pi=01010101, r=254, pi=01010101, r=254, pi=01010101)`,
+  drift +2.340, c_val -4. Affine fixed point of `pi=01010101` is
+  `f = B / denom = 130 / -65 = -2`. **Not** a positive integer; no
+  positive Collatz orbit realises it.
+- This is the *same artefact class* as the 2-window K=8 060c witness
+  `(r=255, pi=10101010)` -> fixed point n=-1; just phase-shifted.
+  The 3-window state encoding does NOT remove this artefact, because
+  the self-loop has all three sub-states identical and reduces to a
+  2-window self-loop test, which still has zero realisable instances
+  at K=8 (per 060d).
+- Therefore: the user's recommendation "implement 3-window
+  trajectory-consistent states" alone is insufficient. Either:
+  (a) filter the 3-window self-loops the same way 060d filters
+      2-window self-loops, or
+  (b) abandon the (r, pi) abstraction and use a value-aware encoding
+      that distinguishes the affine fixed point from real positive
+      integers.

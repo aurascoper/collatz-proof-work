@@ -1,0 +1,40 @@
+{
+  "K": 8,
+  "iteration": "061",
+  "random_samples": 10000000,
+  "depth_free_witness": {
+    "cycle_length": 1,
+    "cycle_total_drift": 2.3398500028846243,
+    "cycle_total_depth_effect": -4,
+    "integer_realizable_single_orbit": false,
+    "realised_n_value": -2,
+    "realised_denom": -65,
+    "realised_num": 130,
+    "cycle_edges": [
+      {
+        "S1": [
+          254,
+          85,
+          254,
+          85,
+          254,
+          85
+        ],
+        "S2": [
+          254,
+          85,
+          254,
+          85,
+          254,
+          85
+        ],
+        "pi_middle": "01010101",
+        "m_middle": 4,
+        "drift_float": 2.3398500028846243,
+        "c_val": -4,
+        "n_example": 49744445438
+      }
+    ]
+  },
+  "interpretation": "Bellman-Ford on the depth-free abstraction of the 3-window c_val-split sampled graph. A negative cycle here makes the SAMPLED LP infeasible. It does NOT necessarily prove the closed 3-window LP is infeasible -- the closed graph contains all fibers, including ones that may break this cycle."
+}
