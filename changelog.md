@@ -275,6 +275,31 @@
       drift bound. If a state-level psi exists with this fixed lambda,
       we have a positivity-aware certificate.
 
+## 2026-04-28 — Iteration 068 (fixed-lambda psi-only LP)
+
+- New experiment `experiments/iteration_068_fixed_lambda_lp.py`.
+- Replaces 060c's per-state `lam[E]` with a **single fixed scalar**
+    `lambda_global = LOG2_3_UPPER - 1 + rho`,    `rho = 1e-6`.
+- LP variables: psi[E] only (no lam). Per-edge constraint:
+    psi[E2] - psi[E1] - lambda_global * S_edge <= -drift_edge - eps,
+  equivalently
+    psi[E2] - psi[E1] <= lambda_global * S_edge - drift_edge - eps.
+- Sign convention: Phi(n) := log_2(n) + lambda * eta(n) + psi[state]
+  drops by drift - lambda*S + (psi diff) per edge; with lambda > drift/S
+  per 067, the cycle component is non-positive, so the LP encodes a
+  Lyapunov potential.
+- **K=6**: 19 519 states, 203 615 edges; **LP feasible** (HiGHS
+  Optimal). min_margin = 0.0 (boundary), max_margin = 22.19.
+  Total runtime 1.5 s.
+- **K=8**: 535 168 states, 12 711 807 edges; **LP feasible** (HiGHS
+  Optimal). min_margin = -1.78e-15 (floating-point boundary),
+  max_margin = 31.70. Total runtime 190 s (69 s enum + 39 s build +
+  81 s solve).
+- This is the first **positivity-aware** feasibility result on the
+  closed K=8 graph. NOT yet a Collatz proof: still need (a) exact
+  rational re-verification (Iteration 069), (b) realised-trajectory
+  closure, (c) scaling to larger K.
+
 ## 2026-04-28 — Iteration 064 (positivity-domain theorem) — re-run
 
 - New module `verifiers/positivity_theorem.py`. Encodes:

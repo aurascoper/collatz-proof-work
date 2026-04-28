@@ -1,0 +1,27 @@
+{
+  "proof_state": "iteration_068_fixed_lambda_fuel_lp",
+  "K": 6,
+  "epsilon": 1e-09,
+  "rho_padding": 1e-06,
+  "lambda_global_float": 0.584963500721157,
+  "lambda_global_str": "584963500721157/1000000000000000",
+  "lambda_formula": "LOG2_3_UPPER - 1 + rho",
+  "log2_3_upper_rational": [
+    1584962500721157,
+    1000000000000000
+  ],
+  "state_model": "2-window edge state E = (r1, pi0, r2, pi1)",
+  "n_unique_states": 19519,
+  "n_unique_edges": 203615,
+  "scipy_status": 0,
+  "scipy_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "lp_feasible": true,
+  "elapsed_enum_seconds": null,
+  "elapsed_lp_build_seconds": 0.21326422691345215,
+  "elapsed_lp_solve_seconds": 0.4686310291290283,
+  "min_margin": 0.0,
+  "max_margin": 22.1894910070962,
+  "certificate_file": "certificates/iteration_068_certificate_K6.json",
+  "interpretation": "Fixed-lambda psi-only LP feasible at K=6. This demonstrates a positivity-aware descent certificate exists in the 2-window edge-state abstraction with lambda = log_2(3) - 1 + rho. NOT yet a Collatz proof; we still need: (a) exact rational re-verification of every constraint, (b) closing the abstraction gap via realized-trajectory verification, and (c) extending K to scale beyond 8.",
+  "total_elapsed_seconds": 1.4729030132293701
+}

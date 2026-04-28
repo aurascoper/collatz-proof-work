@@ -134,4 +134,13 @@ Environment variables:
   drift/S at log_2 3 - 1. Cycle-level only (not yet a global LP
   certificate); next iteration (068) tests whether a compatible
   state potential psi exists.
+- 2026-04-28 Iteration 068 (fixed-lambda psi-only LP): with
+  `lambda_global = LOG2_3_UPPER - 1 + 1e-6`, the LP `psi[E2] -
+  psi[E1] - lambda*S_edge <= -drift_edge - eps` is **FEASIBLE** at
+  both K=6 (19 519 states, 203 615 edges) AND K=8 (535 168 states,
+  12 711 807 edges) under HiGHS. min_margin essentially 0 (boundary
+  feasibility), max_margin 22-31. First positivity-aware feasibility
+  on the closed K=8 graph. NOT yet a Collatz proof: needs exact
+  rational re-verification (069), realised-trajectory closure, and K
+  scaling.
 
