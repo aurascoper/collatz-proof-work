@@ -1,0 +1,106 @@
+{
+  "proof_state": "run_cycle_engine_manifest",
+  "started_at_unix": 1777419648.275774,
+  "config": {
+    "root_dir": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine",
+    "rust_dir": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/rust",
+    "julia_dir": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/julia",
+    "t_min": 1,
+    "t_max": 36,
+    "primitive_only": true,
+    "run_tag": "T36",
+    "pipeline_mode": "072",
+    "analyzer_precision_bits": "768",
+    "analyzer_shortlist_size": "100"
+  },
+  "artifacts": {
+    "ndjson_out": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/out/periodic_T36.ndjson",
+    "rust_log": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/logs/rust_generate_T36.log",
+    "julia_log": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/logs/julia_pipeline_072_T36.log",
+    "proof_0725": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/proof_states/iteration_072_5_baker_interface_T36.json",
+    "open_ndjson": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/candidates/iteration_072_5_open_candidates_T36.ndjson",
+    "open_json": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/candidates/iteration_072_5_open_candidates_T36.json",
+    "proof_0726": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/proof_states/iteration_072_6_candidate_analyzer_T36.json"
+  },
+  "stages": {
+    "rust_generator": {
+      "cmd": [
+        "cargo",
+        "run",
+        "--release",
+        "--bin",
+        "cee_periodic_generate",
+        "--",
+        "--t-min",
+        "1",
+        "--t-max",
+        "36",
+        "--primitive-only",
+        "true",
+        "--output",
+        "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/out/periodic_T36.ndjson"
+      ],
+      "cwd": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/rust",
+      "returncode": 0,
+      "elapsed_seconds": 195.6592788696289,
+      "stdout_tail": "",
+      "stderr_tail": "d_style)]`) on by default\n\nwarning: structure field `S` should have a snake case name\n  --> src/record.rs:12:9\n   |\n12 |     pub S: u32,\n   |         ^ help: convert the identifier to snake case (notice the capitalization): `s`\n\nwarning: structure field `A_dec` should have a snake case name\n  --> src/record.rs:13:9\n   |\n13 |     pub A_dec: String,\n   |         ^^^^^ help: convert the identifier to snake case: `a_dec`\n\nwarning: structure field `B_dec` should have a snake case name\n  --> src/record.rs:14:9\n   |\n14 |     pub B_dec: String,\n   |         ^^^^^ help: convert the identifier to snake case: `b_dec`\n\nwarning: `cee_rust` (lib) generated 4 warnings\n    Finished `release` profile [optimized] target(s) in 0.17s\n     Running `target/release/cee_periodic_generate --t-min 1 --t-max 36 --primitive-only true --output /Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/out/periodic_T36.ndjson`\n[072] t_min=1 t_max=36 primitive_only=true output=/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/out/periodic_T36.ndjson\n  T=  1  cyclic_adm_words=         1  canonical=         1  emitted=         1\n  T=  2  cyclic_adm_words=         3  canonical=         2  emitted=         1\n  T=  3  cyclic_adm_words=         4  canonical=         2  emitted=         1\n  T=  4  cyclic_adm_words=         7  canonical=         3  emitted=         1\n  T=  5  cyclic_adm_words=        11  canonical=         3  emitted=         2\n  T=  6  cyclic_adm_words=        18  canonical=         5  emitted=         2\n  T=  7  cyclic_adm_words=        29  canonical=         5  emitted=         4\n  T=  8  cyclic_adm_words=        47  canonical=         8  emitted=         5\n  T=  9  cyclic_adm_words=        76  canonical=        10  emitted=         8\n  T= 10  cyclic_adm_words=       123  canonical=        15  emitted=        11\n  T= 11  cyclic_adm_words=       199  canonical=        19  emitted=        18\n  T= 12  cyclic_adm_words=       322  canonical=        31  emitted=        25\n  T= 13  cyclic_adm_words=       521  canonical=        41  emitted=        40\n  T= 14  cyclic_adm_words=       843  canonical=        64  emitted=        58\n  T= 15  cyclic_adm_words=      1364  canonical=        94  emitted=        90\n  T= 16  cyclic_adm_words=      2207  canonical=       143  emitted=       135\n  T= 17  cyclic_adm_words=      3571  canonical=       211  emitted=       210\n  T= 18  cyclic_adm_words=      5778  canonical=       329  emitted=       316\n  T= 19  cyclic_adm_words=      9349  canonical=       493  emitted=       492\n  T= 20  cyclic_adm_words=     15127  canonical=       766  emitted=       750\n  T= 21  cyclic_adm_words=     24476  canonical=      1170  emitted=      1164\n  T= 22  cyclic_adm_words=     39603  canonical=      1811  emitted=      1791\n  T= 23  cyclic_adm_words=     64079  canonical=      2787  emitted=      2786\n  T= 24  cyclic_adm_words=    103682  canonical=      4341  emitted=      4305\n  T= 25  cyclic_adm_words=    167761  canonical=      6713  emitted=      6710\n  T= 26  cyclic_adm_words=    271443  canonical=     10462  emitted=     10420\n  T= 27  cyclic_adm_words=    439204  canonical=     16274  emitted=     16264\n  T= 28  cyclic_adm_words=    710647  canonical=     25415  emitted=     25350\n  T= 29  cyclic_adm_words=   1149851  canonical=     39651  emitted=     39650\n  T= 30  cyclic_adm_words=   1860498  canonical=     62075  emitted=     61967\n  T= 31  cyclic_adm_words=   3010349  canonical=     97109  emitted=     97108\n  T= 32  cyclic_adm_words=   4870847  canonical=    152288  emitted=    152145\n  T= 33  cyclic_adm_words=   7881196  canonical=    238838  emitted=    238818\n  T= 34  cyclic_adm_words=  12752043  canonical=    375167  emitted=    374955\n  T= 35  cyclic_adm_words=  20633239  canonical=    589527  emitted=    589520\n  T= 36  cyclic_adm_words=  33385282  canonical=    927555  emitted=    927200\n[072] total: seen=87403800  canonical=2553428  emitted=2552323  (194.70s, 13.11e3 emit/s)\n",
+      "ok": true
+    },
+    "julia_pipeline": {
+      "cmd": [
+        "julia",
+        "--project=/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/julia",
+        "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/julia/scripts/run_072_5_and_072_6.jl"
+      ],
+      "cwd": "/Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine",
+      "returncode": 0,
+      "elapsed_seconds": 105.73777318000793,
+      "stdout_tail": "=== Iteration 072.5 ===\nInput NDJSON  : /Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/out/periodic_T36.ndjson\nProof-state   : /Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/proof_states/iteration_072_5_baker_interface_T36.json\nOpen NDJSON   : /Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/candidates/iteration_072_5_open_candidates_T36.ndjson\nOpen JSON     : /Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/candidates/iteration_072_5_open_candidates_T36.json\n072.5 summary:\n  T_max => 36\n  T_min => 1\n  classification_counts => Dict(\"EXCLUDED_BY_FINITE_VERIFICATION\" => 0, \"NON_POSITIVE_FIXED_POINT\" => 1, \"NON_INTEGER_FIXED_POINT\" => 2513649, \"OPEN_CANDIDATE\" => 0, \"EXCLUDED_BY_THEOREM\" => 0, \"NEGATIVE_OR_ZERO_DENOM\" => 38672, \"REALIZABLE_CANDIDATE\" => 0, \"REALIZABLE_TRIVIAL\" => 1)\n  nontrivial_realizable_candidates => 0\n  open_candidates => 0\n  primitive_words => 2552323\n  proof_state => iteration_072_5_baker_interface\n  theorem_config => Dict{String, Any}(\"oddstep_min_m_nontrivial\" => 92, \"oddstep_version\" => \"odd-step lower bound for non-trivial Collatz cycles\", \"oddstep_source\" => \"Hercher 2022 (arXiv:2201.00406)\", \"verified_bound\" => \"295147905179352825856\", \"oddstep_bound_enabled\" => true)\n  theorem_modules_enabled => [\"verified_bound\", \"oddstep_bound\"]\n  words_generated => 2552323\nExported OPEN_CANDIDATE rows: NDJSON=0 JSON=0\n\n=== Iteration 072.6 ===\nProof-state   : /Users/aurascoper/Downloads/collatz-proof-work/cycle_exclusion_engine/proof_states/iteration_072_6_candidate_analyzer_T36.json\nNo OPEN_CANDIDATE rows. Wrote empty analyzer proof_state.\n",
+      "stderr_tail": "  Activating project at `~/Downloads/collatz-proof-work/cycle_exclusion_engine/julia`\n",
+      "ok": true
+    }
+  },
+  "status": "ok",
+  "proof_0725_summary": {
+    "proof_state": "iteration_072_5_baker_interface",
+    "T_min": 1,
+    "open_candidates": 0,
+    "T_max": 36,
+    "theorem_modules_enabled": [
+      "verified_bound",
+      "oddstep_bound"
+    ],
+    "primitive_words": 2552323,
+    "words_generated": 2552323,
+    "theorem_config": {
+      "oddstep_min_m_nontrivial": 92,
+      "oddstep_version": "odd-step lower bound for non-trivial Collatz cycles",
+      "oddstep_source": "Hercher 2022 (arXiv:2201.00406)",
+      "verified_bound": "295147905179352825856",
+      "oddstep_bound_enabled": true
+    },
+    "nontrivial_realizable_candidates": 0,
+    "classification_counts": {
+      "EXCLUDED_BY_FINITE_VERIFICATION": 0,
+      "NON_POSITIVE_FIXED_POINT": 1,
+      "NON_INTEGER_FIXED_POINT": 2513649,
+      "OPEN_CANDIDATE": 0,
+      "EXCLUDED_BY_THEOREM": 0,
+      "NEGATIVE_OR_ZERO_DENOM": 38672,
+      "REALIZABLE_CANDIDATE": 0,
+      "REALIZABLE_TRIVIAL": 1
+    }
+  },
+  "proof_0726_summary": {
+    "n_candidates": 0,
+    "proof_state": "iteration_072_6_candidate_analyzer",
+    "rows": [],
+    "ranking_metric": "ascending delta = |m*log(3) - S*log(2)|",
+    "precision_bits": 768,
+    "shortlist": [],
+    "shortlist_size": 0
+  },
+  "finished_at_unix": 1777419975.749845,
+  "total_elapsed_seconds": 327.4740710258484
+}

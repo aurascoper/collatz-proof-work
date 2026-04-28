@@ -464,6 +464,40 @@
   log-bonus, or (c) restrict to large-n trajectories (n > some
   threshold N0) where excess is provably small.
 
+## 2026-04-28 — Iteration 073 (T<=36 full periodic scan)
+
+- Used the cycle_exclusion_engine pipeline (Rust generator + Julia
+  072.5 theorem layer + 072.6 analyzer) end-to-end at T_max = 36.
+- Primitive cyclically-admissible periodic words generated: **2 552 323**.
+- Classification:
+    NON_INTEGER_FIXED_POINT      : 2 513 649  (98.5 %)
+    NEGATIVE_OR_ZERO_DENOM       :    38 672  ( 1.5 %)
+    NON_POSITIVE_FIXED_POINT     :         1
+    REALIZABLE_TRIVIAL           :         1  (canonical "001", n=4)
+    REALIZABLE_CANDIDATE         :         0
+    EXCLUDED_BY_FINITE_VERIFICATION:        0
+    EXCLUDED_BY_THEOREM          :         0
+    OPEN_CANDIDATE               :         0
+- Runtime: 327 s total (Rust 195.66 s + Julia 105.74 s).
+- Proof_state: `proof_states/iteration_073_periodic_cycle_engine_T36.json`.
+- Manifest:    `proof_states/iteration_073_manifest_T36.json`.
+- Outcome: ideal -- no nontrivial cycle survives at T <= 36, no
+  candidate even reaches the Hercher m >= 92 layer at this scale.
+  Theorem layer correctly inactive (all artefacts excluded
+  structurally before the theorem dispatcher).
+
+## 2026-04-28 — Iteration 074 (theorem-only mode)
+
+- New driver: `cycle_exclusion_engine/julia/scripts/run_074.jl`.
+- Patch to `cycle_exclusion_engine/scripts/run_cycle_engine.py` adding
+  `CEE_PIPELINE_MODE` flag with values "072" (default) or "074".
+- 074 mode runs only the theorem layer (no candidate analyzer); writes
+  `iteration_074_theorem_layer_<tag>.json` and matching open-candidate
+  exports.
+- Verified at T <= 24: same 1 REALIZABLE_TRIVIAL + 0 OPEN_CANDIDATE
+  result as 072 mode. Manifest:
+  `proof_states/iteration_074_manifest_T24.json`.
+
 ## 2026-04-28 — Iteration 064 (positivity-domain theorem) — re-run
 
 - New module `verifiers/positivity_theorem.py`. Encodes:

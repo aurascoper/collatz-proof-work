@@ -173,4 +173,14 @@ Environment variables:
   certificate is asymptotic / large-n; it doesn't survive worst-case
   small-n behavior. Path forward: bound small-n separately or use a
   state-dependent fuel correction.
+- 2026-04-28 Iteration 073 (T<=36 full periodic scan): processed
+  **2 552 323 primitive cyclically-admissible periodic words** through
+  the Cycle Exclusion Engine end-to-end. Result: 1 REALIZABLE_TRIVIAL,
+  0 OPEN_CANDIDATE, 0 nontrivial Collatz cycles. Runtime 327 s
+  (Rust 196 s + Julia 106 s). Theorem layer correctly inactive (no
+  candidate reached Hercher m >= 92).
+- 2026-04-28 Iteration 074 (theorem-only driver): new
+  `run_074.jl` and dual-mode Python runner (`CEE_PIPELINE_MODE` in
+  {"072", "074"}). At T<=24 the theorem-only mode reproduces the
+  072.5 result with provenance.
 

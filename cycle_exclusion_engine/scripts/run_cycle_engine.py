@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Top-level Python runner with manifest. Runs Rust generator + Julia
-072.5+072.6 pipeline, captures timings and exit codes, writes a single
-machine-readable manifest JSON suitable for downstream tooling."""
+072.5+072.6 pipeline OR Julia 074 theorem-only pipeline (selectable
+via CEE_PIPELINE_MODE in {"072", "074"}). Captures timings and exit
+codes, writes a single machine-readable manifest JSON suitable for
+downstream tooling."""
 
 from __future__ import annotations
 
@@ -61,6 +63,12 @@ def env_bool(name: str, default: bool) -> bool:
 
 def main() -> int:
     t0 = time.time()
+    pipeline_mode = env_str("CEE_PIPELINE_MODE", "072").strip()
+    if pipeline_mode not in {"072", "074"}:
+        print(f"Unsupported CEE_PIPELINE_MODE={pipeline_mode!r}; "
+              f"expected '072' or '074'", file=sys.stderr)
+        return 2
+
     root_dir = Path(env_str("ROOT_DIR", str(Path(__file__).resolve().parents[1])))
     rust_dir = Path(env_str("RUST_DIR", str(root_dir / "rust")))
     julia_dir = Path(env_str("JULIA_DIR", str(root_dir / "julia")))
@@ -79,6 +87,8 @@ def main() -> int:
         d.mkdir(parents=True, exist_ok=True)
 
     ndjson_out = Path(env_str("NDJSON_OUT", str(out_dir / f"periodic_{run_tag}.ndjson")))
+
+    # 072-mode artefacts
     proof_0725 = Path(env_str("PROOF_0725",
                               str(proof_dir / f"iteration_072_5_baker_interface_{run_tag}.json")))
     open_ndjson = Path(env_str("OPEN_NDJSON",
@@ -87,10 +97,19 @@ def main() -> int:
                              str(cand_dir / f"iteration_072_5_open_candidates_{run_tag}.json")))
     proof_0726 = Path(env_str("PROOF_0726",
                               str(proof_dir / f"iteration_072_6_candidate_analyzer_{run_tag}.json")))
+
+    # 074-mode artefacts
+    proof_074 = Path(env_str("PROOF_074",
+                             str(proof_dir / f"iteration_074_theorem_layer_{run_tag}.json")))
+    open_ndjson_074 = Path(env_str("OPEN_NDJSON_074",
+                                   str(cand_dir / f"iteration_074_open_candidates_{run_tag}.ndjson")))
+    open_json_074 = Path(env_str("OPEN_JSON_074",
+                                 str(cand_dir / f"iteration_074_open_candidates_{run_tag}.json")))
+
     rust_log = Path(env_str("RUST_LOG", str(log_dir / f"rust_generate_{run_tag}.log")))
-    julia_log = Path(env_str("JULIA_LOG", str(log_dir / f"julia_pipeline_{run_tag}.log")))
+    julia_log = Path(env_str("JULIA_LOG", str(log_dir / f"julia_pipeline_{pipeline_mode}_{run_tag}.log")))
     manifest_path = Path(env_str("MANIFEST_PATH",
-                                 str(manifest_dir / f"run_cycle_engine_{run_tag}.json")))
+                                 str(manifest_dir / f"run_cycle_engine_{pipeline_mode}_{run_tag}.json")))
     analyzer_precision_bits = env_str("ANALYZER_PRECISION_BITS", "512")
     analyzer_shortlist_size = env_str("ANALYZER_SHORTLIST_SIZE", "50")
 
@@ -105,20 +124,30 @@ def main() -> int:
             "t_max": t_max,
             "primitive_only": primitive_only,
             "run_tag": run_tag,
+            "pipeline_mode": pipeline_mode,
             "analyzer_precision_bits": analyzer_precision_bits,
             "analyzer_shortlist_size": analyzer_shortlist_size,
         },
         "artifacts": {
             "ndjson_out": str(ndjson_out),
-            "proof_0725": str(proof_0725),
-            "open_ndjson": str(open_ndjson),
-            "open_json": str(open_json),
-            "proof_0726": str(proof_0726),
             "rust_log": str(rust_log),
             "julia_log": str(julia_log),
         },
         "stages": {},
     }
+    if pipeline_mode == "072":
+        manifest["artifacts"].update({
+            "proof_0725": str(proof_0725),
+            "open_ndjson": str(open_ndjson),
+            "open_json": str(open_json),
+            "proof_0726": str(proof_0726),
+        })
+    else:
+        manifest["artifacts"].update({
+            "proof_074": str(proof_074),
+            "open_ndjson": str(open_ndjson_074),
+            "open_json": str(open_json_074),
+        })
 
     # Stage 1: Rust generator
     rust_cmd = [
@@ -139,20 +168,29 @@ def main() -> int:
         print(f"Rust stage failed. Manifest: {manifest_path}", file=sys.stderr)
         return 1
 
-    # Stage 2: Julia driver
+    # Stage 2: Julia driver (mode-dependent)
     julia_env = os.environ.copy()
-    julia_env.update({
-        "CEE_PERIODIC_INPUT": str(ndjson_out),
-        "CEE_0725_PROOFSTATE": str(proof_0725),
-        "CEE_OPEN_CANDIDATES_NDJSON": str(open_ndjson),
-        "CEE_OPEN_CANDIDATES_JSON": str(open_json),
-        "CEE_0726_PROOFSTATE": str(proof_0726),
-        "CEE_ANALYZER_PRECISION_BITS": analyzer_precision_bits,
-        "CEE_ANALYZER_SHORTLIST_SIZE": analyzer_shortlist_size,
-    })
+    julia_env["CEE_PERIODIC_INPUT"] = str(ndjson_out)
+    if pipeline_mode == "072":
+        julia_env.update({
+            "CEE_0725_PROOFSTATE": str(proof_0725),
+            "CEE_OPEN_CANDIDATES_NDJSON": str(open_ndjson),
+            "CEE_OPEN_CANDIDATES_JSON": str(open_json),
+            "CEE_0726_PROOFSTATE": str(proof_0726),
+            "CEE_ANALYZER_PRECISION_BITS": analyzer_precision_bits,
+            "CEE_ANALYZER_SHORTLIST_SIZE": analyzer_shortlist_size,
+        })
+        julia_script = julia_dir / "scripts" / "run_072_5_and_072_6.jl"
+    else:
+        julia_env.update({
+            "CEE_074_PROOFSTATE": str(proof_074),
+            "CEE_074_OPEN_NDJSON": str(open_ndjson_074),
+            "CEE_074_OPEN_JSON": str(open_json_074),
+        })
+        julia_script = julia_dir / "scripts" / "run_074.jl"
+
     julia_cmd = [
-        "julia", f"--project={julia_dir}",
-        str(julia_dir / "scripts" / "run_072_5_and_072_6.jl"),
+        "julia", f"--project={julia_dir}", str(julia_script),
     ]
     manifest["stages"]["julia_pipeline"] = run_cmd(
         julia_cmd, cwd=root_dir, env=julia_env, log_path=julia_log,
@@ -161,14 +199,17 @@ def main() -> int:
     if not manifest["stages"]["julia_pipeline"]["ok"]:
         manifest["failed_stage"] = "julia_pipeline"
 
-    # Pull proof_state summaries if present. Some artefacts nest the
-    # summary under "proof_state" (072.5 layout); others put the
-    # iteration label as the "proof_state" value with the summary at
-    # the top level (072.6 layout). Handle both.
-    for key, path in {
-        "proof_0725_summary": proof_0725,
-        "proof_0726_summary": proof_0726,
-    }.items():
+    # Pull proof_state summaries (handle both nested and flat layouts)
+    if pipeline_mode == "072":
+        summary_paths = {
+            "proof_0725_summary": proof_0725,
+            "proof_0726_summary": proof_0726,
+        }
+    else:
+        summary_paths = {
+            "proof_074_summary": proof_074,
+        }
+    for key, path in summary_paths.items():
         if path.exists():
             try:
                 data = json.loads(path.read_text())
@@ -184,6 +225,7 @@ def main() -> int:
     print(json.dumps({
         "status": manifest["status"],
         "run_tag": run_tag,
+        "pipeline_mode": pipeline_mode,
         "manifest_path": str(manifest_path),
         "total_elapsed_seconds": manifest["total_elapsed_seconds"],
     }, indent=2))
