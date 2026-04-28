@@ -1,0 +1,6613 @@
+{
+  "proof_state": "iteration_063_artifact_aware_cegis",
+  "K": 8,
+  "epsilon": 0.01,
+  "max_rounds": 50,
+  "n_rounds_executed": 50,
+  "final_status": "max_rounds_reached",
+  "n_non_realizable_cycles_cut": 50,
+  "any_realizable_positive_integer_cycle": false,
+  "lp_became_feasible_after_cutting_only_non_realizable_cycles": false,
+  "classification_histogram": {
+    "non_realizable_negative_or_zero_denom": 50
+  },
+  "rounds": [
+    {
+      "round": 0,
+      "n_active_edges": 12725664,
+      "n_blocked_edges": 0,
+      "lp_build_seconds": 2.3532679080963135,
+      "lp_solve_seconds": 52.6088330745697,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.70997190475464,
+      "witness_extracted": true,
+      "cycle_length": 1,
+      "cycle_total_drift": 2.3398500028846243,
+      "cycle_total_depth_effect": -4,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -65,
+      "A_3_to_m": 81,
+      "B_value": 65,
+      "S_total_divisions": 4,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 1
+    },
+    {
+      "round": 1,
+      "n_active_edges": 12725663,
+      "n_blocked_edges": 1,
+      "lp_build_seconds": 1.965879201889038,
+      "lp_solve_seconds": 54.735105991363525,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.388736963272095,
+      "witness_extracted": true,
+      "cycle_length": 1,
+      "cycle_total_drift": 2.3398500028846243,
+      "cycle_total_depth_effect": -4,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -65,
+      "A_3_to_m": 81,
+      "B_value": 130,
+      "S_total_divisions": 4,
+      "cuts": [
+        {
+          "E1": [
+            254,
+            85,
+            254,
+            85
+          ],
+          "E2": [
+            254,
+            85,
+            254,
+            85
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 1
+    },
+    {
+      "round": 2,
+      "n_active_edges": 12725662,
+      "n_blocked_edges": 2,
+      "lp_build_seconds": 1.250199794769287,
+      "lp_solve_seconds": 52.15764498710632,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.542800903320312,
+      "witness_extracted": true,
+      "cycle_length": 6,
+      "cycle_total_drift": 11.45413751658659,
+      "cycle_total_depth_effect": -4,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -94109624395,
+      "A_3_to_m": 94143178827,
+      "B_value": 244177668518,
+      "S_total_divisions": 25,
+      "cuts": [
+        {
+          "E1": [
+            206,
+            85,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            84,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            239,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            239,
+            170
+          ],
+          "E2": [
+            239,
+            170,
+            254,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            170,
+            254,
+            170
+          ],
+          "E2": [
+            254,
+            170,
+            206,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            254,
+            170,
+            206,
+            85
+          ],
+          "E2": [
+            206,
+            85,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 9
+    },
+    {
+      "round": 3,
+      "n_active_edges": 12725653,
+      "n_blocked_edges": 11,
+      "lp_build_seconds": 1.6031699180603027,
+      "lp_solve_seconds": 60.08370804786682,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 25.05043315887451,
+      "witness_extracted": true,
+      "cycle_length": 12,
+      "cycle_total_drift": 22.90827503317318,
+      "cycle_total_depth_effect": -6,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -8862936993752594253305,
+      "A_3_to_m": 8862938119652501095929,
+      "B_value": 25609178210413349412730,
+      "S_total_divisions": 50,
+      "cuts": [
+        {
+          "E1": [
+            54,
+            85,
+            255,
+            82
+          ],
+          "E2": [
+            255,
+            82,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            82,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            103,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            170,
+            103,
+            170
+          ],
+          "E2": [
+            103,
+            170,
+            254,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            103,
+            170,
+            254,
+            169
+          ],
+          "E2": [
+            254,
+            169,
+            206,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            254,
+            169,
+            206,
+            85
+          ],
+          "E2": [
+            206,
+            85,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            206,
+            85,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            239,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            84,
+            239,
+            170
+          ],
+          "E2": [
+            239,
+            170,
+            254,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            170,
+            254,
+            170
+          ],
+          "E2": [
+            254,
+            170,
+            126,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            254,
+            170,
+            126,
+            85
+          ],
+          "E2": [
+            126,
+            85,
+            54,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            126,
+            85,
+            54,
+            85
+          ],
+          "E2": [
+            54,
+            85,
+            255,
+            82
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 15
+    },
+    {
+      "round": 4,
+      "n_active_edges": 12725638,
+      "n_blocked_edges": 26,
+      "lp_build_seconds": 1.7663869857788086,
+      "lp_solve_seconds": 57.72737908363342,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.57291603088379,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 2382891958,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            254,
+            170,
+            62,
+            85
+          ],
+          "E2": [
+            62,
+            85,
+            82,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            62,
+            85,
+            82,
+            85
+          ],
+          "E2": [
+            82,
+            85,
+            255,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            85,
+            255,
+            74
+          ],
+          "E2": [
+            255,
+            74,
+            239,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            74,
+            239,
+            170
+          ],
+          "E2": [
+            239,
+            170,
+            254,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            170,
+            254,
+            170
+          ],
+          "E2": [
+            254,
+            170,
+            62,
+            85
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 5,
+      "n_active_edges": 12725633,
+      "n_blocked_edges": 31,
+      "lp_build_seconds": 1.7309350967407227,
+      "lp_solve_seconds": 58.5199990272522,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 25.252264261245728,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 2413125046,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            254,
+            170,
+            222,
+            85
+          ],
+          "E2": [
+            222,
+            85,
+            252,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            222,
+            85,
+            252,
+            85
+          ],
+          "E2": [
+            252,
+            85,
+            255,
+            42
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            252,
+            85,
+            255,
+            42
+          ],
+          "E2": [
+            255,
+            42,
+            239,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            42,
+            239,
+            170
+          ],
+          "E2": [
+            239,
+            170,
+            254,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            170,
+            254,
+            170
+          ],
+          "E2": [
+            254,
+            170,
+            222,
+            85
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 6,
+      "n_active_edges": 12725628,
+      "n_blocked_edges": 36,
+      "lp_build_seconds": 1.5395400524139404,
+      "lp_solve_seconds": 68.3762309551239,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.289749145507812,
+      "witness_extracted": true,
+      "cycle_length": 3,
+      "cycle_total_drift": 4.434587507932717,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -168955,
+      "A_3_to_m": 177147,
+      "B_value": 377206,
+      "S_total_divisions": 13,
+      "cuts": [
+        {
+          "E1": [
+            126,
+            170,
+            54,
+            85
+          ],
+          "E2": [
+            54,
+            85,
+            239,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            85,
+            239,
+            82
+          ],
+          "E2": [
+            239,
+            82,
+            126,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            82,
+            126,
+            170
+          ],
+          "E2": [
+            126,
+            170,
+            54,
+            85
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 3
+    },
+    {
+      "round": 7,
+      "n_active_edges": 12725625,
+      "n_blocked_edges": 39,
+      "lp_build_seconds": 1.3651130199432373,
+      "lp_solve_seconds": 51.02434206008911,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.895936012268066,
+      "witness_extracted": true,
+      "cycle_length": 7,
+      "cycle_total_drift": 11.209025018750058,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -2540792086505,
+      "A_3_to_m": 2541865828329,
+      "B_value": 6627854156930,
+      "S_total_divisions": 30,
+      "cuts": [
+        {
+          "E1": [
+            206,
+            170,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            84,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            103,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            170,
+            103,
+            170
+          ],
+          "E2": [
+            103,
+            170,
+            126,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            103,
+            170,
+            126,
+            169
+          ],
+          "E2": [
+            126,
+            169,
+            54,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            126,
+            169,
+            54,
+            85
+          ],
+          "E2": [
+            54,
+            85,
+            239,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            85,
+            239,
+            82
+          ],
+          "E2": [
+            239,
+            82,
+            206,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            82,
+            206,
+            170
+          ],
+          "E2": [
+            206,
+            170,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 7
+    },
+    {
+      "round": 8,
+      "n_active_edges": 12725618,
+      "n_blocked_edges": 46,
+      "lp_build_seconds": 1.7356359958648682,
+      "lp_solve_seconds": 47.55397868156433,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.269222021102905,
+      "witness_extracted": true,
+      "cycle_length": 19,
+      "cycle_total_drift": 31.53233755120209,
+      "cycle_total_depth_effect": -5,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -7509466512561873164717457608845195,
+      "A_3_to_m": 7509466514979724803946715958257547,
+      "B_value": 7770177469448112624696593366466443,
+      "S_total_divisions": 81,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            84,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "E2": [
+            255,
+            168,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            168,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            27,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            170,
+            27,
+            170
+          ],
+          "E2": [
+            27,
+            170,
+            126,
+            165
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            27,
+            170,
+            126,
+            165
+          ],
+          "E2": [
+            126,
+            165,
+            54,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            126,
+            165,
+            54,
+            85
+          ],
+          "E2": [
+            54,
+            85,
+            239,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            85,
+            239,
+            82
+          ],
+          "E2": [
+            239,
+            82,
+            62,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            82,
+            62,
+            170
+          ],
+          "E2": [
+            62,
+            170,
+            82,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            62,
+            170,
+            82,
+            85
+          ],
+          "E2": [
+            82,
+            85,
+            239,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            85,
+            239,
+            74
+          ],
+          "E2": [
+            239,
+            74,
+            126,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            74,
+            126,
+            170
+          ],
+          "E2": [
+            126,
+            170,
+            54,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            126,
+            170,
+            54,
+            85
+          ],
+          "E2": [
+            54,
+            85,
+            127,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            85,
+            127,
+            82
+          ],
+          "E2": [
+            127,
+            82,
+            103,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            82,
+            103,
+            170
+          ],
+          "E2": [
+            103,
+            170,
+            206,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            103,
+            170,
+            206,
+            169
+          ],
+          "E2": [
+            206,
+            169,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            206,
+            169,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 22
+    },
+    {
+      "round": 9,
+      "n_active_edges": 12725596,
+      "n_blocked_edges": 68,
+      "lp_build_seconds": 1.1855669021606445,
+      "lp_solve_seconds": 48.78079104423523,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 21.8522629737854,
+      "witness_extracted": true,
+      "cycle_length": 7,
+      "cycle_total_drift": 11.209025018750058,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -2540792086505,
+      "A_3_to_m": 2541865828329,
+      "B_value": 5793064332434,
+      "S_total_divisions": 30,
+      "cuts": [
+        {
+          "E1": [
+            62,
+            170,
+            82,
+            85
+          ],
+          "E2": [
+            82,
+            85,
+            127,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            85,
+            127,
+            74
+          ],
+          "E2": [
+            127,
+            74,
+            103,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            74,
+            103,
+            170
+          ],
+          "E2": [
+            103,
+            170,
+            62,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            103,
+            170,
+            62,
+            169
+          ],
+          "E2": [
+            62,
+            169,
+            82,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            62,
+            169,
+            82,
+            85
+          ],
+          "E2": [
+            82,
+            85,
+            239,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            85,
+            239,
+            74
+          ],
+          "E2": [
+            239,
+            74,
+            62,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            74,
+            62,
+            170
+          ],
+          "E2": [
+            62,
+            170,
+            82,
+            85
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 7
+    },
+    {
+      "round": 10,
+      "n_active_edges": 12725589,
+      "n_blocked_edges": 75,
+      "lp_build_seconds": 1.0087039470672607,
+      "lp_solve_seconds": 50.91242814064026,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.18793487548828,
+      "witness_extracted": true,
+      "cycle_length": 7,
+      "cycle_total_drift": 11.209025018750058,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -2540792086505,
+      "A_3_to_m": 2541865828329,
+      "B_value": 6647306847362,
+      "S_total_divisions": 30,
+      "cuts": [
+        {
+          "E1": [
+            206,
+            170,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            84,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            27,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            170,
+            27,
+            170
+          ],
+          "E2": [
+            27,
+            170,
+            62,
+            165
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            27,
+            170,
+            62,
+            165
+          ],
+          "E2": [
+            62,
+            165,
+            82,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            62,
+            165,
+            82,
+            85
+          ],
+          "E2": [
+            82,
+            85,
+            239,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            85,
+            239,
+            74
+          ],
+          "E2": [
+            239,
+            74,
+            206,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            74,
+            206,
+            170
+          ],
+          "E2": [
+            206,
+            170,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 7
+    },
+    {
+      "round": 11,
+      "n_active_edges": 12725582,
+      "n_blocked_edges": 82,
+      "lp_build_seconds": 1.3156349658966064,
+      "lp_solve_seconds": 55.618793964385986,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.98604416847229,
+      "witness_extracted": true,
+      "cycle_length": 18,
+      "cycle_total_drift": 29.19248754831746,
+      "cycle_total_depth_effect": -4,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -92709462996782109633933278572315,
+      "A_3_to_m": 92709463147897837085761925410587,
+      "B_value": 207930826060439751438401649018806,
+      "S_total_divisions": 77,
+      "cuts": [
+        {
+          "E1": [
+            126,
+            149,
+            54,
+            85
+          ],
+          "E2": [
+            54,
+            85,
+            239,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            85,
+            239,
+            82
+          ],
+          "E2": [
+            239,
+            82,
+            222,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            82,
+            222,
+            170
+          ],
+          "E2": [
+            222,
+            170,
+            252,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            222,
+            170,
+            252,
+            85
+          ],
+          "E2": [
+            252,
+            85,
+            239,
+            42
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            252,
+            85,
+            239,
+            42
+          ],
+          "E2": [
+            239,
+            42,
+            126,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            42,
+            126,
+            170
+          ],
+          "E2": [
+            126,
+            170,
+            54,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            126,
+            170,
+            54,
+            85
+          ],
+          "E2": [
+            54,
+            85,
+            103,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            85,
+            103,
+            82
+          ],
+          "E2": [
+            103,
+            82,
+            206,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            103,
+            82,
+            206,
+            169
+          ],
+          "E2": [
+            206,
+            169,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            206,
+            169,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            84,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            255,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            255,
+            164
+          ],
+          "E2": [
+            255,
+            164,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            164,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            169,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            169,
+            170
+          ],
+          "E2": [
+            169,
+            170,
+            126,
+            149
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            169,
+            170,
+            126,
+            149
+          ],
+          "E2": [
+            126,
+            149,
+            54,
+            85
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 21
+    },
+    {
+      "round": 12,
+      "n_active_edges": 12725561,
+      "n_blocked_edges": 103,
+      "lp_build_seconds": 1.472956895828247,
+      "lp_solve_seconds": 50.665355920791626,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.00937509536743,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": -6,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 1172108251,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            63,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            63,
+            170
+          ],
+          "E2": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            255,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            255,
+            162
+          ],
+          "E2": [
+            255,
+            162,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            162,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 8
+    },
+    {
+      "round": 13,
+      "n_active_edges": 12725553,
+      "n_blocked_edges": 111,
+      "lp_build_seconds": 1.6361539363861084,
+      "lp_solve_seconds": 48.70024394989014,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.15061092376709,
+      "witness_extracted": true,
+      "cycle_length": 4,
+      "cycle_total_drift": 6.774437510817341,
+      "cycle_total_depth_effect": -1,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -14217835,
+      "A_3_to_m": 14348907,
+      "B_value": 17787019,
+      "S_total_divisions": 17,
+      "cuts": [
+        {
+          "E1": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            255,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            255,
+            148
+          ],
+          "E2": [
+            255,
+            148,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            148,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 7
+    },
+    {
+      "round": 14,
+      "n_active_edges": 12725546,
+      "n_blocked_edges": 118,
+      "lp_build_seconds": 1.0024209022521973,
+      "lp_solve_seconds": 46.92849683761597,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.62829279899597,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": -5,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 1174098907,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            31,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            31,
+            170
+          ],
+          "E2": [
+            31,
+            170,
+            225,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            31,
+            170,
+            225,
+            170
+          ],
+          "E2": [
+            225,
+            170,
+            255,
+            146
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            225,
+            170,
+            255,
+            146
+          ],
+          "E2": [
+            255,
+            146,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            146,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 8
+    },
+    {
+      "round": 15,
+      "n_active_edges": 12725538,
+      "n_blocked_edges": 126,
+      "lp_build_seconds": 0.9559159278869629,
+      "lp_solve_seconds": 48.22984504699707,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.379272937774658,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": -4,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 1178080219,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            223,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            223,
+            170
+          ],
+          "E2": [
+            223,
+            170,
+            253,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            223,
+            170,
+            253,
+            170
+          ],
+          "E2": [
+            253,
+            170,
+            255,
+            138
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            253,
+            170,
+            255,
+            138
+          ],
+          "E2": [
+            255,
+            138,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            138,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 8
+    },
+    {
+      "round": 16,
+      "n_active_edges": 12725530,
+      "n_blocked_edges": 134,
+      "lp_build_seconds": 1.0794289112091064,
+      "lp_solve_seconds": 49.068394899368286,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.08852219581604,
+      "witness_extracted": true,
+      "cycle_length": 10,
+      "cycle_total_drift": 15.643612526682775,
+      "cycle_total_depth_effect": -2,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -450275109797975155,
+      "A_3_to_m": 450283905890997363,
+      "B_value": 460175087095332979,
+      "S_total_divisions": 43,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            168,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            27,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            170,
+            27,
+            170
+          ],
+          "E2": [
+            27,
+            170,
+            206,
+            165
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            27,
+            170,
+            206,
+            165
+          ],
+          "E2": [
+            206,
+            165,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            206,
+            165,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            84,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            127,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            127,
+            168
+          ],
+          "E2": [
+            127,
+            168,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            168,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "E2": [
+            255,
+            168,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 13
+    },
+    {
+      "round": 17,
+      "n_active_edges": 12725517,
+      "n_blocked_edges": 147,
+      "lp_build_seconds": 0.8889620304107666,
+      "lp_solve_seconds": 51.65154695510864,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.744678258895874,
+      "witness_extracted": true,
+      "cycle_length": 10,
+      "cycle_total_drift": 15.643612526682775,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -450275109797975155,
+      "A_3_to_m": 450283905890997363,
+      "B_value": 464084089554384499,
+      "S_total_divisions": 43,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            168,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            169,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            169,
+            170
+          ],
+          "E2": [
+            169,
+            170,
+            206,
+            149
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            169,
+            170,
+            206,
+            149
+          ],
+          "E2": [
+            206,
+            149,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            206,
+            149,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            84,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            127,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            127,
+            164
+          ],
+          "E2": [
+            127,
+            164,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            164,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "E2": [
+            255,
+            168,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 13
+    },
+    {
+      "round": 18,
+      "n_active_edges": 12725504,
+      "n_blocked_edges": 160,
+      "lp_build_seconds": 1.3390982151031494,
+      "lp_solve_seconds": 51.9165313243866,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.980347871780396,
+      "witness_extracted": true,
+      "cycle_length": 4,
+      "cycle_total_drift": 6.774437510817341,
+      "cycle_total_depth_effect": 1,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -14217835,
+      "A_3_to_m": 14348907,
+      "B_value": 18731803,
+      "S_total_divisions": 17,
+      "cuts": [
+        {
+          "E1": [
+            239,
+            170,
+            206,
+            170
+          ],
+          "E2": [
+            206,
+            170,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            206,
+            170,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            84,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            239,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            239,
+            170
+          ],
+          "E2": [
+            239,
+            170,
+            206,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 7
+    },
+    {
+      "round": 19,
+      "n_active_edges": 12725497,
+      "n_blocked_edges": 167,
+      "lp_build_seconds": 1.3860218524932861,
+      "lp_solve_seconds": 61.98971104621887,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 25.813907861709595,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 501188105,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            127,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            127,
+            162
+          ],
+          "E2": [
+            127,
+            162,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            162,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "E2": [
+            255,
+            168,
+            63,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            168,
+            63,
+            170
+          ],
+          "E2": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 20,
+      "n_active_edges": 12725492,
+      "n_blocked_edges": 172,
+      "lp_build_seconds": 1.6399807929992676,
+      "lp_solve_seconds": 62.154051065444946,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.377448797225952,
+      "witness_extracted": true,
+      "cycle_length": 10,
+      "cycle_total_drift": 13.058650025961619,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -150077043110954705,
+      "A_3_to_m": 150094635296999121,
+      "B_value": 184100161832985425,
+      "S_total_divisions": 44,
+      "cuts": [
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            191,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            191,
+            168
+          ],
+          "E2": [
+            191,
+            168,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            168,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            255,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            255,
+            164
+          ],
+          "E2": [
+            255,
+            164,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            164,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            127,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            127,
+            148
+          ],
+          "E2": [
+            127,
+            148,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            148,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "E2": [
+            255,
+            168,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            168,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 10
+    },
+    {
+      "round": 21,
+      "n_active_edges": 12725482,
+      "n_blocked_edges": 182,
+      "lp_build_seconds": 1.6904220581054688,
+      "lp_solve_seconds": 56.87653398513794,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.483638048171997,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 481167497,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            191,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            191,
+            164
+          ],
+          "E2": [
+            191,
+            164,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            164,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            255,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            255,
+            164
+          ],
+          "E2": [
+            255,
+            164,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            164,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 22,
+      "n_active_edges": 12725477,
+      "n_blocked_edges": 187,
+      "lp_build_seconds": 2.045506238937378,
+      "lp_solve_seconds": 54.25623106956482,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 25.550702810287476,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 503842313,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            191,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            191,
+            162
+          ],
+          "E2": [
+            191,
+            162,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            162,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            255,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            255,
+            164
+          ],
+          "E2": [
+            255,
+            164,
+            63,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            164,
+            63,
+            170
+          ],
+          "E2": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 23,
+      "n_active_edges": 12725472,
+      "n_blocked_edges": 192,
+      "lp_build_seconds": 1.0107510089874268,
+      "lp_solve_seconds": 51.51145911216736,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.758826971054077,
+      "witness_extracted": true,
+      "cycle_length": 10,
+      "cycle_total_drift": 13.058650025961619,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -150077043110954705,
+      "A_3_to_m": 150094635296999121,
+      "B_value": 186167883510752081,
+      "S_total_divisions": 44,
+      "cuts": [
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            63,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            63,
+            168
+          ],
+          "E2": [
+            63,
+            168,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            63,
+            168,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            255,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            255,
+            162
+          ],
+          "E2": [
+            255,
+            162,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            162,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            191,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            191,
+            148
+          ],
+          "E2": [
+            191,
+            148,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            148,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            255,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            255,
+            164
+          ],
+          "E2": [
+            255,
+            164,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            164,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 10
+    },
+    {
+      "round": 24,
+      "n_active_edges": 12725462,
+      "n_blocked_edges": 202,
+      "lp_build_seconds": 1.2248640060424805,
+      "lp_solve_seconds": 52.2340669631958,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.6843478679657,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 486475913,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            63,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            63,
+            164
+          ],
+          "E2": [
+            63,
+            164,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            63,
+            164,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            255,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            255,
+            162
+          ],
+          "E2": [
+            255,
+            162,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            162,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 25,
+      "n_active_edges": 12725457,
+      "n_blocked_edges": 207,
+      "lp_build_seconds": 1.541006088256836,
+      "lp_solve_seconds": 52.86962270736694,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 26.0075740814209,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 509150729,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            63,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            63,
+            162
+          ],
+          "E2": [
+            63,
+            162,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            63,
+            162,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            255,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            255,
+            162
+          ],
+          "E2": [
+            255,
+            162,
+            63,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            162,
+            63,
+            170
+          ],
+          "E2": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 26,
+      "n_active_edges": 12725452,
+      "n_blocked_edges": 212,
+      "lp_build_seconds": 1.8263890743255615,
+      "lp_solve_seconds": 56.229596853256226,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.5506329536438,
+      "witness_extracted": true,
+      "cycle_length": 10,
+      "cycle_total_drift": 13.058650025961619,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -150077043110954705,
+      "A_3_to_m": 150094635296999121,
+      "B_value": 185676001340580689,
+      "S_total_divisions": 44,
+      "cuts": [
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            159,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            159,
+            168
+          ],
+          "E2": [
+            159,
+            168,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            168,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            255,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            255,
+            148
+          ],
+          "E2": [
+            255,
+            148,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            148,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            63,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            63,
+            148
+          ],
+          "E2": [
+            63,
+            148,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            63,
+            148,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            255,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            255,
+            162
+          ],
+          "E2": [
+            255,
+            162,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            162,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 10
+    },
+    {
+      "round": 27,
+      "n_active_edges": 12725442,
+      "n_blocked_edges": 222,
+      "lp_build_seconds": 1.3718421459197998,
+      "lp_solve_seconds": 55.31653881072998,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.201222896575928,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 485148809,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            159,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            159,
+            164
+          ],
+          "E2": [
+            159,
+            164,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            164,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            255,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            255,
+            148
+          ],
+          "E2": [
+            255,
+            148,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            148,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 28,
+      "n_active_edges": 12725437,
+      "n_blocked_edges": 227,
+      "lp_build_seconds": 0.8891239166259766,
+      "lp_solve_seconds": 52.93414616584778,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.1253719329834,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 507823625,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            159,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            159,
+            162
+          ],
+          "E2": [
+            159,
+            162,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            162,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            255,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            255,
+            148
+          ],
+          "E2": [
+            255,
+            148,
+            63,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            148,
+            63,
+            170
+          ],
+          "E2": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 29,
+      "n_active_edges": 12725432,
+      "n_blocked_edges": 232,
+      "lp_build_seconds": 1.0943641662597656,
+      "lp_solve_seconds": 53.62320518493652,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.914854049682617,
+      "witness_extracted": true,
+      "cycle_length": 10,
+      "cycle_total_drift": 13.058650025961619,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -150077043110954705,
+      "A_3_to_m": 150094635296999121,
+      "B_value": 187727024185500497,
+      "S_total_divisions": 44,
+      "cuts": [
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            31,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            31,
+            168
+          ],
+          "E2": [
+            31,
+            168,
+            225,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            31,
+            168,
+            225,
+            170
+          ],
+          "E2": [
+            225,
+            170,
+            255,
+            146
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            225,
+            170,
+            255,
+            146
+          ],
+          "E2": [
+            255,
+            146,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            146,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            159,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            159,
+            148
+          ],
+          "E2": [
+            159,
+            148,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            148,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            255,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            255,
+            148
+          ],
+          "E2": [
+            255,
+            148,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            148,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 10
+    },
+    {
+      "round": 30,
+      "n_active_edges": 12725422,
+      "n_blocked_edges": 242,
+      "lp_build_seconds": 1.219374179840088,
+      "lp_solve_seconds": 52.18404984474182,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.705965042114258,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 490457225,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            31,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            31,
+            164
+          ],
+          "E2": [
+            31,
+            164,
+            225,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            31,
+            164,
+            225,
+            170
+          ],
+          "E2": [
+            225,
+            170,
+            255,
+            146
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            225,
+            170,
+            255,
+            146
+          ],
+          "E2": [
+            255,
+            146,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            146,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 31,
+      "n_active_edges": 12725417,
+      "n_blocked_edges": 247,
+      "lp_build_seconds": 1.5957520008087158,
+      "lp_solve_seconds": 49.98469018936157,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 22.480363130569458,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 513132041,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            31,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            31,
+            162
+          ],
+          "E2": [
+            31,
+            162,
+            225,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            31,
+            162,
+            225,
+            170
+          ],
+          "E2": [
+            225,
+            170,
+            255,
+            146
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            225,
+            170,
+            255,
+            146
+          ],
+          "E2": [
+            255,
+            146,
+            63,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            146,
+            63,
+            170
+          ],
+          "E2": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 32,
+      "n_active_edges": 12725412,
+      "n_blocked_edges": 252,
+      "lp_build_seconds": 0.9584808349609375,
+      "lp_solve_seconds": 64.45306396484375,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.05575919151306,
+      "witness_extracted": true,
+      "cycle_length": 10,
+      "cycle_total_drift": 13.058650025961619,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -150077043110954705,
+      "A_3_to_m": 150094635296999121,
+      "B_value": 190834172979766097,
+      "S_total_divisions": 44,
+      "cuts": [
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            223,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            223,
+            168
+          ],
+          "E2": [
+            223,
+            168,
+            253,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            223,
+            168,
+            253,
+            170
+          ],
+          "E2": [
+            253,
+            170,
+            255,
+            138
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            253,
+            170,
+            255,
+            138
+          ],
+          "E2": [
+            255,
+            138,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            138,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            31,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            31,
+            148
+          ],
+          "E2": [
+            31,
+            148,
+            225,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            31,
+            148,
+            225,
+            170
+          ],
+          "E2": [
+            225,
+            170,
+            255,
+            146
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            225,
+            170,
+            255,
+            146
+          ],
+          "E2": [
+            255,
+            146,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            146,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 10
+    },
+    {
+      "round": 33,
+      "n_active_edges": 12725402,
+      "n_blocked_edges": 262,
+      "lp_build_seconds": 1.005774736404419,
+      "lp_solve_seconds": 52.594449043273926,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.026249885559082,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 498419849,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "E2": [
+            235,
+            170,
+            223,
+            164
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            235,
+            170,
+            223,
+            164
+          ],
+          "E2": [
+            223,
+            164,
+            253,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            223,
+            164,
+            253,
+            170
+          ],
+          "E2": [
+            253,
+            170,
+            255,
+            138
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            253,
+            170,
+            255,
+            138
+          ],
+          "E2": [
+            255,
+            138,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            138,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            235,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 34,
+      "n_active_edges": 12725397,
+      "n_blocked_edges": 267,
+      "lp_build_seconds": 1.786722183227539,
+      "lp_solve_seconds": 55.19227910041809,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.184885025024414,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 521094665,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "E2": [
+            83,
+            170,
+            223,
+            162
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            83,
+            170,
+            223,
+            162
+          ],
+          "E2": [
+            223,
+            162,
+            253,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            223,
+            162,
+            253,
+            170
+          ],
+          "E2": [
+            253,
+            170,
+            255,
+            138
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            253,
+            170,
+            255,
+            138
+          ],
+          "E2": [
+            255,
+            138,
+            63,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            138,
+            63,
+            170
+          ],
+          "E2": [
+            63,
+            170,
+            83,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 35,
+      "n_active_edges": 12725392,
+      "n_blocked_edges": 272,
+      "lp_build_seconds": 1.3344171047210693,
+      "lp_solve_seconds": 54.017210721969604,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.330036878585815,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": -3,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 1181563867,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            231,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            170,
+            231,
+            170
+          ],
+          "E2": [
+            231,
+            170,
+            54,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            231,
+            170,
+            54,
+            169
+          ],
+          "E2": [
+            54,
+            169,
+            255,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            169,
+            255,
+            82
+          ],
+          "E2": [
+            255,
+            82,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            82,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 8
+    },
+    {
+      "round": 36,
+      "n_active_edges": 12725384,
+      "n_blocked_edges": 280,
+      "lp_build_seconds": 0.916823148727417,
+      "lp_solve_seconds": 47.13388991355896,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.58413600921631,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": -1,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 1188282331,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            170,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            155,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            170,
+            155,
+            170
+          ],
+          "E2": [
+            155,
+            170,
+            54,
+            165
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            155,
+            170,
+            54,
+            165
+          ],
+          "E2": [
+            54,
+            165,
+            255,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            165,
+            255,
+            82
+          ],
+          "E2": [
+            255,
+            82,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            82,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 8
+    },
+    {
+      "round": 37,
+      "n_active_edges": 12725376,
+      "n_blocked_edges": 288,
+      "lp_build_seconds": 1.1845576763153076,
+      "lp_solve_seconds": 46.46765398979187,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.726582765579224,
+      "witness_extracted": true,
+      "cycle_length": 20,
+      "cycle_total_drift": 31.287225053365553,
+      "cycle_total_depth_effect": 1,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -202755595827081317251225063691758505,
+      "A_3_to_m": 202755595904452569706561330872953769,
+      "B_value": 221607779934792602550215344350822377,
+      "S_total_divisions": 86,
+      "cuts": [
+        {
+          "E1": [
+            191,
+            170,
+            27,
+            170
+          ],
+          "E2": [
+            27,
+            170,
+            254,
+            165
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            27,
+            170,
+            254,
+            165
+          ],
+          "E2": [
+            254,
+            165,
+            206,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            254,
+            165,
+            206,
+            85
+          ],
+          "E2": [
+            206,
+            85,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            206,
+            85,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            84,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            121,
+            170
+          ],
+          "E2": [
+            121,
+            170,
+            223,
+            148
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            121,
+            170,
+            223,
+            148
+          ],
+          "E2": [
+            223,
+            148,
+            253,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            223,
+            148,
+            253,
+            170
+          ],
+          "E2": [
+            253,
+            170,
+            255,
+            138
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            253,
+            170,
+            255,
+            138
+          ],
+          "E2": [
+            255,
+            138,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            138,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            103,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            103,
+            168
+          ],
+          "E2": [
+            103,
+            168,
+            206,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            103,
+            168,
+            206,
+            169
+          ],
+          "E2": [
+            206,
+            169,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            206,
+            169,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            84,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            41,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            41,
+            170
+          ],
+          "E2": [
+            41,
+            170,
+            54,
+            149
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            41,
+            170,
+            54,
+            149
+          ],
+          "E2": [
+            54,
+            149,
+            255,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            149,
+            255,
+            82
+          ],
+          "E2": [
+            255,
+            82,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            82,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            27,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 23
+    },
+    {
+      "round": 38,
+      "n_active_edges": 12725353,
+      "n_blocked_edges": 311,
+      "lp_build_seconds": 1.640477180480957,
+      "lp_solve_seconds": 45.60860729217529,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 25.07348895072937,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": -2,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 1185545179,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            167,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            170,
+            167,
+            170
+          ],
+          "E2": [
+            167,
+            170,
+            82,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            167,
+            170,
+            82,
+            169
+          ],
+          "E2": [
+            82,
+            169,
+            255,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            169,
+            255,
+            74
+          ],
+          "E2": [
+            255,
+            74,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            74,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 8
+    },
+    {
+      "round": 39,
+      "n_active_edges": 12725345,
+      "n_blocked_edges": 319,
+      "lp_build_seconds": 1.361907958984375,
+      "lp_solve_seconds": 48.48197603225708,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 25.423535108566284,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": -2,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 1192263643,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            170,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            91,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            170,
+            91,
+            170
+          ],
+          "E2": [
+            91,
+            170,
+            82,
+            165
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            91,
+            170,
+            82,
+            165
+          ],
+          "E2": [
+            82,
+            165,
+            255,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            165,
+            255,
+            74
+          ],
+          "E2": [
+            255,
+            74,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            74,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 8
+    },
+    {
+      "round": 40,
+      "n_active_edges": 12725337,
+      "n_blocked_edges": 327,
+      "lp_build_seconds": 1.3898820877075195,
+      "lp_solve_seconds": 51.94499468803406,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 35.290706157684326,
+      "witness_extracted": true,
+      "cycle_length": 10,
+      "cycle_total_drift": 18.228575027403934,
+      "cycle_total_depth_effect": -5,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1350847319626480985,
+      "A_3_to_m": 1350851717672992089,
+      "B_value": 1370601904740961625,
+      "S_total_divisions": 42,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            111,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            111,
+            170
+          ],
+          "E2": [
+            111,
+            170,
+            54,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            111,
+            170,
+            54,
+            170
+          ],
+          "E2": [
+            54,
+            170,
+            255,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            170,
+            255,
+            82
+          ],
+          "E2": [
+            255,
+            82,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            82,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            233,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            233,
+            170
+          ],
+          "E2": [
+            233,
+            170,
+            82,
+            149
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            233,
+            170,
+            82,
+            149
+          ],
+          "E2": [
+            82,
+            149,
+            255,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            149,
+            255,
+            74
+          ],
+          "E2": [
+            255,
+            74,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            74,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 16
+    },
+    {
+      "round": 41,
+      "n_active_edges": 12725321,
+      "n_blocked_edges": 343,
+      "lp_build_seconds": 2.3171539306640625,
+      "lp_solve_seconds": 55.366310119628906,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.5147807598114,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 755469137,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "E2": [
+            255,
+            168,
+            31,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            168,
+            31,
+            170
+          ],
+          "E2": [
+            31,
+            170,
+            225,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            31,
+            170,
+            225,
+            170
+          ],
+          "E2": [
+            225,
+            170,
+            127,
+            146
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            225,
+            170,
+            127,
+            146
+          ],
+          "E2": [
+            127,
+            146,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            146,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 42,
+      "n_active_edges": 12725316,
+      "n_blocked_edges": 348,
+      "lp_build_seconds": 1.2348098754882812,
+      "lp_solve_seconds": 45.140685081481934,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 26.107693195343018,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 763431761,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "E2": [
+            255,
+            168,
+            223,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            168,
+            223,
+            170
+          ],
+          "E2": [
+            223,
+            170,
+            253,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            223,
+            170,
+            253,
+            170
+          ],
+          "E2": [
+            253,
+            170,
+            127,
+            138
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            253,
+            170,
+            127,
+            138
+          ],
+          "E2": [
+            127,
+            138,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            138,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            255,
+            168
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 43,
+      "n_active_edges": 12725311,
+      "n_blocked_edges": 353,
+      "lp_build_seconds": 1.3660368919372559,
+      "lp_solve_seconds": 50.484882831573486,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 25.29535722732544,
+      "witness_extracted": true,
+      "cycle_length": 9,
+      "cycle_total_drift": 13.30376252379815,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -5558510810741635,
+      "A_3_to_m": 5559060566555523,
+      "B_value": 12685474819131355,
+      "S_total_divisions": 39,
+      "cuts": [
+        {
+          "E1": [
+            55,
+            170,
+            103,
+            168
+          ],
+          "E2": [
+            103,
+            168,
+            126,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            103,
+            168,
+            126,
+            169
+          ],
+          "E2": [
+            126,
+            169,
+            54,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            126,
+            169,
+            54,
+            85
+          ],
+          "E2": [
+            54,
+            85,
+            255,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            85,
+            255,
+            82
+          ],
+          "E2": [
+            255,
+            82,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            82,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            103,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            170,
+            103,
+            170
+          ],
+          "E2": [
+            103,
+            170,
+            206,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            103,
+            170,
+            206,
+            169
+          ],
+          "E2": [
+            206,
+            169,
+            127,
+            84
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            206,
+            169,
+            127,
+            84
+          ],
+          "E2": [
+            127,
+            84,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            84,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            103,
+            168
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 9
+    },
+    {
+      "round": 44,
+      "n_active_edges": 12725302,
+      "n_blocked_edges": 362,
+      "lp_build_seconds": 0.9035189151763916,
+      "lp_solve_seconds": 46.44072985649109,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 26.83347988128662,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 6.529325012980809,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -383226185,
+      "A_3_to_m": 387420489,
+      "B_value": 485091785,
+      "S_total_divisions": 22,
+      "cuts": [
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            111,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            111,
+            168
+          ],
+          "E2": [
+            111,
+            168,
+            54,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            111,
+            168,
+            54,
+            170
+          ],
+          "E2": [
+            54,
+            170,
+            255,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            170,
+            255,
+            82
+          ],
+          "E2": [
+            255,
+            82,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            82,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 5
+    },
+    {
+      "round": 45,
+      "n_active_edges": 12725297,
+      "n_blocked_edges": 367,
+      "lp_build_seconds": 1.5657930374145508,
+      "lp_solve_seconds": 46.42560577392578,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 23.215705156326294,
+      "witness_extracted": true,
+      "cycle_length": 10,
+      "cycle_total_drift": 15.643612526682775,
+      "cycle_total_depth_effect": 0,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -450275109797975155,
+      "A_3_to_m": 450283905890997363,
+      "B_value": 514401576458478739,
+      "S_total_divisions": 43,
+      "cuts": [
+        {
+          "E1": [
+            159,
+            170,
+            169,
+            170
+          ],
+          "E2": [
+            169,
+            170,
+            62,
+            149
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            169,
+            170,
+            62,
+            149
+          ],
+          "E2": [
+            62,
+            149,
+            82,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            62,
+            149,
+            82,
+            85
+          ],
+          "E2": [
+            82,
+            85,
+            255,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            85,
+            255,
+            74
+          ],
+          "E2": [
+            255,
+            74,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            74,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            239,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            170,
+            239,
+            168
+          ],
+          "E2": [
+            239,
+            168,
+            206,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            168,
+            206,
+            170
+          ],
+          "E2": [
+            206,
+            170,
+            255,
+            84
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            206,
+            170,
+            255,
+            84
+          ],
+          "E2": [
+            255,
+            84,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            84,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            169,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 10
+    },
+    {
+      "round": 46,
+      "n_active_edges": 12725287,
+      "n_blocked_edges": 377,
+      "lp_build_seconds": 1.5895588397979736,
+      "lp_solve_seconds": 46.74835467338562,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.06195092201233,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": -3,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 1318888027,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            127,
+            170,
+            71,
+            170
+          ],
+          "E2": [
+            71,
+            170,
+            252,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            71,
+            170,
+            252,
+            169
+          ],
+          "E2": [
+            252,
+            169,
+            255,
+            42
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            252,
+            169,
+            255,
+            42
+          ],
+          "E2": [
+            255,
+            42,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            42,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            71,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 8
+    },
+    {
+      "round": 47,
+      "n_active_edges": 12725279,
+      "n_blocked_edges": 385,
+      "lp_build_seconds": 1.7506623268127441,
+      "lp_solve_seconds": 44.39836382865906,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 26.173070192337036,
+      "witness_extracted": true,
+      "cycle_length": 5,
+      "cycle_total_drift": 9.114287513701965,
+      "cycle_total_depth_effect": -1,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1160164315,
+      "A_3_to_m": 1162261467,
+      "B_value": 1198235611,
+      "S_total_divisions": 21,
+      "cuts": [
+        {
+          "E1": [
+            255,
+            170,
+            191,
+            170
+          ],
+          "E2": [
+            191,
+            170,
+            251,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            191,
+            170,
+            251,
+            170
+          ],
+          "E2": [
+            251,
+            170,
+            252,
+            165
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            251,
+            170,
+            252,
+            165
+          ],
+          "E2": [
+            252,
+            165,
+            255,
+            42
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            252,
+            165,
+            255,
+            42
+          ],
+          "E2": [
+            255,
+            42,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            42,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            191,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 8
+    },
+    {
+      "round": 48,
+      "n_active_edges": 12725271,
+      "n_blocked_edges": 393,
+      "lp_build_seconds": 1.7700488567352295,
+      "lp_solve_seconds": 44.91446805000305,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.82441282272339,
+      "witness_extracted": true,
+      "cycle_length": 20,
+      "cycle_total_drift": 31.287225053365553,
+      "cycle_total_depth_effect": -2,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -202755595827081317251225063691758505,
+      "A_3_to_m": 202755595904452569706561330872953769,
+      "B_value": 281368553101398832856374794890806313,
+      "S_total_divisions": 86,
+      "cuts": [
+        {
+          "E1": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "E2": [
+            55,
+            170,
+            55,
+            168
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            55,
+            170,
+            55,
+            168
+          ],
+          "E2": [
+            55,
+            168,
+            255,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            55,
+            168,
+            255,
+            168
+          ],
+          "E2": [
+            255,
+            168,
+            255,
+            170
+          ],
+          "n_parallel_edges": 3
+        },
+        {
+          "E1": [
+            255,
+            168,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            247,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            127,
+            170,
+            247,
+            170
+          ],
+          "E2": [
+            247,
+            170,
+            41,
+            168
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            247,
+            170,
+            41,
+            168
+          ],
+          "E2": [
+            41,
+            168,
+            54,
+            149
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            41,
+            168,
+            54,
+            149
+          ],
+          "E2": [
+            54,
+            149,
+            255,
+            82
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            54,
+            149,
+            255,
+            82
+          ],
+          "E2": [
+            255,
+            82,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            82,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            239,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            239,
+            170
+          ],
+          "E2": [
+            239,
+            170,
+            62,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            239,
+            170,
+            62,
+            170
+          ],
+          "E2": [
+            62,
+            170,
+            82,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            62,
+            170,
+            82,
+            85
+          ],
+          "E2": [
+            82,
+            85,
+            255,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            85,
+            255,
+            74
+          ],
+          "E2": [
+            255,
+            74,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            74,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            159,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            159,
+            170
+          ],
+          "E2": [
+            159,
+            170,
+            137,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            159,
+            170,
+            137,
+            170
+          ],
+          "E2": [
+            137,
+            170,
+            252,
+            149
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            137,
+            170,
+            252,
+            149
+          ],
+          "E2": [
+            252,
+            149,
+            255,
+            42
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            252,
+            149,
+            255,
+            42
+          ],
+          "E2": [
+            255,
+            42,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            42,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            55,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 31
+    },
+    {
+      "round": 49,
+      "n_active_edges": 12725240,
+      "n_blocked_edges": 424,
+      "lp_build_seconds": 1.7124369144439697,
+      "lp_solve_seconds": 45.407601833343506,
+      "lp_feasible": false,
+      "scipy_status": 2,
+      "bf_seconds": 24.81115484237671,
+      "witness_extracted": true,
+      "cycle_length": 10,
+      "cycle_total_drift": 18.228575027403934,
+      "cycle_total_depth_effect": -3,
+      "classification": "non_realizable_negative_or_zero_denom",
+      "candidate_n": null,
+      "denom": -1350847319626480985,
+      "A_3_to_m": 1350851717672992089,
+      "B_value": 1450776313652720345,
+      "S_total_divisions": 42,
+      "cuts": [
+        {
+          "E1": [
+            127,
+            170,
+            103,
+            170
+          ],
+          "E2": [
+            103,
+            170,
+            222,
+            169
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            103,
+            170,
+            222,
+            169
+          ],
+          "E2": [
+            222,
+            169,
+            252,
+            85
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            222,
+            169,
+            252,
+            85
+          ],
+          "E2": [
+            252,
+            85,
+            255,
+            42
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            252,
+            85,
+            255,
+            42
+          ],
+          "E2": [
+            255,
+            42,
+            255,
+            170
+          ],
+          "n_parallel_edges": 4
+        },
+        {
+          "E1": [
+            255,
+            42,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            255,
+            170
+          ],
+          "E2": [
+            255,
+            170,
+            47,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            170,
+            47,
+            170
+          ],
+          "E2": [
+            47,
+            170,
+            82,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            47,
+            170,
+            82,
+            170
+          ],
+          "E2": [
+            82,
+            170,
+            255,
+            74
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            82,
+            170,
+            255,
+            74
+          ],
+          "E2": [
+            255,
+            74,
+            127,
+            170
+          ],
+          "n_parallel_edges": 1
+        },
+        {
+          "E1": [
+            255,
+            74,
+            127,
+            170
+          ],
+          "E2": [
+            127,
+            170,
+            103,
+            170
+          ],
+          "n_parallel_edges": 1
+        }
+      ],
+      "cut_n_edges_blocked_this_round": 13
+    }
+  ],
+  "elapsed_total_seconds": 4056.0412890911102,
+  "interpretation": "Cuts are diagnostic only; they remove (E1, E2) connections from the auxiliary LP graph after the witness cycle is provably non-realizable in Z_{>0}. They do not modify the underlying Collatz transition data. If `lp_became_feasible_after_cutting_only_non_realizable_cycles` is true, the LP infeasibility at K=8 is *entirely* explained by abstraction artefacts; this is a strong-but-not-proof signal that the descent certificate exists on the positive-integer-realizable quotient. Formalising the positivity filter without ad hoc cuts is the next research step."
+}

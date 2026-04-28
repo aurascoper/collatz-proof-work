@@ -1,0 +1,94 @@
+{
+  "proof_state": "iteration_065_artefact_family_analysis",
+  "by_K": {
+    "6": {
+      "source_file": "proof_states/iteration_063_artifact_cegis_K6.json",
+      "n_rounds": 300,
+      "final_status": "max_rounds_reached",
+      "n_active_edges_remaining": 201109,
+      "n_blocked_edges_total": 3320,
+      "classification_histogram": {
+        "non_realizable_negative_or_zero_denom": 300
+      },
+      "cycle_length_histogram": {
+        "1": 2,
+        "6": 11,
+        "12": 14,
+        "5": 67,
+        "3": 6,
+        "7": 12,
+        "19": 10,
+        "4": 20,
+        "10": 24,
+        "9": 16,
+        "8": 23,
+        "11": 11,
+        "15": 13,
+        "21": 5,
+        "2": 10,
+        "16": 7,
+        "20": 6,
+        "14": 5,
+        "23": 5,
+        "22": 2,
+        "24": 3,
+        "13": 6,
+        "42": 1,
+        "17": 4,
+        "30": 3,
+        "26": 2,
+        "35": 4,
+        "27": 1,
+        "18": 3,
+        "37": 1,
+        "25": 1,
+        "38": 1,
+        "34": 1
+      },
+      "n_distinct_(L,S)_classes": 73,
+      "denom_sign_histogram": {
+        "neg": 300
+      },
+      "smallest_|denom|": 19,
+      "largest_|denom|": 10144175729417806429525352846408864374271401602555475,
+      "ever_realizable_positive_int_cycle": false,
+      "ever_non_integer_with_positive_denom": false,
+      "every_witness_is_negative_domain_artefact": true
+    },
+    "8": {
+      "source_file": "proof_states/iteration_063_artifact_cegis_K8.json",
+      "n_rounds": 50,
+      "final_status": "max_rounds_reached",
+      "n_active_edges_remaining": 12725240,
+      "n_blocked_edges_total": 424,
+      "classification_histogram": {
+        "non_realizable_negative_or_zero_denom": 50
+      },
+      "cycle_length_histogram": {
+        "1": 2,
+        "6": 1,
+        "12": 1,
+        "5": 25,
+        "3": 1,
+        "7": 3,
+        "19": 1,
+        "18": 1,
+        "4": 2,
+        "10": 10,
+        "20": 2,
+        "9": 1
+      },
+      "n_distinct_(L,S)_classes": 15,
+      "denom_sign_histogram": {
+        "neg": 50
+      },
+      "smallest_|denom|": 65,
+      "largest_|denom|": 202755595827081317251225063691758505,
+      "ever_realizable_positive_int_cycle": false,
+      "ever_non_integer_with_positive_denom": false,
+      "every_witness_is_negative_domain_artefact": true
+    }
+  },
+  "elapsed_seconds": 0.017852067947387695,
+  "interpretation": "Quantifies the negative-domain artefact family encountered by the 063 CEGIS loop. If `every_witness_is_negative_domain_artefact` is true and `ever_realizable_positive_int_cycle` is false at every K examined, then the LP infeasibility in the (r, pi) abstraction is structurally explained by the positivity-domain theorem (064) and contains no Collatz signal. The next move is a positivity-aware reformulation (future Iteration 066+) rather than further cuts."
+}

@@ -180,7 +180,35 @@
   to make the LP feasible is open and likely a graph-combinatorial
   bound rather than a Collatz statement.
 
-## 2026-04-28 — Iteration 064 (positivity-domain theorem)
+## 2026-04-28 — Iteration 063 K=8 (50 rounds, ~67 min)
+
+- 50 rounds of artefact-aware CEGIS at K=8.
+- Every round's witness classified `non_realizable_negative_or_zero_denom`.
+- 425 (E1, E2, c_val) edges blocked of 12 725 664 total.
+- Cycle-length histogram heavily concentrated: length 5 dominates
+  (25/50 = 50 %), then length 10 (10/50), with rare lengths 1, 3, 4,
+  6, 7, 9, 12, 18-20.
+- LP remains infeasible after 50 rounds.
+- Per the K=8 metrics requested:
+  - `any_realizable_positive_integer_cycle`: false
+  - `any_non_integer_fixed_point_with_denom>0`: false (all denoms negative)
+  - `any_zero_denom_cycles`: false
+  - `classifications_changed_after_first_cuts`: false (homogeneous)
+- Same conclusion as K=6: the artefact family is large but uniform;
+  CEGIS is structurally rigorous but combinatorially expensive.
+
+## 2026-04-28 — Iteration 065 (artefact family analysis)
+
+- New script `experiments/iteration_065_artifact_family_analysis.py`
+  reads 063 proof_state JSONs and reports per-K family taxonomy.
+- K=6 (300 rounds): 33 distinct cycle lengths (1-42), all denom < 0,
+  |denom| from 19 to ~10^52.
+- K=8 (50 rounds): 12 distinct cycle lengths (1-20), all denom < 0,
+  |denom| from 65 to ~2 * 10^35.
+- Both cleanly homogeneous: no REALIZABLE cycles, no zero-denom, no
+  positive-denom-with-non-integer-fixed-point.
+
+## 2026-04-28 — Iteration 064 (positivity-domain theorem) — re-run
 
 - New module `verifiers/positivity_theorem.py`. Encodes:
 

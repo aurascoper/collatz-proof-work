@@ -109,4 +109,14 @@ Environment variables:
   LP-infeasibility witness in the corpus is a negative-domain
   artefact, not a Collatz cycle candidate. Recommends a
   positivity-aware LP reformulation as the next direction.
+- 2026-04-28 Iteration 063 K=8 (50 rounds, 67 min): all 50 cycles
+  classified `non_realizable_negative_or_zero_denom`; LP still
+  infeasible. Same homogeneous artefact pattern as K=6.
+- 2026-04-28 Iteration 065 (artefact family analysis): K=6 has 33
+  distinct cycle lengths in artefacts (|denom| 19 to 10^52); K=8 has
+  12 distinct cycle lengths (|denom| 65 to 2*10^35). Cleanly
+  homogeneous family.
+- 2026-04-28 Iteration 064 re-run (cumulative): 660 witness cycles
+  examined across all runs; theorem still 100 % consistent;
+  `potentially_positive_int_fixed_point = 0`.
 
