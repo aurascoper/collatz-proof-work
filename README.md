@@ -76,8 +76,12 @@ Environment variables:
   LP infeasible. Depth-free witness = self-loop at (r=255, pi=10101010),
   affine fixed point n=-1 (artefact). c_val splitting fanout vs (E1,E2)
   pairs: only 0.11 %. Total runtime 439 s.
-- Conclusion: the 2-window edge-state abstraction is structurally too
-  coarse at every K we have tried. Next: Iteration 061 (3-window) and a
-  cleanup that filters self-loops whose affine fixed points are not in
-  Z_{>0}.
+- 2026-04-28 060d K=6: 3 / 11 realisable self-loops; dropping 8
+  artefacts STILL infeasible.
+- 2026-04-28 060d K=8: 0 / 26 realisable self-loops; dropping all 26
+  artefacts STILL infeasible. Longer artefact cycles must exist.
+- 2026-04-28 061 K=8 (sampled, 5 M random seeds): LP feasible,
+  HiGHS Optimal. NOT a closed result; closure requires exhaustive
+  enumeration over n0 mod 2^{4K} (Numba/C++) or a deductive closure
+  argument.
 

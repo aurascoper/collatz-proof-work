@@ -218,6 +218,12 @@ def main():
         margins = b_ub - A_ub.dot(res.x)
         proof_state["if_feasible_min_margin"] = float(margins.min())
         proof_state["if_feasible_max_margin"] = float(margins.max())
+        proof_state["interpretation"] = (
+            "3-window LP feasible on a sampled multigraph. NOT a closed-graph "
+            "result -- only a *necessary* condition for a closed 3-window "
+            "certificate. To upgrade to a closed result, exhaustively enumerate "
+            "n0 mod 2^{4K} (or prove closure via affine residue structure)."
+        )
     else:
         proof_state["witness_extracted"] = False
         proof_state["interpretation"] = (

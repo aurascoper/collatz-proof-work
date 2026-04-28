@@ -1,0 +1,16 @@
+{
+  "proof_state": "iteration_060d_k8_artifact_selfloops_filtered",
+  "K": 6,
+  "epsilon": 0.01,
+  "n_realisable_self_loops": 3,
+  "n_artifact_selfloop_edges_dropped": 8,
+  "n_unique_states_after_filter": 19519,
+  "n_edges_after_filter": 204421,
+  "n_edges_before_filter": 204429,
+  "scipy_status": 2,
+  "scipy_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+  "lp_feasible": false,
+  "closed_graph": true,
+  "elapsed_total_seconds": 1.446808099746704,
+  "interpretation": "After dropping abstraction-artifact self-loops, the LP is still infeasible. There exist longer (non-self-loop) cycles in the closed 2-window graph that are also abstraction artefacts. Move to the 3-window state encoding."
+}
