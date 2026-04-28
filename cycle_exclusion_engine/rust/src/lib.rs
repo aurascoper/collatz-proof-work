@@ -47,8 +47,21 @@ pub mod canonical;
 pub mod record;
 pub mod writer;
 
+// Iteration 072: primitive periodic-word engine
+pub mod periodic;
+pub mod canonical_periodic;
+pub mod affine_periodic;
+pub mod ndjson_periodic;
+
 pub use parity::AdmissibleParityIter;
 pub use affine::ParityBlock;
 pub use canonical::canonicalize_cycle;
 pub use record::ParityBlockRecord;
 pub use writer::{NdjsonWriter, BinaryWriter};
+
+pub use periodic::{
+    is_cyclically_admissible, is_primitive, enumerate_cyclically_admissible,
+};
+pub use canonical_periodic::{canonical_rotation_msb, to_bit_string};
+pub use affine_periodic::{compose_affine_periodic, denom_from};
+pub use ndjson_periodic::PeriodicNdjsonRecord;

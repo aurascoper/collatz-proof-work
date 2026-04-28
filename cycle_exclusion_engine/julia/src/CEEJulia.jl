@@ -2,6 +2,17 @@ module CEEJulia
 
 using JSON
 
+# Iteration 072 additions
+include("periodic_reader.jl")
+include("exact_classifier_periodic.jl")
+include("baker_interface.jl")
+include("pipeline_periodic.jl")
+
+export PeriodicRecord, ClassificationResult, BakerVerdict
+export read_periodic_ndjson, classify_fixed_point_periodic,
+       verify_collatz_cycle_periodic, apply_baker_bound,
+       run_periodic_pipeline
+
 export ParityBlock, classify_fixed_point, verify_collatz_cycle,
        baker_lower_bound, read_ndjson, run_pipeline,
        Classification
