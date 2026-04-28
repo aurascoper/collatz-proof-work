@@ -163,23 +163,18 @@ def main():
     bounds[0] = (0.0, 0.0)
     c_obj = np.zeros(n_states)
 
-    print(f"[071a] solving LP (Phase-I: minimize sum of binding-slack) ...")
-    # Use a non-trivial objective so HiGHS computes meaningful duals:
-    # min - sum(psi). This pushes psi as large as possible subject to
-    # constraints; binding constraints become structurally identified.
-    c_obj_active = -np.ones(n_states)
-    c_obj_active[0] = 0.0  # anchored
+    print(f"[071a] solving LP (zero objective for feasibility psi) ...")
+    # K=6 with Phase-I (max sum psi) is unbounded. We don't need a
+    # non-trivial dual to answer the structural question; the
+    # PRIMAL slacks (margin = b_ub - A_ub @ psi) tell us which edges
+    # are binding regardless of objective.
     t0 = time.time()
-    res = linprog(c_obj_active, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method="highs")
+    res = linprog(c_obj, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method="highs")
     t_solve = time.time() - t0
     print(f"[071a] HiGHS: {res.message}  solve={t_solve:.1f}s")
     if not res.success:
-        # Fall back to zero objective for pure feasibility
-        print("[071a] non-trivial objective failed; retrying zero objective")
-        res = linprog(c_obj, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method="highs")
-        if not res.success:
-            print("[071a] LP infeasible under zero objective too -- abort")
-            return
+        print("[071a] LP infeasible -- abort")
+        return
 
     # Compute per-edge primal slack: margin = b_ub - A_ub @ psi.
     # Tight (binding) edges have margin <= TIGHT_TOL. The tight-edge

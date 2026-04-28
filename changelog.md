@@ -416,6 +416,9 @@
   consistent with the algebraic identity drift / S = log_2 3 - 1
   versus lambda = log_2 3 - 1 + rho leaving rho per S unit of
   margin per edge.
+- K=8 confirmation: 12 853 / 12 711 807 = 0.1 % tight edges,
+  535 168 SCCs all trivial (size 1), 0 non-trivial SCCs, 0
+  binding self-loops. Identical structural result as K=6.
 
 ## 2026-04-28 — Iteration 064 (positivity-domain theorem) — re-run
 
