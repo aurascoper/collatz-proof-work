@@ -1,0 +1,42 @@
+{
+  "proof_state": "iteration_060c_k8_cval_split_affine_lp",
+  "K": 8,
+  "epsilon": 0.01,
+  "lam_upper_bound": 128.0,
+  "log2_3_upper_rational": [
+    1584962500721157,
+    1000000000000000
+  ],
+  "exhaustive": true,
+  "random_samples": null,
+  "fibers_processed": 16777215,
+  "n_unique_states": 535168,
+  "n_unique_cval_split_edges": 12725664,
+  "n_unique_e1_e2_pairs": 12711807,
+  "scipy_status": 2,
+  "scipy_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+  "lp_feasible": false,
+  "closed_graph": true,
+  "drift_assignment": "pi_middle = pi_1 (between E1 and E2)",
+  "monotonicity_constraint_on_lambda": false,
+  "differs_from_060a_b_in": [
+    "drift uses pi_middle=pi_1, not pi_2",
+    "edges grouped by (E1,E2,c_val) instead of (E1,E2)+max(c_val)",
+    "no monotonicity constraint on lambda"
+  ],
+  "elapsed_enum_seconds": 80.9305567741394,
+  "elapsed_lp_build_seconds": 42.309898138046265,
+  "elapsed_lp_solve_seconds": 49.038776874542236,
+  "witness_extracted": true,
+  "witness_file": "witnesses/iteration_060c_cycle_K8.json",
+  "depth_free_obstruction_detected": true,
+  "depth_free_cycle_total_drift": 2.3398500028846243,
+  "depth_free_cycle_length": 1,
+  "depth_free_cycle_integer_realizable_single_orbit": false,
+  "lam_friendliest_cycle_total_drift": -18.69623747620185,
+  "lam_friendliest_cycle_total_depth_effect": 15,
+  "lam_friendliest_cycle_length": 13,
+  "lam_friendliest_cycle_integer_realizable_single_orbit": false,
+  "obstruction_class": "real_drift_only_cycle_lp_infeasible_for_any_lambda",
+  "total_elapsed_seconds": 439.02945709228516
+}
