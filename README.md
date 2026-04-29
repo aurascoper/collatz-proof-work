@@ -10,6 +10,29 @@
 [![not a Collatz proof](https://img.shields.io/badge/not%20a%20Collatz%20proof-yellow)](#limitations-and-non-claims)
 [![license](https://img.shields.io/badge/license-MIT%20%2F%20CC--BY--4.0-blue)](LICENSE)
 
+## At a glance
+
+> **This repository is not a proof of the Collatz conjecture.** It is two
+> reproducible computational artefacts under strict claim discipline.
+
+| Artefact | Status | What it is |
+|---|---|---|
+| Branch I — closed-graph LP at $K = 8$ (Iter. 069a) | **EXACT** | $\mathbb{Q}$-verified cycle-negativity certificate over 12,711,807 edges (0 failures). |
+| Branch II — periodic-word exclusion through $T \le 36$ (Iter. 073) | **EXACT** | Only the trivial $1 \to 4 \to 2$ cycle is realised among 2,552,323 primitive words. |
+| Realised-trajectory LP infeasibility (Iter. 071B) | **CLOSED-SYM** | The fixed-$\lambda$ certificate is *not* a per-edge Lyapunov on integers. |
+| 2-window LP at $K = 6, 8$ depth-free (Iter. 060c/061) | **SAMPLED / INVALIDATED** | 5 M-sample feasibility flipped on resampling; not a closed result. |
+| Iteration 077 — Diophantine handoff | **DESIGN-ONLY** | No verdict in this repo depends on it. |
+| $T \le 48$ scan (Iter. 075) | **deferred** | Disk-limited engineering wall, not a mathematical outcome. |
+
+**Audit and review documents.** Read these before citing:
+
+- [`RESEARCH_AUDIT_2026-04-28.md`](RESEARCH_AUDIT_2026-04-28.md) — LP-branch closure, comparison to literature.
+- [`EDITORIAL_REVIEW_2026-04-28.md`](EDITORIAL_REVIEW_2026-04-28.md) — skeptical-editor pass; overclaim and notation deltas applied.
+- [`cycle_exclusion_engine/NOTE_periodic_word_engine.md`](cycle_exclusion_engine/NOTE_periodic_word_engine.md) — citable engineering note for Branch II.
+- [`docs/ARTIFACTS.md`](docs/ARTIFACTS.md) — artifact policy: what is committed and what is reproducible-from-source.
+
+---
+
 This repository contains **two distinct computational artefacts** on the
 ordinary Collatz map. We write `Z>0` for the positive integers and
 define the Collatz step
