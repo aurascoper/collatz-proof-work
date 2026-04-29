@@ -1,24 +1,27 @@
 # Theorem-aware periodic-word exclusion engine for Collatz cycle candidates
 
-**Branch**: Iterations 072 / 072.5 / 072.6 / 073 / 074 / 075 (partial)
-of the `collatz-proof-work` repository.
-**Last update**: 2026-04-28.
-**Status**: working, reproducible, no Collatz proof claimed; clean
-scaling demonstrated through T ≤ 36 (≈ 2.55 M primitive words);
-T ≤ 48 deferred pending a binary or sharded record format.
+> A reproducible pipeline that exhaustively enumerates primitive
+> cyclically-admissible periodic parity words of bounded length,
+> composes their exact affine maps over `BigInt`, classifies the
+> algebraic fixed point under exact rational arithmetic, and
+> dispatches surviving candidates through a theorem layer with
+> machine-readable provenance. Demonstrated clean scaling through
+> `T ≤ 36` (2,552,323 primitive words; 327 s end-to-end), with the
+> only realisable class being the trivial `1–4–2` cycle. Not a
+> Collatz proof; an auditable front end for Diophantine cycle-
+> exclusion arguments.
 
-This note documents a self-contained computational pipeline for
-candidate-cycle exclusion in the ordinary Collatz problem. The
-pipeline scans every primitive cyclically-admissible periodic parity
-word of bounded length, composes its exact affine map, classifies the
-algebraic fixed point, and dispatches surviving candidates through a
-theorem layer with machine-readable provenance.
-
-The pipeline is **not** a proof of the Collatz conjecture. It is a
-rigorous front end for Diophantine cycle-exclusion arguments
-(Eliahou 1993, Krasikov–Lagarias 2003, Hercher 2022), implementing
-the structural and finite-verification steps cleanly and leaving the
-explicit linear-forms-in-logarithms work to a future module.
+**Branch**          Iterations 072 / 072.5 / 072.6 / 073 / 074 / 075
+                    (partial) of `collatz-proof-work`.
+**Status**          Frozen at commit `ae886f8` (2026-04-28). Citable.
+**Strongest claim** For all primitive cyclically-admissible periodic
+                    parity words of length `T ≤ 36`, the engine finds
+                    exactly one realisable class (the trivial 1–4–2
+                    cycle, canonical word "001", `n = 4`) and zero
+                    non-trivial or open candidates.
+**Out of scope**    Linear-forms-in-logarithms exclusion of any
+                    `OPEN_CANDIDATE`s; Collatz divergence; orbits
+                    that are not cycle candidates.
 
 ---
 
