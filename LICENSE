@@ -1,19 +1,4 @@
-This repository is DUAL-LICENSED:
-
-  * Code            -> MIT             (this file; full text below)
-  * Documentation,
-    research notes,
-    proof-state JSON,
-    notebook,
-    prose artefacts -> CC BY 4.0       (see LICENSE-DOCS)
-
-Each scope is defined inside the corresponding LICENSE-* file. The
-combined effect is: source code is MIT-licensed; everything else is
-CC BY 4.0 with attribution to https://github.com/aurascoper/collatz-proof-work .
-
-================================================================================
-                              MIT License
-================================================================================
+MIT License
 
 Copyright (c) 2026 aurascoper
 
