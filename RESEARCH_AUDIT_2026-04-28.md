@@ -33,10 +33,12 @@ clean negative bound on its applicability:
 The strongest **mathematically correct** statement is therefore a
 *finite-graph* theorem about the (r,π) abstraction, **strictly weaker** than
 existing Collatz cycle-exclusion results (Hercher 2022 already proves
-non-trivial cycles must have ≥ 92 odd steps). The current framework
-**cannot** reach a full Collatz proof in its present form because the
-formula drift / actual drift gap reappears at every K and is ineliminable
-by linear programming alone.
+that no non-trivial Collatz cycle exists with at most 91 odd elements).
+The LP framework, **in its present form, is not on a path to a full
+Collatz proof**: the formula-drift vs actual-drift gap reappears at
+every K and is incompatible with a state-level Lyapunov bound under
+any single λ (this is a research-judgment about *this approach*,
+not a meta-mathematical certainty about Collatz).
 
 ---
 
@@ -67,10 +69,10 @@ Status legend:
 | 065  | Artefact family analysis               | DIAGNOSTIC            | K=6 has 33 distinct cycle-lengths in artefacts (\|denom\| 19→10⁵²); K=8 has 12 (65→2·10³⁵). Pure structure. |
 | 066  | v₂-fuel lemma                          | EXACT                 | `η_pi(T_pi(n)) = η_pi(n) − S` whenever T_pi(n) is integer; verified arithmetically on 63/63 artefact cycles. |
 | 067  | Universal λ threshold                  | EXACT                 | `λ_max = LOG2_3_UPPER − 1` over 653 artefact cycles. Pinned by the no-adjacent-1s parity constraint (m ≤ S for even T). |
-| 068  | Fixed-λ ψ-only LP                      | CLOSED-SYM            | **K=6 and K=8 feasible** under HiGHS Optimal. Min-margin ≈ 0 (boundary). |
+| 068  | Fixed-λ ψ-only LP                      | CLOSED-SYM            | **K=6 and K=8 feasible** under HiGHS at floating-point precision; min-margin ≈ 0 (boundary). Independently verified exact-rational with 0/12,711,807 constraint failures (Iteration 069a). |
 | 069a | Exact rational LP verifier             | **EXACT**             | **0 / 12,711,807 failures at K=8** with `eps_q = 0`. ψ certificate is algebraically valid. |
 | 069b | Semantic fuel audit                    | EXACT (negative)      | K=8: only 2.3 % of edges have credit-backed worst-case `c_val ≤ −S_edge`. The credit is **not** a per-edge Lyapunov. |
-| 070  | Cycle-negativity interpretation        | EXACT                 | Every directed cycle in closed K=6/K=8 graph has `w(C) ≤ −|C|·ε` exactly. Equivalent to 068+069a by LP duality. |
+| 070  | Cycle-negativity interpretation        | EXACT                 | By LP duality, every directed cycle in the *reweighted* closed K=6/K=8 graph has `w(C) ≤ −|C|·ε` exactly (this is a statement about the reweighted abstract graph, not the underlying integer dynamics). Equivalent to 068 + 069a. |
 | 071A | LP dual decomposition                  | EXACT                 | Tight edges form a DAG (0 non-trivial SCCs); cycle-negativity is **strict** with ρ-slack; ψ is a pure difference potential, no augmentation. |
 | 071B | Realised-trajectory restriction        | EXACT (negative)      | Replacing formula drift by worst-case actual drift: K=6 → 19.3 % violations, **realised-LP infeasible**. K=8 → 2.66 % violations, max excess 1.245. The fixed-λ certificate is asymptotic, not real. |
 
@@ -119,7 +121,10 @@ Status legend:
 - **Korec 1994** (cited in Tao 2019): `Col_min(N) ≤ N^θ` for any
   θ > log(3)/log(4), almost all N. Stopping-time / probabilistic.
 - **Hercher 2022** (arXiv:2201.00406): every non-trivial Collatz cycle
-  must have at least m = 92 odd steps. Uses Baker bounds on linear forms
+  must have at least m = 92 odd elements (in the parity-vector sense
+  — equivalent to "odd steps" in the standard parity vector but
+  phrased in the source paper as "odd elements"/"rises"). Uses
+  Baker bounds on linear forms
   in logarithms and continued-fraction approximations of `log 3 / log 2`.
   This is a **rigorous cycle-exclusion theorem** applicable to all
   positive integers; the notebook only verifies the parity bound at K ≤

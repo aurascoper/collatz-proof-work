@@ -164,7 +164,9 @@ matching Roosendaal's published verification range.
 
 Hercher (2022, *There are no Collatz-m-Cycles with m ≤ 91*,
 arXiv:2201.00406) proves that any non-trivial Collatz cycle has at
-least 92 odd steps. The dispatcher applies this directly: any
+least 92 odd elements (equivalently, in the parity-vector sense, at
+least 92 odd steps; we follow the source paper's "odd elements"
+phrasing). The dispatcher applies this directly: any
 non-trivial candidate with `m ≤ 91` is excluded with verdict
 `:excluded_by_theorem` carrying
 
@@ -269,16 +271,19 @@ strongest defensible claim remains the T ≤ 36 result.
 
 ### 4.5 Summary
 
-> For all primitive cyclically-admissible periodic parity words of
-> length T ≤ 36, the Cycle Exclusion Engine finds exactly one
-> realisable class, namely the trivial 1–4–2 cycle (canonical word
-> "001", n = 4), and zero non-trivial realisable or open candidates.
+> Within the scanned range, for every primitive cyclically-
+> admissible periodic parity word of length T ≤ 36, the Cycle
+> Exclusion Engine finds exactly one realisable class — namely
+> the trivial 1–4–2 cycle (canonical word "001", n = 4) — and zero
+> non-trivial realisable or open candidates. No claim is made
+> about T > 36, nor about non-cyclic Collatz behaviour.
 
 This is a re-derivation of a corollary of the existing literature
-(Hercher 2022 already excludes all m ≤ 91 cycles, hence in
-particular all length-T cycles for T well below 184). The
-contribution of this engine is the auditable, reproducible
-infrastructure, not the underlying mathematical fact.
+(Hercher 2022 excludes any non-trivial Collatz cycle with at most
+91 odd elements, which is far more general than the periodic-word
+exclusion at T ≤ 36 reproduced here). The contribution of this
+engine is the auditable, reproducible infrastructure, not the
+underlying mathematical fact.
 
 ---
 

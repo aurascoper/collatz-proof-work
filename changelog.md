@@ -260,8 +260,11 @@
   `drift = m * log_2 3 - S` (algebraic identity using m+S=T) and
   `drift / S = (m/S) * log_2 3 - 1`. With `m = S` (the worst case
   under no-adjacent-1s, K even), `drift / S = log_2 3 - 1` exactly.
-  This is a *universal* upper bound for ordinary Collatz artefact
-  cycles at K even: the parity constraint pins the worst lambda.
+  This is a *universal* upper bound for ordinary-Collatz artefact
+  cycles **at even total length T = L·K** (where the no-adjacent-1s
+  parity constraint pins `m ≤ T/2`). For odd `T` the bound shifts by
+  an `O(1/T)` correction (also derived in this iteration). The
+  parity constraint pins the worst lambda at the even-T boundary.
 - This is **cycle-level only**, not a global LP certificate. The
   question of whether a state-level psi compatible with this lambda
   exists is the next iteration (068).
@@ -296,6 +299,10 @@
   max_margin = 31.70. Total runtime 190 s (69 s enum + 39 s build +
   81 s solve).
 - This is the first **positivity-aware** feasibility result on the
+  closed K=8 graph in this work (where "positivity-aware" means
+  the certificate uses the parity-induced bound `λ = log₂(3) − 1`
+  derived in Iteration 067, *not* a per-edge Lyapunov on positive
+  integers — see the 069b semantic-gap finding below).
   closed K=8 graph. NOT yet a Collatz proof: still need (a) exact
   rational re-verification (Iteration 069), (b) realised-trajectory
   closure, (c) scaling to larger K.
@@ -481,10 +488,13 @@
 - Runtime: 327 s total (Rust 195.66 s + Julia 105.74 s).
 - Proof_state: `proof_states/iteration_073_periodic_cycle_engine_T36.json`.
 - Manifest:    `proof_states/iteration_073_manifest_T36.json`.
-- Outcome: ideal -- no nontrivial cycle survives at T <= 36, no
-  candidate even reaches the Hercher m >= 92 layer at this scale.
-  Theorem layer correctly inactive (all artefacts excluded
-  structurally before the theorem dispatcher).
+- Outcome: ideal -- among the primitive cyclically-admissible
+  periodic parity words of length T <= 36, only the trivial 1-4-2
+  cycle is realised; no candidate even reaches the Hercher m >= 92
+  layer at this scale. Theorem layer correctly inactive (all
+  artefacts excluded structurally before the theorem dispatcher).
+  This is a periodic-word exclusion result over the scanned range,
+  not a statement about Collatz cycles in general.
 
 ## 2026-04-28 — Iteration 074 (theorem-only mode)
 

@@ -5,7 +5,7 @@ classifier consumes. We use a simple newline-delimited JSON (NDJSON)
 format for human inspection; an optional binary path is available for
 high-throughput batches.
 
-## NDJSON record (one parity-block per line)
+## NDJSON record v1 (legacy open-word records, Iteration 060c-style)
 
 ```json
 {
@@ -13,15 +13,37 @@ high-throughput batches.
   "K": 8,                  // total step count of this block
   "m": 4,                  // number of odd steps
   "S": 4,                  // number of even steps  (S = K - m)
-  "A_dec": "81",           // 3^m, decimal string (BigInt-safe)
-  "B_dec": "85",           // affine constant B, decimal string
-  "denom_dec": "-65",      // 2^S - A, decimal string
-  "is_self_loop_candidate": true,   // K = block length, single window
-  "label": "K8L1_self"     // free-form tag, optional
+  "A_str": "81",           // 3^m, decimal string (BigInt-safe)
+  "B_str": "85",           // affine constant B, decimal string
+  "denom_str": "-65",      // 2^S - A, decimal string
+  "is_self_loop_candidate": true,
+  "label": "K8L1_self"
+}
+```
+
+## NDJSON record v2 (primitive cyclic periodic words, Iteration 072+)
+
+```json
+{
+  "word_bits": "10101010",
+  "T": 8,
+  "m": 4,
+  "S": 4,
+  "A_str": "81",
+  "B_str": "65",
+  "denom_str": "-65",
+  "primitive": true,
+  "cyclic_admissible": true,
+  "canonical_rotation": "00101010",
+  "rotation_index": 1
 }
 ```
 
 Notes:
+- All large integers use the **`A_str` / `B_str` / `denom_str`** keys
+  (decimal-string encoding). The earlier `*_dec` aliases used in
+  prototype code are deprecated; consumers should accept either but
+  emit only `*_str` going forward.
 - `mask_le_hex` is little-endian: bit 0 of the integer = parity of step 0
   (the first step). This is the convention adopted by the Julia
   classifier and `cycle_classifier.py`. The Rust generator emits in this
@@ -29,7 +51,7 @@ Notes:
 - All large integers are emitted as decimal strings so `BigInt` parsing
   is one call away on the Julia side. Avoid scientific notation.
 - The Julia classifier MUST verify `denom == (1 << S) - A` and
-  `(B_dec, A_dec)` consistency on read.
+  `(B_str, A_str)` consistency on read.
 
 ## Optional binary format (`.bin`)
 

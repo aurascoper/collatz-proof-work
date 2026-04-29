@@ -51,9 +51,11 @@ For every record the CEE has already verified:
 - `m ≥ 92` (otherwise it would have been `EXCLUDED_BY_THEOREM` under
   Hercher 2022)
 
-So each record is, by construction, a *legitimate* algebraic cycle
-candidate that has not yet been excluded by any theorem currently in
-the dispatcher.
+So each record is, by construction, an algebraic cycle candidate
+that survives the Hercher and finite-verification layers as
+currently configured. It has not yet been excluded by any theorem
+currently in the dispatcher; whether it can be excluded by a
+stronger theorem is the question 077 begins to address.
 
 ### 1.2 Output contract
 
