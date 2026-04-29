@@ -1,0 +1,16 @@
+{
+  "proof_state": "iteration_073_periodic_cycle_engine_T36",
+  "status": "complete",
+  "words_generated": 2552323,
+  "classification_counts": {
+    "NON_INTEGER_FIXED_POINT": 2513649,
+    "NEGATIVE_OR_ZERO_DENOM": 38672,
+    "NON_POSITIVE_FIXED_POINT": 1,
+    "REALIZABLE_TRIVIAL": 1,
+    "REALIZABLE_CANDIDATE": 0,
+    "EXCLUDED_BY_FINITE_VERIFICATION": 0,
+    "EXCLUDED_BY_THEOREM": 0,
+    "OPEN_CANDIDATE": 0
+  },
+  "note": "Full raw artifact omitted from git due GitHub file-size limits."
+}
