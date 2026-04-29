@@ -1,9 +1,11 @@
 # Theorem-aware periodic-word exclusion engine for Collatz cycle candidates
 
-**Branch**: Iterations 072 / 072.5 / 072.6 / 073 / 074 of the
-`collatz-proof-work` repository.
+**Branch**: Iterations 072 / 072.5 / 072.6 / 073 / 074 / 075 (partial)
+of the `collatz-proof-work` repository.
 **Last update**: 2026-04-28.
-**Status**: working, reproducible, no Collatz proof claimed.
+**Status**: working, reproducible, no Collatz proof claimed; clean
+scaling demonstrated through T ≤ 36 (≈ 2.55 M primitive words);
+T ≤ 48 deferred pending a binary or sharded record format.
 
 This note documents a self-contained computational pipeline for
 candidate-cycle exclusion in the ordinary Collatz problem. The
@@ -230,7 +232,39 @@ The theorem layer is correctly inactive at this scale: every
 artefact is excluded structurally before it reaches the Hercher
 dispatcher.
 
-### 4.4 Summary
+### 4.4 T ≤ 48 (Iteration 075, partial — engineering wall)
+
+A T ≤ 48 attempt was launched on 2026-04-28 with the same pipeline.
+The Rust generator ran for 34 min CPU and produced an NDJSON file of
+**~6.4 GB** before the run was aborted because available disk fell
+below 3 GB. The Julia stage was never reached.
+
+Diagnostically: at T = 48, primitive cyclically-admissible periodic
+words emit on the order of 100 M canonical NDJSON rows (per-row size
+≈ 50 bytes once `A_str = 3^m` digits exceed the small-T regime). The
+NDJSON v1 schema is not the right transport for this scale.
+
+Implications for future scaling:
+
+1. **Switch to a binary record format**. The schema sketched in
+   `shared/FORMAT.md` (bincode-style with big-endian BigInt blobs)
+   is expected to be roughly 3-5× more compact than NDJSON for
+   T ≥ 40 and would also eliminate the JSON parsing overhead on the
+   Julia side.
+2. **Stream rather than buffer**. The current Julia reader loads
+   the entire NDJSON corpus into a `Vector{PeriodicRecord}`. At
+   T ≥ 40 we should switch to a streaming reader that classifies
+   each record on-the-fly and accumulates only counts plus
+   open-candidate exports.
+3. **Shard by T**. Emitting one NDJSON per T (and one summary
+   proof_state per shard) keeps any single file below ~1 GB through
+   T = 44.
+
+T ≤ 48 results are therefore **deferred** to a future Iteration 075
+that implements at least one of the above. The current note's
+strongest defensible claim remains the T ≤ 36 result.
+
+### 4.5 Summary
 
 > For all primitive cyclically-admissible periodic parity words of
 > length T ≤ 36, the Cycle Exclusion Engine finds exactly one
@@ -244,6 +278,19 @@ contribution of this engine is the auditable, reproducible
 infrastructure, not the underlying mathematical fact.
 
 ---
+
+### 4.6 Scaling table
+
+| T (max) | Primitive words | Total runtime | Open candidates | Status   |
+|--------:|----------------:|--------------:|----------------:|----------|
+| 12      |              79 |        < 1 s  |               0 | clean    |
+| 24      |          12,216 |         7.5 s |               0 | clean    |
+| 36      |       2,552,323 |          327 s |               0 | clean    |
+| 48      |         (~10⁸ projected) | aborted after 34 min CPU at NDJSON ~ 6.4 GB | n/a | **disk-limited; deferred** |
+
+The clean-scaling regime is therefore T ≤ 36 with the current
+NDJSON-based pipeline; pushing past T ≈ 40 requires a binary or
+sharded format.
 
 ## 5. Scope and limitations
 
