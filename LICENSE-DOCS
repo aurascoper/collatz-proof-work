@@ -1,0 +1,74 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 aurascoper
+
+The documentation, research notes, proof-state JSON, prose artefacts, and the
+original Jupyter notebook in this repository are licensed under the Creative
+Commons Attribution 4.0 International License.
+
+You are free to:
+
+  Share — copy and redistribute the material in any medium or format
+  Adapt — remix, transform, and build upon the material
+  for any purpose, even commercially.
+
+The licensor cannot revoke these freedoms as long as you follow the license
+terms.
+
+Under the following terms:
+
+  Attribution — You must give appropriate credit to "aurascoper /
+  collatz-proof-work" with a link to https://github.com/aurascoper/collatz-proof-work,
+  provide a link to the license, and indicate if changes were made. You may
+  do so in any reasonable manner, but not in any way that suggests the
+  licensor endorses you or your use.
+
+  No additional restrictions — You may not apply legal terms or technological
+  measures that legally restrict others from doing anything the license
+  permits.
+
+Notices:
+
+  You do not have to comply with the license for elements of the material in
+  the public domain or where your use is permitted by an applicable exception
+  or limitation.
+
+  No warranties are given. The license may not give you all of the
+  permissions necessary for your intended use. For example, other rights
+  such as publicity, privacy, or moral rights may limit how you use the
+  material.
+
+For the full legal code of CC BY 4.0, see:
+  https://creativecommons.org/licenses/by/4.0/legalcode
+
+A human-readable summary is at:
+  https://creativecommons.org/licenses/by/4.0/
+
+---
+
+Scope. This CC BY 4.0 license applies to the *non-code* portions of this
+repository, including but not limited to:
+
+  - all `*.md` files at the repository root and within
+    `cycle_exclusion_engine/`,
+  - `RESEARCH_AUDIT_2026-04-28.md`,
+  - `EDITORIAL_REVIEW_2026-04-28.md`,
+  - `iteration_077_diophantine_handoff_DESIGN.md`,
+  - `cycle_exclusion_engine/NOTE_periodic_word_engine.md`,
+  - `changelog.md`, `program.md`, `RUN_NOTES.md`,
+  - all JSON artefacts under `proof_states/`, `certificates/`, and
+    `witnesses/`,
+  - reports under `cycle_exclusion_engine/reports/`,
+  - the original notebook copy `CollatzConjecture_working.ipynb`.
+
+Source code in this repository is licensed separately under the MIT License;
+see `LICENSE-CODE`.
+
+---
+
+IMPORTANT: This repository is NOT a proof of the Collatz conjecture.
+Reusers of this material in academic or technical contexts should retain
+the explicit "Limitations and non-claims" section of the README and the
+status categories EXACT / CLOSED-SYM / SAMPLED / DIAGNOSTIC / INVALIDATED
+documented in the audit, so that the strict claim discipline is preserved
+in derivative works.
