@@ -70,7 +70,7 @@ function classify_fixed_point_periodic(rec::PeriodicRecord)::ClassificationResul
     # algebraic fixed point of the affine map but does not produce the
     # prescribed parity sequence, so does not realise this cycle.
     return ClassificationResult(
-        "OPEN_CANDIDATE", n,
+        "PARITY_MISMATCH", n,
         "integer fixed point exists but parity simulation does not return to n"
     )
 end

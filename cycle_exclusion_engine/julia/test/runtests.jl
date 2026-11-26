@@ -114,3 +114,43 @@ end
     @test haskey(row, "nearest_cf_q")
     @test parse(BigFloat, row["delta_str"]) >= 0
 end
+
+@testset "Hercher m_min vs m_odd separation and rotation invariance" begin
+    w = "00010101"
+    @test count_m_odd(w) == 3
+    @test count_m_min_cyclic(w) == 1
+    @test count_m_min_cyclic(w) < count_m_odd(w)
+    for k in 0:length(w)-1
+        rot = w[k+1:end] * w[1:k]
+        @test count_m_odd(rot) == 3
+        @test count_m_min_cyclic(rot) == 1
+    end
+
+    # Word with m_odd = 92 >= 92 but m_min = 1 < 92 must still be excluded by Hercher m_min >= 92
+    w_large_odd = "000" * repeat("10", 92)
+    @test count_m_odd(w_large_odd) == 92
+    @test count_m_min_cyclic(w_large_odd) == 1
+    inp = BakerInput(
+        w_large_odd, w_large_odd, length(w_large_odd),
+        92, length(w_large_odd) - 92,
+        big(3)^92, big(1), big(1), big(2)^75,
+    )
+    v = apply_hercher_local_minima_bound(inp; cfg = default_theorem_config())
+    @test v.status == :excluded_by_theorem
+    @test v.threshold_data["m_min"] == "1"
+    @test v.threshold_data["m_odd"] == "92"
+end
+
+@testset "Parity-divergent integer fixed point is PARITY_MISMATCH not OPEN_CANDIDATE" begin
+    # Word "01010" has S=3, m=2, denom = 2^3 - 3^2 = -1; use a positive-denom parity-divergent word:
+    # "0001010" (T=7, m=2, S=5, denom=32-9=23). Construct a synthetic PeriodicRecord with B=23, denom=23 -> n=1
+    # Starting from n=1, "0001010" diverges from parity at step 1 (1 is odd != 0).
+    rec = CEEJulia.PeriodicRecord(
+        "0001010", 7, 2, 5,
+        BigInt(9), BigInt(23), BigInt(23),
+        true, true, "0001010", 0,
+    )
+    res = CEEJulia.classify_fixed_point_periodic(rec)
+    @test res.classification == "PARITY_MISMATCH"
+    @test res.n_candidate == 1
+end

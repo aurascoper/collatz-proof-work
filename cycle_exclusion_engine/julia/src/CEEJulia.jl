@@ -16,7 +16,8 @@ export read_periodic_ndjson, classify_fixed_point_periodic, verify_collatz_cycle
 
 # 072.5 exports
 export BakerInput, BakerVerdict, TheoremConfig, default_theorem_config
-export build_baker_input, apply_verified_bound, apply_oddstep_bound, apply_baker_bound
+export count_m_odd, count_m_min_cyclic
+export build_baker_input, apply_verified_bound, apply_hercher_local_minima_bound, apply_oddstep_bound, apply_baker_bound
 export run_periodic_pipeline
 export export_open_candidates_ndjson, export_open_candidates_json,
        candidate_row_to_export_dict
