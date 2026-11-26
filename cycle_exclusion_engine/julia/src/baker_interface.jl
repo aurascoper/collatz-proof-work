@@ -1,19 +1,44 @@
 """
-Iteration 072.5 -- theorem-parameterized Baker exclusion interface.
+Iteration 072.5 - theorem-parameterized Baker and Hercher exclusion interface.
 
 The interface is RIGOROUS in the sense that every exclusion records its
 theorem source. The actual exclusion theorems implemented here are:
 
-  1. apply_verified_bound      -- trusted external finite verification
-                                  ceiling (e.g. n <= 2^68 per Roosendaal).
-  2. apply_oddstep_bound       -- explicit odd-step lower bound for
-                                  non-trivial Collatz cycles
-                                  (defaults to m >= 92 per Hercher 2022).
+  1. apply_verified_bound            - trusted external finite verification
+                                       ceiling (e.g. n <= 2^68 per Roosendaal).
+  2. apply_hercher_local_minima_bound (also aliased as apply_oddstep_bound)
+                                     - explicit cyclic local-minima lower bound
+                                       for non-trivial Collatz cycles
+                                       (m_min >= 92 per Hercher 2022,
+                                       arXiv:2201.00406v3, Definitions 5-6, Theorem 23),
+                                       distinguishing m_min (cyclic "001" count)
+                                       from m_odd (total '1' steps).
 
 Open candidates that survive both layers are passed to the OPEN_CANDIDATE
 queue for stronger downstream theorems (e.g. Baker / Laurent / Mignotte
-linear-forms-in-logarithms bounds), implemented in future iterations.
+linear-forms-in-logarithms bounds).
 """
+
+function count_m_odd(word_bits::AbstractString)::Int
+    return count(==('1'), word_bits)
+end
+
+function count_m_min_cyclic(word_bits::AbstractString)::Int
+    n = length(word_bits)
+    if n < 3
+        return 0
+    end
+    bits = collect(word_bits)
+    cnt = 0
+    for i in 1:n
+        i2 = mod1(i + 1, n)
+        i3 = mod1(i + 2, n)
+        if bits[i] == '0' && bits[i2] == '0' && bits[i3] == '1'
+            cnt += 1
+        end
+    end
+    return cnt
+end
 
 # ---- Input / verdict types ----
 
@@ -22,11 +47,37 @@ struct BakerInput
     canonical_rotation::String
     T::Int
     m::Int
+    m_min::Int
     S::Int
     A::BigInt
     B::BigInt
     denom::BigInt
     n_candidate::Union{Nothing, BigInt}
+end
+
+function BakerInput(
+    word_bits::AbstractString,
+    canonical_rotation::AbstractString,
+    T::Int,
+    m::Int,
+    S::Int,
+    A::BigInt,
+    B::BigInt,
+    denom::BigInt,
+    n_candidate::Union{Nothing, BigInt},
+)
+    return BakerInput(
+        String(word_bits),
+        String(canonical_rotation),
+        T,
+        m,
+        count_m_min_cyclic(word_bits),
+        S,
+        A,
+        B,
+        denom,
+        n_candidate,
+    )
 end
 
 struct BakerVerdict
@@ -40,13 +91,6 @@ struct BakerVerdict
     notes::String
 end
 
-# Allowed status values (informational; not enforced):
-#   :excluded_by_verified_bound
-#   :excluded_by_theorem
-#   :open_candidate
-#   :not_applicable
-#   :not_implemented
-
 # ---- Theorem config ----
 
 struct TheoremConfig
@@ -59,11 +103,11 @@ end
 
 function default_theorem_config()
     return TheoremConfig(
-        big(2)^68,                         # Roosendaal-class finite ceiling
+        big(2)^68,
         true,
-        92,                                # Hercher 2022, m >= 92 for non-trivial cycle
-        "Hercher 2022 (arXiv:2201.00406)",
-        "odd-step lower bound for non-trivial Collatz cycles",
+        92,
+        "Hercher 2022 (arXiv:2201.00406v3)",
+        "cyclic local-minima lower bound m_min >= 92 for non-trivial Collatz cycles",
     )
 end
 
@@ -89,8 +133,16 @@ Lift a classified periodic record into the theorem-exclusion interface.
 """
 function build_baker_input(rec::PeriodicRecord, result::ClassificationResult)::BakerInput
     return BakerInput(
-        rec.word_bits, rec.canonical_rotation, rec.T, rec.m, rec.S,
-        rec.A, rec.B, rec.denom, result.n_candidate,
+        rec.word_bits,
+        rec.canonical_rotation,
+        rec.T,
+        rec.m,
+        count_m_min_cyclic(rec.word_bits),
+        rec.S,
+        rec.A,
+        rec.B,
+        rec.denom,
+        result.n_candidate,
     )
 end
 
@@ -138,18 +190,18 @@ function apply_verified_bound(inp::BakerInput;
     )
 end
 
-# ---- Odd-step exclusion (Hercher-class) ----
+# ---- Hercher cyclic local-minima exclusion (m_min >= 92) ----
 
-function apply_oddstep_bound(inp::BakerInput;
-                             cfg::TheoremConfig = default_theorem_config())::BakerVerdict
+function apply_hercher_local_minima_bound(inp::BakerInput;
+                                          cfg::TheoremConfig = default_theorem_config())::BakerVerdict
     n = inp.n_candidate
     if !cfg.oddstep_bound_enabled
         return _mkverdict(
             status = :not_implemented,
             theorem_source = cfg.oddstep_source,
             theorem_version = cfg.oddstep_version,
-            exclusion_reason = "Odd-step theorem disabled in config",
-            notes = "No odd-step exclusion applied.",
+            exclusion_reason = "Hercher local-minima theorem disabled in config",
+            notes = "No Hercher exclusion applied.",
         )
     end
     if n === nothing
@@ -171,35 +223,39 @@ function apply_oddstep_bound(inp::BakerInput;
             notes = "The theorem excludes non-trivial cycles only.",
         )
     end
-    if inp.m < cfg.oddstep_min_m_nontrivial
+    if inp.m_min < cfg.oddstep_min_m_nontrivial
         return _mkverdict(
             status = :excluded_by_theorem,
             theorem_source = cfg.oddstep_source,
             theorem_version = cfg.oddstep_version,
-            lower_bound_expr = "non-trivial cycles require m >= $(cfg.oddstep_min_m_nontrivial)",
-            exclusion_reason = "Candidate has too few odd steps",
-            numeric_gap_str = string(cfg.oddstep_min_m_nontrivial - inp.m),
+            lower_bound_expr = "non-trivial cycles require m_min >= $(cfg.oddstep_min_m_nontrivial)",
+            exclusion_reason = "Candidate has too few cyclic local minima m_min",
+            numeric_gap_str = string(cfg.oddstep_min_m_nontrivial - inp.m_min),
             threshold_data = Dict(
-                "m" => string(inp.m),
-                "required_min_m" => string(cfg.oddstep_min_m_nontrivial),
+                "m_odd" => string(inp.m),
+                "m_min" => string(inp.m_min),
+                "required_min_m_min" => string(cfg.oddstep_min_m_nontrivial),
             ),
-            notes = "Excluded by explicit odd-step lower bound.",
+            notes = "Excluded by Hercher cyclic local-minima lower bound (arXiv:2201.00406v3).",
         )
     end
     return _mkverdict(
         status = :open_candidate,
         theorem_source = cfg.oddstep_source,
         theorem_version = cfg.oddstep_version,
-        lower_bound_expr = "non-trivial cycles require m >= $(cfg.oddstep_min_m_nontrivial)",
-        exclusion_reason = "Candidate exceeds odd-step theorem threshold",
-        numeric_gap_str = string(inp.m - (cfg.oddstep_min_m_nontrivial - 1)),
+        lower_bound_expr = "non-trivial cycles require m_min >= $(cfg.oddstep_min_m_nontrivial)",
+        exclusion_reason = "Candidate exceeds Hercher m_min theorem threshold",
+        numeric_gap_str = string(inp.m_min - (cfg.oddstep_min_m_nontrivial - 1)),
         threshold_data = Dict(
-            "m" => string(inp.m),
-            "required_min_m" => string(cfg.oddstep_min_m_nontrivial),
+            "m_odd" => string(inp.m),
+            "m_min" => string(inp.m_min),
+            "required_min_m_min" => string(cfg.oddstep_min_m_nontrivial),
         ),
-        notes = "Not excluded by this theorem alone.",
+        notes = "Not excluded by Hercher m_min bound alone.",
     )
 end
+
+const apply_oddstep_bound = apply_hercher_local_minima_bound
 
 # ---- Master dispatcher ----
 
@@ -210,7 +266,7 @@ Theorem-dispatch policy:
   1. structural exclusions already handled before this layer
   2. trivial cycle pass-through
   3. trusted finite verification
-  4. odd-step lower bound
+  4. Hercher cyclic local-minima lower bound (m_min >= 92)
   5. else OPEN_CANDIDATE
 """
 function apply_baker_bound(inp::BakerInput;
@@ -239,17 +295,18 @@ function apply_baker_bound(inp::BakerInput;
     if vbound.status == :excluded_by_verified_bound
         return vbound
     end
-    oddstep = apply_oddstep_bound(inp; cfg = cfg)
+    oddstep = apply_hercher_local_minima_bound(inp; cfg = cfg)
     if oddstep.status == :excluded_by_theorem
         return oddstep
     end
     return _mkverdict(
         status = :open_candidate,
         theorem_source = "composite",
-        theorem_version = "finite_bound + oddstep_bound",
+        theorem_version = "finite_bound + hercher_m_min_bound",
         exclusion_reason = "Survives currently implemented theorem layers",
         threshold_data = Dict(
-            "m" => string(inp.m),
+            "m_odd" => string(inp.m),
+            "m_min" => string(inp.m_min),
             "S" => string(inp.S),
             "n_candidate" => string(inp.n_candidate),
         ),
